@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>勇哥牌碰撞箱坐标计算器 · 深域工坊</title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdn.staticfile.net/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #4b5563 #1e1e1e;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        body {
+            background: #121212;
+            color: #e5e5e5;
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+        .card {
+            background: #1e1e1e;
+            border-radius: 1rem;
+            border: 1px solid #2d2d2d;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform .2s, box-shadow .2s, border-color .2s;
+            overflow: hidden;
+        }
+        .card:hover {
+            border-color: #3b82f6;
+        }
+        .custom-input {
+            width: 100%;
+            padding: .75rem 1rem;
+            background-color: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: .75rem;
+            outline: none;
+            transition: all .2s;
+            font-size: 1rem;
+            color: #f0f0f0;
+        }
+        .custom-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            background-color: #1a1a1a;
+        }
+        .custom-input::placeholder {
+            color: #555;
+        }
+        .btn-primary {
+            background: linear-gradient(105deg, #2563eb, #1d4ed8);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: all .2s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(105deg, #3b82f6, #2563eb);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+        .btn-secondary {
+            background: #2d2d2d;
+            color: #e5e5e5;
+            transition: all .2s;
+        }
+        .btn-secondary:hover {
+            background: #3d3d3d;
+        }
+        .btn-secondary:active {
+            transform: scale(0.97);
+        }
+        .badge-version {
+            background: rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+        .result-card {
+            animation: fadeSlide .15s ease-out;
+        }
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #visualizer {
+            background-color: #0a0a0a;
+            border-radius: 0.5rem;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            display: block;
+        }
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background: #1e293b;
+            color: #fff;
+            text-align: center;
+            border-radius: 20px;
+            padding: 10px 16px;
+            position: fixed;
+            z-index: 60;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity .2s, bottom .2s;
+            font-size: .85rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+        }
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 45px;
+        }
+        .toast.success {
+            background: #0f3b2c;
+            border-left: 5px solid #10b981;
+        }
+        .toast.error {
+            background: #4c1d1d;
+            border-left: 5px solid #f87171;
+        }
+        .toast.info {
+            background: #1e3a5f;
+            border-left: 5px solid #3b82f6;
+        }
+        .fade-in {
+            animation: fadeInUp .25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .legend-dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+        .legend-dot.box {
+            background: rgba(239, 68, 68, 0.4);
+            border: 2px solid #ef4444;
+        }
+        .legend-dot.center {
+            background: rgba(59, 130, 246, 0.4);
+            border: 2px solid #3b82f6;
+            border-radius: 50%;
+        }
+        @media (max-width:640px) {
+            .card {
+                border-radius: .75rem;
+            }
+            .custom-input {
+                padding: .6rem .8rem;
+                font-size: .9rem;
+            }
+        }
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.2rem;
+            padding-right: 2.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-gradient-to-r from-slate-900 via-gray-900 to-indigo-900 border-b border-indigo-500/30 sticky top-0 z-50 shadow-2xl backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-cube text-indigo-400 text-xl"></i>
+                <div>
+                    <h1 class="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">勇哥牌碰撞箱坐标计算器</h1>
+                    <p class="text-[10px] text-gray-400 hidden sm:block">Box Collision · 模型工具</p>
+                </div>
+            </div>
+            <div class="badge-version text-[10px] px-2 py-1 rounded-full text-indigo-300 font-mono">v2.1 · 深域版</div>
+        </div>
+    </header>
+    <main class="max-w-6xl mx-auto p-3 mt-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class="space-y-4">
+                <div class="card p-4 fade-in">
+                    <h2 class="text-sm font-bold text-gray-300 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-ruler-combined text-blue-500"></i> 模型尺寸输入
+                    </h2>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">X 长度 <span class="text-gray-600">(宽度)</span></label>
+                            <input type="number" id="inputX" step="0.1" min="0" placeholder="例如: 16" class="custom-input">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">Y 长度 <span class="text-gray-600">(高度)</span></label>
+                            <input type="number" id="inputY" step="0.1" min="0" placeholder="例如: 16" class="custom-input">
+                            <p class="mt-1 text-[10px] text-gray-500">Y 起始固定为 0，结束 = Y / 16</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-400 mb-1">Z 长度 <span class="text-gray-600">(深度)</span></label>
+                            <input type="number" id="inputZ" step="0.1" min="0" placeholder="例如: 16" class="custom-input">
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 mt-3">
+                        <label class="text-xs text-gray-400 font-medium">小数位数：</label>
+                        <select id="decimalPlaces" class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-sm text-white focus:ring-1 focus:ring-blue-500">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4" selected>4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <span class="text-[10px] text-gray-500">四舍五入</span>
+                    </div>
+                    <button id="calculateBtn" class="btn-primary w-full mt-3 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-calculator"></i> 开始计算
+                    </button>
+                </div>
+                <div class="card p-4 fade-in relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-[0.04] pointer-events-none">
+                        <i class="fa-solid fa-vector-square fa-5x"></i>
+                    </div>
+                    <h2 class="text-sm font-bold text-gray-300 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-emerald-500"></i> 计算结果
+                    </h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">X 起始</div>
+                            <div class="text-base font-mono font-bold text-blue-400" id="resXStart">-</div>
+                        </div>
+                        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">Z 起始</div>
+                            <div class="text-base font-mono font-bold text-blue-400" id="resZStart">-</div>
+                        </div>
+                        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">Y 起始</div>
+                            <div class="text-base font-mono font-bold text-gray-400">0</div>
+                        </div>
+                        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">Y 结束</div>
+                            <div class="text-base font-mono font-bold text-emerald-400" id="resYEnd">-</div>
+                        </div>
+                        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">X 结束</div>
+                            <div class="text-base font-mono font-bold text-blue-400" id="resXEnd">-</div>
+                        </div>
+                        <div class="bg-gray-900/60 p-2.5 rounded-lg border border-gray-800">
+                            <div class="text-[10px] text-gray-500 uppercase tracking-wider">Z 结束</div>
+                            <div class="text-base font-mono font-bold text-blue-400" id="resZEnd">-</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex justify-end">
+                        <button id="copyBtn" class="btn-secondary text-xs font-semibold px-3 py-1.5 rounded-lg disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5" disabled>
+                            <i class="fa-regular fa-copy"></i> 复制结果
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-4 fade-in flex flex-col">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-sm font-bold text-gray-300 flex items-center gap-2">
+                        <i class="fa-solid fa-eye text-purple-500"></i> 2D 预览 <span class="text-[10px] font-normal text-gray-500">(X-Z 平面)</span>
+                    </h2>
+                    <span class="text-[10px] bg-gray-800 text-gray-400 px-2 py-0.5 rounded-full">16×16 网格</span>
+                </div>
+                <div class="relative bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden" style="aspect-ratio:1/1;">
+                    <canvas id="visualizer" width="500" height="500" class="w-full h-full"></canvas>
+                    <div class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm p-1.5 rounded-lg text-[10px] border border-gray-700 flex gap-3">
+                        <span><span class="legend-dot box"></span>碰撞箱</span>
+                        <span><span class="legend-dot center"></span>中心 (8,8)</span>
+                    </div>
+                </div>
+                <p class="mt-2 text-[11px] text-gray-500 text-center">碰撞箱在标准方块坐标系中的相对位置</p>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center text-gray-500 text-[10px] py-4 border-t border-gray-800 mt-2">
+        <i class="fa-regular fa-shield-heart text-indigo-500"></i> 本地计算 · 数据不上传 · 坐标精确到4位小数
+    </footer>
+    <div id="globalToast" class="toast"></div>
+    <script>
+        (function() {
+            const $ = (s, c) => (c || document).querySelector(s);
+            const $$ = (s, c) => [...((c || document).querySelectorAll(s))];
+            const toast = (m, t = 'success') => {
+                const e = $('#globalToast');
+                e.textContent = m;
+                e.className = 'toast show ' + t;
+                clearTimeout(e._timer);
+                e._timer = setTimeout(() => { e.className = e.className.replace('show', ''); }, 2200);
+            };
+            const inputX = $('#inputX'),
+                inputY = $('#inputY'),
+                inputZ = $('#inputZ');
+            const calcBtn = $('#calculateBtn'),
+                copyBtn = $('#copyBtn');
+            const resXStart = $('#resXStart'),
+                resZStart = $('#resZStart'),
+                resXEnd = $('#resXEnd'),
+                resZEnd = $('#resZEnd'),
+                resYEnd = $('#resYEnd');
+            const canvas = $('#visualizer'),
+                ctx = canvas.getContext('2d');
+            const decimalSelect = $('#decimalPlaces');
+            let currentResults = null;
+
+            const drawGrid = () => {
+                const w = canvas.width,
+                    h = canvas.height,
+                    gs = 16,
+                    cs = w / gs;
+                ctx.clearRect(0, 0, w, h);
+                ctx.strokeStyle = '#2a2a2a';
+                ctx.lineWidth = 0.5;
+                for (let i = 0; i <= gs; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(i * cs, 0);
+                    ctx.lineTo(i * cs, h);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(0, i * cs);
+                    ctx.lineTo(w, i * cs);
+                    ctx.stroke();
+                }
+                const cx = 8 * cs,
+                    cy = 8 * cs;
+                ctx.fillStyle = 'rgba(59,130,246,0.45)';
+                ctx.beginPath();
+                ctx.arc(cx, cy, 5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = 'rgba(59,130,246,0.15)';
+                ctx.beginPath();
+                ctx.arc(cx, cy, 12, 0, Math.PI * 2);
+                ctx.fill();
+            };
+
+            const drawBox = (xLen, zLen, xStart, xEnd, zStart, zEnd) => {
+                drawGrid();
+                const gs = 16,
+                    cs = canvas.width / gs;
+                const sx = xStart * gs * cs,
+                    sy = zStart * gs * cs;
+                const sw = (xEnd - xStart) * gs * cs,
+                    sh = (zEnd - zStart) * gs * cs;
+                if (sw > 0.5 && sh > 0.5) {
+                    ctx.fillStyle = 'rgba(239,68,68,0.25)';
+                    ctx.strokeStyle = '#ef4444';
+                    ctx.lineWidth = 2;
+                    ctx.fillRect(sx, sy, sw, sh);
+                    ctx.strokeRect(sx, sy, sw, sh);
+                    if (sw > 30 && sh > 20) {
+                        ctx.fillStyle = '#ef4444';
+                        ctx.font = '11px sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        const dx = xLen > 16 ? '16' : xLen.toFixed(1);
+                        const dz = zLen > 16 ? '16' : zLen.toFixed(1);
+                        ctx.fillText(dx + '×' + dz, sx + sw / 2, sy + sh / 2);
+                    }
+                } else {
+                    ctx.strokeStyle = '#ef4444';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([3, 3]);
+                    ctx.strokeRect(sx, sy, Math.max(sw, 0.5), Math.max(sh, 0.5));
+                    ctx.setLineDash([]);
+                }
+            };
+
+            const resetResults = () => {
+                resXStart.textContent = '-';
+                resZStart.textContent = '-';
+                resXEnd.textContent = '-';
+                resZEnd.textContent = '-';
+                resYEnd.textContent = '-';
+                copyBtn.disabled = true;
+                currentResults = null;
+                drawGrid();
+            };
+
+            const calculate = () => {
+                const x = parseFloat(inputX.value),
+                    y = parseFloat(inputY.value),
+                    z = parseFloat(inputZ.value);
+                if (isNaN(x) || isNaN(z) || x < 0 || z < 0) {
+                    toast('请输入有效的 X 和 Z 长度（非负数）', 'error');
+                    resetResults();
+                    return;
+                }
+                const decimals = parseInt(decimalSelect.value, 10);
+                const fmt = (n) => n.toFixed(decimals);
+                let xStart, xEnd, zStart, zEnd, yEnd;
+                if (x > 16) { xStart = 0;
+                    xEnd = 1; } else { xStart = (8 - x / 2) / 16;
+                    xEnd = xStart + x / 16; }
+                if (z > 16) { zStart = 0;
+                    zEnd = 1; } else { zStart = (8 - z / 2) / 16;
+                    zEnd = zStart + z / 16; }
+                yEnd = (isNaN(y) || y < 0) ? 0 : (y > 16 ? 1 : y / 16);
+                resXStart.textContent = fmt(xStart);
+                resZStart.textContent = fmt(zStart);
+                resXEnd.textContent = fmt(xEnd);
+                resZEnd.textContent = fmt(zEnd);
+                resYEnd.textContent = fmt(yEnd);
+                currentResults = {
+                    xStart: fmt(xStart),
+                    zStart: fmt(zStart),
+                    yStart: '0',
+                    xEnd: fmt(xEnd),
+                    zEnd: fmt(zEnd),
+                    yEnd: fmt(yEnd)
+                };
+                copyBtn.disabled = false;
+                drawBox(x, z, xStart, xEnd, zStart, zEnd);
+                toast('计算完成 ✓', 'success');
+            };
+
+            copyBtn.addEventListener('click', () => {
+                if (!currentResults) return;
+                const txt =
+                    `碰撞箱坐标结果:\nX起始: ${currentResults.xStart}\nZ起始: ${currentResults.zStart}\nY起始: ${currentResults.yStart}\nX结束: ${currentResults.xEnd}\nZ结束: ${currentResults.zEnd}\nY结束: ${currentResults.yEnd}`;
+                navigator.clipboard.writeText(txt).then(() => {
+                    const orig = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> 已复制';
+                    copyBtn.classList.add('text-emerald-400');
+                    setTimeout(() => {
+                        copyBtn.innerHTML = orig;
+                        copyBtn.classList.remove('text-emerald-400');
+                    }, 1800);
+                    toast('已复制全部结果', 'success');
+                }).catch(() => toast('复制失败', 'error'));
+            });
+
+            calcBtn.addEventListener('click', calculate);
+            [inputX, inputY, inputZ].forEach(el => {
+                el.addEventListener('keypress', (e) => { if (e.key === 'Enter') calculate(); });
+            });
+            drawGrid();
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,viewport-fit=cover">
+    <title>音频自动选区裁剪 · 深域幻境</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.staticfile.net/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <style>
+        *{scrollbar-width:thin;scrollbar-color:#4b5563 #1e1e1e}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:#1e1e1e;border-radius:4px}::-webkit-scrollbar-thumb{background:#4b5563;border-radius:4px}
+        body{background:#121212;color:#e5e5e5;font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+        .card{background:#1e1e1e;border-radius:1rem;border:1px solid #2d2d2d;box-shadow:0 8px 20px rgba(0,0,0,.3);transition:transform .2s,box-shadow .2s;margin-bottom:1.5rem;overflow:hidden}
+        .card:hover{transform:translateY(-2px);border-color:#3b82f6}
+        .file-upload-wrapper{position:relative;width:100%;min-height:140px;border:2px dashed #374151;border-radius:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;background-color:#0f0f1a;padding:1rem;text-align:center}
+        .file-upload-wrapper:hover{border-color:#3b82f6;background-color:#1e293b}
+        .btn-primary{background:linear-gradient(105deg,#2563eb,#1d4ed8);box-shadow:0 4px 12px rgba(37,99,235,.3)}
+        .btn-primary:hover{background:linear-gradient(105deg,#3b82f6,#2563eb)}
+        .btn-success{background:linear-gradient(105deg,#059669,#047857)}
+        .btn-success:hover{background:linear-gradient(105deg,#10b981,#059669)}
+        .btn-secondary{background:#2d2d2d;color:#e5e5e5}
+        .btn-secondary:hover{background:#3d3d3d}
+        .fade-in{animation:fadeInUp .2s cubic-bezier(.2,.9,.4,1.1)}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+        .result-card{animation:fadeSlide .15s ease-out}
+        @keyframes fadeSlide{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:translateY(0)}}
+        .badge-version{background:rgba(59,130,246,.2);backdrop-filter:blur(2px);border:1px solid rgba(59,130,246,.4)}
+        .toast{visibility:hidden;min-width:220px;background:#1e293b;color:#fff;text-align:center;border-radius:20px;padding:10px 16px;position:fixed;z-index:60;left:50%;bottom:30px;transform:translateX(-50%);opacity:0;transition:opacity .2s,bottom .2s;font-size:.85rem;box-shadow:0 10px 25px -5px rgba(0,0,0,.2);pointer-events:none}
+        .toast.show{visibility:visible;opacity:1;bottom:45px}
+        .toast.success{background:#0f3b2c;border-left:5px solid #10b981}
+        .toast.error{background:#4c1d1d;border-left:5px solid #f87171}
+        .toast.info{background:#1e3a5f;border-left:5px solid #3b82f6}
+        .toast.warning{background:#4a3510;border-left:5px solid #f59e0b}
+        .seg-item{transition:all .15s}
+        .seg-item:hover{background:#1a1a1a;border-color:#3b82f6}
+        .wave-container{position:relative;background:#0a0a0f;border-radius:.75rem;overflow:hidden}
+        .hidden{display:none!important}
+        .format-badge{font-size:10px;padding:2px 8px;border-radius:999px;font-weight:700;background:#1e3a5f;color:#60a5fa}
+        .file-tab{background:#2d2d2d;border-radius:20px;padding:2px 10px;font-size:12px;cursor:pointer;transition:.15s;border:1px solid transparent;white-space:nowrap;display:inline-flex;align-items:center;gap:4px}
+        .file-tab.active{background:#3b82f6;border-color:#60a5fa}
+        .file-tab:hover{background:#3d3d3d}
+        .file-tab.active:hover{background:#2563eb}
+        .file-tab .tab-del{color:rgba(255,255,255,.5);font-size:12px;padding:0 2px;cursor:pointer;transition:.15s;border-radius:50%;line-height:1}
+        .file-tab .tab-del:hover{color:#f87171;background:rgba(248,113,113,.15)}
+        .file-tab.active .tab-del{color:rgba(255,255,255,.7)}
+        .file-tab.active .tab-del:hover{color:#fca5a5;background:rgba(248,113,113,.2)}
+        .seg-time-input{width:52px;background:#111;border:1px solid #333;border-radius:4px;color:#e5e5e5;font-size:11px;padding:1px 2px;text-align:center;font-family:monospace}
+        .seg-time-input:focus{outline:none;border-color:#3b82f6}
+    </style>
+</head>
+<body>
+<header class="bg-gradient-to-r from-slate-900 via-gray-900 to-indigo-900 border-b border-indigo-500/30 sticky top-0 z-50 shadow-2xl backdrop-blur-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2"><i class="fa-solid fa-wave-square text-indigo-400 text-xl"></i><div><h1 class="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">音频自动选区裁剪</h1><p class="text-[10px] text-gray-400 hidden sm:block">批量 · 试听 · 微调 · WAV</p></div></div>
+        <div class="badge-version text-[10px] px-2 py-1 rounded-full text-indigo-300 font-mono">v3.1 · 深域版</div>
+    </div>
+</header>
+<main class="max-w-6xl mx-auto p-3 mt-2">
+    <div class="card p-4 fade-in">
+        <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-cloud-upload-alt text-indigo-400"></i><span class="font-bold text-gray-300 text-sm">上传音视频文件</span></div>
+        <div class="file-upload-wrapper" id="dropZone"><i class="fa-solid fa-file-audio text-3xl text-indigo-400/60 mb-2"></i><p class="text-sm text-gray-300 font-semibold">点击或拖拽文件到此处</p><p class="text-xs text-gray-400 mt-1">支持 MP4 / WebM / AVI / MP3 / WAV / FLAC 等格式</p><input type="file" id="fileInput" accept="video/*,audio/*" multiple style="display:none"></div>
+        <div id="fileTabs" class="flex flex-wrap gap-1 mt-3 overflow-x-auto"></div>
+        <div id="fileInfoBar" class="hidden mt-3 flex items-center gap-3 bg-gray-900/60 p-3 rounded-xl border border-gray-700">
+            <i class="fa-solid fa-music text-indigo-400"></i>
+            <div class="flex-1 min-w-0"><p class="text-sm font-semibold truncate" id="fileName">—</p><p class="text-[10px] text-gray-500" id="fileMeta">—</p></div>
+            <span id="fileSize" class="text-xs bg-gray-800 px-2 py-1 rounded-full font-mono">0 B</span>
+            <button id="clearFileBtn" class="text-gray-400 hover:text-red-400 text-lg leading-none px-1"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+    <div class="card p-4 fade-in">
+        <div class="flex items-center gap-2 mb-4"><i class="fa-solid fa-sliders text-emerald-400"></i><span class="font-bold text-gray-300 text-sm">裁剪参数</span></div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div><label class="block text-xs font-bold text-gray-400 mb-1.5">最大保留片段数 <span id="maxSegVal" class="text-indigo-400 float-right font-mono">5</span></label><input type="range" id="maxSegments" min="1" max="30" value="5" class="w-full accent-indigo-500"></div>
+            <div><label class="block text-xs font-bold text-gray-400 mb-1.5">静音阈值（dB） <span id="threshVal" class="text-indigo-400 float-right font-mono">-35</span></label><input type="range" id="threshold" min="-60" max="-10" value="-35" step="1" class="w-full accent-indigo-500"></div>
+            <div><label class="block text-xs font-bold text-gray-400 mb-1.5">最小时长（秒） <span id="minDurVal" class="text-indigo-400 float-right font-mono">0.3</span></label><input type="range" id="minDuration" min="0.1" max="2" value="0.3" step="0.1" class="w-full accent-indigo-500"></div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-gray-700/50 flex items-center justify-between flex-wrap gap-2">
+            <div><p class="text-xs font-bold text-gray-400">输出规格 <span class="text-emerald-400 font-mono">11025Hz · 立体声 · WAV</span></p><p class="text-[10px] text-gray-500 mt-1">固定 WAV 格式</p></div>
+            <span class="format-badge"><i class="fa-solid fa-wave-square mr-1"></i> WAV立体声</span>
+        </div>
+    </div>
+    <div class="card p-4 fade-in">
+        <div class="flex justify-between items-center flex-wrap gap-2 mb-3">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-indigo-400"></i><span class="font-bold text-gray-300 text-sm">波形与选区</span></div>
+            <div class="flex items-center gap-2"><span id="segCountBadge" class="text-xs bg-indigo-900/40 px-2 py-1 rounded-full font-mono text-indigo-300">📌 0个片段</span><span id="totalDurBadge" class="text-xs bg-emerald-900/40 px-2 py-1 rounded-full font-mono text-emerald-300 hidden">⏱ 0s</span></div>
+        </div>
+        <div class="wave-container">
+            <canvas id="waveCanvas" class="w-full block" style="height:180px"></canvas>
+            <canvas id="segCanvas" class="absolute top-0 left-0 w-full h-full pointer-events-none" style="height:180px"></canvas>
+        </div>
+        <div class="h-1 bg-gray-800 rounded-full mt-3 overflow-hidden"><div id="progBar" class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 w-0 transition-all duration-300"></div></div>
+        <div id="segmentsList" class="mt-4 space-y-2 max-h-64 overflow-y-auto"><div id="emptySegState" class="text-center py-8 text-gray-500 text-sm border-2 border-dashed border-gray-700 rounded-xl bg-gray-900/30"><i class="fa-regular fa-clock text-3xl mb-2 opacity-40 block"></i>上传文件后自动检测有声片段</div></div>
+    </div>
+    <div class="card p-4 fade-in">
+        <div class="flex flex-wrap gap-3 justify-between items-center">
+            <div id="statusText" class="text-sm text-gray-400"><i class="fa-regular fa-circle-pause mr-1"></i> 等待上传文件...</div>
+            <div class="flex gap-2">
+                <button id="redetectBtn" class="btn-secondary text-sm px-4 py-2 rounded-xl disabled:opacity-40" disabled><i class="fa-solid fa-rotate-right"></i> 重新检测</button>
+                <button id="exportBtn" class="btn-primary text-white font-bold py-2 px-6 rounded-xl flex items-center justify-center gap-2 disabled:opacity-40" disabled><i class="fa-solid fa-file-zipper"></i> 导出全部</button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="text-center text-gray-500 text-[10px] py-4 border-t border-gray-800 mt-4"><i class="fa-regular fa-shield-heart text-indigo-500"></i> 本地处理 · 数据不上传 · 批量 · 试听 · 微调</footer>
+<div id="globalToast" class="toast"></div>
+<script>
+(function(){
+    const OSR=11025;
+    const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+    const toast=(m,t='success')=>{const e=$('#globalToast');e.textContent=m;e.className='toast show '+t;clearTimeout(e._timer);e._timer=setTimeout(()=>{e.className=e.className.replace('show','')},2800)};
+    const confetti=()=>{if(window.innerWidth<700)return;window.confetti({particleCount:80,spread:55,origin:{y:.6},startVelocity:12,decay:.9,colors:['#3b82f6','#10b981','#f59e0b']})};
+    const fmtSize=b=>b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(2)+' MB';
+    const fmtTime=s=>{const m=Math.floor(s/60),r=(s%60).toFixed(2);return String(m).padStart(2,'0')+':'+String(r).padStart(5,'0')};
+    const setStatus=(txt,icon='circle-pause')=>{$('#statusText').innerHTML='<i class="fa-regular fa-'+icon+' mr-1"></i> '+txt};
+    const setProg=p=>{$('#progBar').style.width=p+'%'};
+    let audioCtx;
+    const fileItems=[];
+    let currentIdx=-1;
+    const dropZone=$('#dropZone'),fileInput=$('#fileInput'),waveCanvas=$('#waveCanvas'),segCanvas=$('#segCanvas');
+    const wCtx=waveCanvas.getContext('2d'),sCtx=segCanvas.getContext('2d');
+    const maxSegments=$('#maxSegments'),threshold=$('#threshold'),minDuration=$('#minDuration');
+    const maxSegVal=$('#maxSegVal'),threshVal=$('#threshVal'),minDurVal=$('#minDurVal');
+    const segList=$('#segmentsList'),emptySeg=$('#emptySegState'),exportBtn=$('#exportBtn'),redetectBtn=$('#redetectBtn');
+    const segBadge=$('#segCountBadge'),durBadge=$('#totalDurBadge'),fileInfoBar=$('#fileInfoBar'),clearBtn=$('#clearFileBtn'),fileTabs=$('#fileTabs'),fileName=$('#fileName'),fileMeta=$('#fileMeta'),fileSize=$('#fileSize');
+    const getCurrent=()=>currentIdx>=0&&currentIdx<fileItems.length?fileItems[currentIdx]:null;
+    const renderTabs=()=>{
+        fileTabs.innerHTML='';
+        fileItems.forEach((f,i)=>{
+            const d=document.createElement('div');
+            d.className='file-tab'+(i===currentIdx?' active':'');
+            const span=document.createElement('span');
+            span.textContent=f.name;
+            d.appendChild(span);
+            const del=document.createElement('span');
+            del.className='tab-del';
+            del.innerHTML='<i class="fa-solid fa-xmark"></i>';
+            del.title='删除此文件';
+            del.onclick=e=>{e.stopPropagation();removeFile(i)};
+            d.appendChild(del);
+            d.onclick=()=>{if(i!==currentIdx)switchFile(i)};
+            fileTabs.appendChild(d);
+        });
+    };
+    const removeFile=(idx)=>{
+        if(idx<0||idx>=fileItems.length)return;
+        if(fileItems.length===1){fileItems.splice(idx,1);currentIdx=-1;resetUI();renderTabs();toast('已删除文件','info');return}
+        const wasCurrent=idx===currentIdx;
+        fileItems.splice(idx,1);
+        if(wasCurrent){
+            if(idx>=fileItems.length)currentIdx=fileItems.length-1;
+            else currentIdx=idx;
+            switchFile(currentIdx);
+        }else{
+            if(currentIdx>idx)currentIdx--;
+            renderTabs();
+        }
+        toast('已删除文件','info');
+    };
+    const resetUI=()=>{
+        fileInfoBar.classList.add('hidden');fileName.textContent='—';fileMeta.textContent='—';fileSize.textContent='0 B';
+        segList.innerHTML='';segList.appendChild(emptySeg);emptySeg.classList.remove('hidden');
+        segBadge.textContent='📌 0个片段';durBadge.classList.add('hidden');
+        setStatus('等待上传文件...','circle-pause');setProg(0);
+        exportBtn.disabled=true;redetectBtn.disabled=true;
+        wCtx.clearRect(0,0,waveCanvas.width,waveCanvas.height);
+        sCtx.clearRect(0,0,segCanvas.width,segCanvas.height);
+        renderTabs();
+    };
+    const switchFile=(idx)=>{
+        if(idx===currentIdx&&currentIdx>=0)return;
+        currentIdx=idx;const f=getCurrent();if(!f)return;
+        renderTabs();
+        fileName.textContent=f.name;fileSize.textContent=fmtSize(f.size);
+        fileMeta.textContent=f.buffer?f.buffer.numberOfChannels+'声道 · '+f.buffer.sampleRate+'Hz · '+fmtTime(f.buffer.duration)+' → 输出 '+OSR+'Hz 立体声':'—';
+        fileInfoBar.classList.remove('hidden');
+        if(f.buffer){
+            drawWaveform(f.buffer);
+            drawSegOverlay(f.buffer,f.segments);
+            renderSegments(f.segments,f.buffer);
+            updateBadges(f.segments);
+            exportBtn.disabled=false;redetectBtn.disabled=false;
+            setStatus('就绪，检测到 '+f.segments.length+' 个有效片段','circle-check text-emerald-400');
+        }else{
+            segList.innerHTML='';segList.appendChild(emptySeg);emptySeg.classList.remove('hidden');
+            segBadge.textContent='📌 0个片段';durBadge.classList.add('hidden');
+            exportBtn.disabled=true;redetectBtn.disabled=true;
+            setStatus('文件未解码','circle-exclamation');
+        }
+    };
+    const encodeWav=(buf)=>{
+        const ch=buf.numberOfChannels,sr=buf.sampleRate,len=buf.length;
+        const ab=new ArrayBuffer(44+len*ch*2),v=new DataView(ab);
+        const w=(o,s)=>{for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i))};
+        w(0,'RIFF');v.setUint32(4,36+len*ch*2,true);w(8,'WAVE');w(12,'fmt ');
+        v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,ch,true);
+        v.setUint32(24,sr,true);v.setUint32(28,sr*ch*2,true);v.setUint16(32,ch*2,true);v.setUint16(34,16,true);
+        w(36,'data');v.setUint32(40,len*ch*2,true);
+        let o=44;
+        for(let i=0;i<len;i++)for(let c=0;c<ch;c++){const s=Math.max(-1,Math.min(1,buf.getChannelData(c)[i]));v.setInt16(o,s<0?s*0x8000:s*0x7fff,true);o+=2}
+        return new Uint8Array(ab);
+    };
+    const sliceBuffer=(src,start,end)=>{
+        const sr=src.sampleRate,ch=src.numberOfChannels;
+        const s=Math.floor(start*sr),e=Math.floor(end*sr),len=e-s;
+        const nb=audioCtx.createBuffer(ch,len,sr);
+        for(let c=0;c<ch;c++)nb.getChannelData(c).set(src.getChannelData(c).subarray(s,e));
+        return nb;
+    };
+    const resampleStereo=(src,targetSr)=>{
+        const dur=src.duration,len=Math.ceil(dur*targetSr);
+        const nb=audioCtx.createBuffer(2,len,targetSr);
+        const srcCh=src.numberOfChannels,ratio=src.sampleRate/targetSr;
+        for(let ch=0;ch<2;ch++){const out=nb.getChannelData(ch);const srcData=srcCh>1?src.getChannelData(ch):src.getChannelData(0);for(let i=0;i<len;i++){const idx=Math.min(Math.floor(i*ratio),srcData.length-1);out[i]=srcData[idx]||0}}
+        return nb;
+    };
+    dropZone.onclick=()=>fileInput.click();
+    dropZone.ondragover=e=>{e.preventDefault();dropZone.classList.add('border-indigo-500','bg-indigo-950/30')};
+    dropZone.ondragleave=()=>dropZone.classList.remove('border-indigo-500','bg-indigo-950/30');
+    dropZone.ondrop=e=>{e.preventDefault();dropZone.classList.remove('border-indigo-500','bg-indigo-950/30');for(let f of e.dataTransfer.files)handleFile(f)};
+    fileInput.onchange=e=>{for(let f of e.target.files)handleFile(f);fileInput.value=''};
+    maxSegments.oninput=()=>{maxSegVal.textContent=maxSegments.value;detectCurrent()};
+    threshold.oninput=()=>{threshVal.textContent=threshold.value;detectCurrent()};
+    minDuration.oninput=()=>{minDurVal.textContent=minDuration.value;detectCurrent()};
+    clearBtn.onclick=()=>{if(currentIdx>=0&&currentIdx<fileItems.length)removeFile(currentIdx)};
+    const handleFile=async f=>{
+        if(!f)return;
+        const name=f.name.replace(/\.[^.]+$/,'');
+        const item={name:name,file:f,buffer:null,segments:[],size:f.size,fileBase:name};
+        fileItems.push(item);
+        const idx=fileItems.length-1;
+        renderTabs();
+        setStatus('解码 '+f.name+'...','spinner fa-spin');setProg(5);
+        try{
+            const ab=await f.arrayBuffer();
+            if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+            const buf=await audioCtx.decodeAudioData(ab.slice(0));
+            item.buffer=buf;item.fileBase=name;
+            setProg(40);
+            if(currentIdx===-1){currentIdx=idx;switchFile(idx)}
+            else{if(currentIdx===idx){switchFile(idx)}else{renderTabs()}}
+            if(currentIdx===idx){
+                drawWaveform(buf);
+                detectCurrent();
+                setProg(100);
+                setStatus('就绪，检测到 '+item.segments.length+' 个片段','circle-check text-emerald-400');
+                exportBtn.disabled=false;redetectBtn.disabled=false;
+                toast('✅ 解码完成 '+f.name,'success');
+                confetti();
+            }else{
+                setProg(100);
+                setStatus('已添加 '+f.name,'circle-check');
+            }
+        }catch(e){
+            setStatus('解码失败: '+e.message,'circle-xmark text-red-400');
+            toast('解码失败: '+e.message,'error');
+            console.error(e);
+        }
+    };
+    const detectCurrent=()=>{
+        const f=getCurrent();if(!f||!f.buffer)return;
+        const thresh=Math.pow(10,parseFloat(threshold.value)/20),minDur=parseFloat(minDuration.value),maxSeg=parseInt(maxSegments.value);
+        const data=f.buffer.getChannelData(0),sr=f.buffer.sampleRate,winSize=Math.floor(sr*.01);
+        const isSound=[];
+        for(let i=0;i<data.length;i+=winSize){let sum=0,c=0;for(let j=0;j<winSize&&i+j<data.length;j++){sum+=data[i+j]*data[i+j];c++}isSound.push(Math.sqrt(sum/c)>thresh)}
+        const rawSegs=[];let start=-1;
+        for(let i=0;i<isSound.length;i++){if(isSound[i]&&start===-1)start=i;else if(!isSound[i]&&start!==-1){const st=start*winSize/sr,en=i*winSize/sr;if(en-st>=minDur)rawSegs.push({start:st,end:en});start=-1}}
+        if(start!==-1){const st=start*winSize/sr,en=isSound.length*winSize/sr;if(en-st>=minDur)rawSegs.push({start:st,end:en})}
+        const refined=rawSegs.map(seg=>{
+            let sIdx=Math.floor(seg.start*sr),eIdx=Math.floor(seg.end*sr);
+            const ta=thresh;
+            while(sIdx<eIdx&&Math.abs(data[sIdx])<ta)sIdx++;
+            while(eIdx>sIdx&&Math.abs(data[eIdx-1])<ta)eIdx--;
+            const ns=sIdx/sr,ne=eIdx/sr;
+            return ne-ns>=minDur?{start:ns,end:ne}:null;
+        }).filter(s=>s!==null);
+        refined.sort((a,b)=>a.start-b.start);
+        f.segments=refined.slice(0,maxSeg);
+        renderSegments(f.segments,f.buffer);
+        drawSegOverlay(f.buffer,f.segments);
+        updateBadges(f.segments);
+    };
+    const drawWaveform=(buf)=>{
+        const dpr=window.devicePixelRatio||1,w=waveCanvas.offsetWidth,h=180;
+        waveCanvas.width=w*dpr;waveCanvas.height=h*dpr;segCanvas.width=w*dpr;segCanvas.height=h*dpr;
+        wCtx.scale(dpr,dpr);sCtx.scale(dpr,dpr);
+        wCtx.fillStyle='#0a0a0f';wCtx.fillRect(0,0,w,h);
+        const data=buf.getChannelData(0),step=Math.ceil(data.length/w),mid=h/2;
+        wCtx.strokeStyle='#2d5a3d';wCtx.lineWidth=1;wCtx.beginPath();
+        for(let x=0;x<w;x++){let min=1,max=-1,s=x*step,e=Math.min(s+step,data.length);for(let i=s;i<e;i++){const v=data[i];if(v<min)min=v;if(v>max)max=v}wCtx.moveTo(x,mid+min*mid*.9);wCtx.lineTo(x,mid+max*mid*.9)}
+        wCtx.stroke();
+        wCtx.strokeStyle='#3a7a4d';wCtx.lineWidth=1.5;wCtx.beginPath();
+        for(let x=0;x<w;x++){let p=0,s=x*step,e=Math.min(s+step,data.length);for(let i=s;i<e;i++){const a=Math.abs(data[i]);if(a>p)p=a}const y=p*mid*.9;wCtx.moveTo(x,mid-y);wCtx.lineTo(x,mid+y)}
+        wCtx.stroke();
+        wCtx.strokeStyle='#1e293b';wCtx.lineWidth=1;wCtx.beginPath();wCtx.moveTo(0,mid);wCtx.lineTo(w,mid);wCtx.stroke();
+    };
+    const drawSegOverlay=(buf,segs)=>{
+        const w=segCanvas.offsetWidth,h=180;
+        sCtx.clearRect(0,0,w,h);
+        const dur=buf.duration;
+        segs.forEach(s=>{const x=s.start/dur*w,wd=(s.end-s.start)/dur*w;sCtx.fillStyle='rgba(88,155,255,.15)';sCtx.fillRect(x,0,wd,h);sCtx.strokeStyle='rgba(88,155,255,.6)';sCtx.lineWidth=1;sCtx.strokeRect(x+.5,0,wd,h)});
+    };
+    const updateBadges=(segs)=>{
+        segBadge.textContent='📌 '+segs.length+'个片段';
+        if(segs.length){let t=0;segs.forEach(s=>t+=s.end-s.start);durBadge.textContent='⏱ '+t.toFixed(1)+'s';durBadge.classList.remove('hidden')}
+        else durBadge.classList.add('hidden');
+    };
+    const renderSegments=(segs,buf)=>{
+        if(!segs.length){segList.innerHTML='';segList.appendChild(emptySeg);emptySeg.classList.remove('hidden');return}
+        emptySeg.classList.add('hidden');
+        const wrap=document.createElement('div');wrap.className='space-y-2';
+        segs.forEach((s,i)=>{
+            const dur=s.end-s.start,d=document.createElement('div');
+            d.className='seg-item result-card flex items-center gap-2 bg-gray-900/70 p-2 rounded-xl border border-gray-700 flex-wrap';
+            d.innerHTML=`
+                <span class="w-6 h-6 bg-indigo-600 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0">${i+1}</span>
+                <input type="number" step="0.01" class="seg-time-input" value="${s.start.toFixed(2)}" data-idx="${i}" data-type="start">
+                <span class="text-gray-500 text-xs">→</span>
+                <input type="number" step="0.01" class="seg-time-input" value="${s.end.toFixed(2)}" data-idx="${i}" data-type="end">
+                <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-indigo-500 to-blue-400" style="width:${dur/buf.duration*100}%"></div></div>
+                <span class="text-xs font-bold text-emerald-400 font-mono flex-shrink-0">${dur.toFixed(2)}s</span>
+                <button class="seg-play p-1 rounded-lg text-green-400 hover:text-green-300 hover:bg-green-900/30 flex-shrink-0" data-idx="${i}"><i class="fa-solid fa-play text-sm"></i></button>
+                <button class="seg-del p-1 rounded-lg text-gray-500 hover:text-red-400 hover:bg-red-900/30 flex-shrink-0" data-idx="${i}"><i class="fa-solid fa-xmark text-sm"></i></button>
+            `;
+            wrap.appendChild(d);
+        });
+        segList.innerHTML='';segList.appendChild(wrap);
+        $$('.seg-del').forEach(b=>b.onclick=()=>{const i=parseInt(b.dataset.idx);const f=getCurrent();if(!f)return;f.segments.splice(i,1);renderSegments(f.segments,f.buffer);drawSegOverlay(f.buffer,f.segments);updateBadges(f.segments);toast('已删除片段 '+(i+1),'info')});
+        $$('.seg-play').forEach(b=>b.onclick=()=>{const i=parseInt(b.dataset.idx);const f=getCurrent();if(!f||!audioCtx)return;const seg=f.segments[i];if(!seg)return;const sliced=sliceBuffer(f.buffer,seg.start,seg.end);const src=audioCtx.createBufferSource();src.buffer=sliced;src.connect(audioCtx.destination);src.start();toast('播放片段 '+(i+1),'info')});
+        $$('.seg-time-input').forEach(inp=>{
+            inp.onchange=function(){const i=parseInt(this.dataset.idx),type=this.dataset.type,f=getCurrent();if(!f)return;const val=parseFloat(this.value);if(isNaN(val)||val<0)return;const seg=f.segments[i];if(!seg)return;if(type==='start'){if(val>=seg.end)return;seg.start=val}else{if(val<=seg.start)return;seg.end=val}if(seg.end-seg.start<parseFloat(minDuration.value)){toast('时长小于最小时长','warning');return}drawSegOverlay(f.buffer,f.segments);updateBadges(f.segments);renderSegments(f.segments,f.buffer)};
+        });
+    };
+    redetectBtn.onclick=()=>{detectCurrent();toast('重新检测完成','success')};
+    const triggerDownload=(blob,name)=>{const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.style.display='none';document.body.appendChild(a);setTimeout(()=>{a.click();setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(u)},100)},10)};
+    exportBtn.onclick=async()=>{
+        if(!fileItems.length){toast('没有文件','warning');return}
+        exportBtn.disabled=true;redetectBtn.disabled=true;
+        setStatus('批量导出中...','spinner fa-spin');
+        const zip=new JSZip();
+        let total=0,done=0,totalSize=0;
+        for(let fi=0;fi<fileItems.length;fi++){const f=fileItems[fi];if(f.buffer&&f.segments.length)total+=f.segments.length}
+        if(!total){toast('没有可导出的片段','warning');exportBtn.disabled=false;redetectBtn.disabled=false;return}
+        try{
+            for(let fi=0;fi<fileItems.length;fi++){
+                const f=fileItems[fi];
+                if(!f.buffer||!f.segments.length)continue;
+                const base=f.fileBase||'audio';
+                for(let si=0;si<f.segments.length;si++){
+                    const seg=f.segments[si];
+                    const raw=sliceBuffer(f.buffer,seg.start,seg.end);
+                    const out=resampleStereo(raw,OSR);
+                    const data=encodeWav(out);
+                    const name=base+(f.segments.length>1?(si+1):'')+'.wav';
+                    zip.file(name,data);
+                    totalSize+=data.length;
+                    done++;
+                    setProg(Math.round(done/total*90));
+                    setStatus('编码 '+f.name+' 片段 '+(si+1)+'/'+f.segments.length,'spinner fa-spin');
+                }
+            }
+            setStatus('打包 ZIP...','spinner fa-spin');
+            const blob=await zip.generateAsync({type:'blob'},m=>setProg(90+m.percent*.09));
+            triggerDownload(blob,'audio_clips.zip');
+            setStatus('导出完成！共 '+total+' 个片段 ('+fmtSize(totalSize)+')','circle-check text-emerald-400');
+            toast('🎉 导出成功','success');
+            confetti();
+        }catch(e){
+            console.error(e);
+            setStatus('导出失败: '+e.message,'circle-xmark text-red-400');
+            toast('导出失败: '+e.message,'error');
+        }
+        exportBtn.disabled=false;redetectBtn.disabled=false;
+    };
+    window.addEventListener('resize',()=>{const f=getCurrent();if(f&&f.buffer){drawWaveform(f.buffer);drawSegOverlay(f.buffer,f.segments)}});
+    segList.appendChild(emptySeg);
+    resetUI();
+})();
+</script>
+</body>
+</html>

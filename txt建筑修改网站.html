@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>勇哥牌建筑修改工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.staticfile.net/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        *{scrollbar-width:thin;scrollbar-color:#4b5563 #1e1e1e}
+        ::-webkit-scrollbar{width:6px;height:6px}
+        ::-webkit-scrollbar-track{background:#1e1e1e;border-radius:4px}
+        ::-webkit-scrollbar-thumb{background:#4b5563;border-radius:4px}
+        body{background:#121212;color:#e5e5e5;font-family:system-ui,-apple-system,'Inter','Segoe UI',sans-serif}
+        .card{background:#1e1e1e;border-radius:1rem;border:1px solid #2d2d2d;box-shadow:0 8px 20px rgba(0,0,0,0.3);transition:transform 0.2s,box-shadow 0.2s;margin-bottom:1.5rem;overflow:hidden}
+        .card:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.4);border-color:#3b82f6}
+        .input-group{position:relative;margin-bottom:1rem}
+        .input-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#6b7280}
+        .custom-input{width:100%;padding:0.75rem 1rem 0.75rem 2.5rem;background-color:#0f0f0f;border:1px solid #333;border-radius:0.75rem;outline:none;transition:all 0.2s;font-size:1rem;color:#f0f0f0}
+        .custom-input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.2);background-color:#1a1a1a}
+        .file-upload-wrapper{position:relative;width:100%;height:130px;border:2px dashed #374151;border-radius:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;background-color:#0f0f1a}
+        .file-upload-wrapper:hover{border-color:#3b82f6;background-color:#1e293b;transform:scale(0.99)}
+        .file-upload-wrapper input[type="file"]{position:absolute;width:100%;height:100%;opacity:0;cursor:pointer}
+        .preview-area{width:100%;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:0.75rem;padding:0.75rem;font-family:monospace;font-size:0.75rem;line-height:1.4;color:#cbd5e6;resize:vertical}
+        .stat-container{background:#0a0a0a;border-radius:0.75rem;border:1px solid #2a2a2a;max-height:300px;overflow-y:auto}
+        .stat-item{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0.75rem;border-bottom:1px solid #262626;font-family:monospace;gap:0.5rem;flex-wrap:wrap}
+        .stat-item:hover{background:#1f2937}
+        .stat-id{font-weight:700;color:#60a5fa;font-size:0.75rem;white-space:nowrap}
+        .stat-count{background:#1e293b;color:#94a3b8;padding:0.2rem 0.6rem;border-radius:2rem;font-size:0.7rem;white-space:nowrap}
+        .stat-prefix-input{background:#0f0f1a;border:1px solid #333;border-radius:0.5rem;padding:0.2rem 0.6rem;font-size:0.75rem;color:#e5e5e5;width:80px;font-family:monospace;outline:none;transition:border-color 0.2s}
+        .stat-prefix-input:focus{border-color:#3b82f6}
+        button{transition:all 0.2s}
+        button:active{transform:scale(0.97)}
+        .btn-primary{background:linear-gradient(105deg,#2563eb,#1d4ed8);box-shadow:0 4px 12px rgba(37,99,235,0.3)}
+        .btn-primary:hover{background:linear-gradient(105deg,#3b82f6,#2563eb);box-shadow:0 6px 16px rgba(59,130,246,0.4)}
+        .btn-success{background:linear-gradient(105deg,#059669,#047857)}
+        .btn-success:hover{background:linear-gradient(105deg,#10b981,#059669);box-shadow:0 4px 12px rgba(16,185,129,0.3)}
+        .fade-in{animation:fadeInUp 0.3s cubic-bezier(0.2,0.9,0.4,1.1)}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        code{background:#1e293b;padding:0.2rem 0.4rem;border-radius:0.5rem;font-size:0.8rem;color:#a5f3c3}
+        .badge-version{background:rgba(59,130,246,0.2);backdrop-filter:blur(2px);border:1px solid rgba(59,130,246,0.4)}
+        .status-message{background:#1e1e2f;border-left:4px solid;border-radius:0.75rem;padding:0.75rem 1rem;font-size:0.85rem}
+        .status-message.success{border-left-color:#10b981;background:rgba(16,185,129,0.1);color:#a7f3d0}
+        .status-message.error{border-left-color:#ef4444;background:rgba(239,68,68,0.1);color:#fecaca}
+        .status-message.warning{border-left-color:#f59e0b;background:rgba(245,158,11,0.1);color:#fed7aa}
+        .info-panel{background:#0f0f1a;border-radius:0.75rem;padding:0.75rem;border:1px solid #2d2d2d;margin-top:1rem}
+        .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.5rem}
+        .info-card{background:#1a1a2a;border-radius:0.6rem;padding:0.4rem 0.6rem;text-align:center}
+        .offset-control{background:#0f0f1a;border-radius:0.75rem;padding:0.8rem;margin-top:0.8rem}
+        .group-prefix-row{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;width:100%}
+        .group-prefix-row .stat-id{min-width:60px}
+        .group-prefix-row .stat-count{min-width:70px;text-align:center}
+        .group-prefix-row .stat-prefix-input{flex:1;min-width:70px}
+        .group-prefix-row .stat-prefix-label{font-size:0.65rem;color:#6b7280;margin-right:0.1rem}
+        @media(max-width:480px){.group-prefix-row{flex-direction:column;align-items:stretch;gap:0.3rem}.group-prefix-row .stat-id,.group-prefix-row .stat-count{text-align:left}.stat-prefix-input{width:100%!important}}
+    </style>
+</head>
+<body>
+    <header class="bg-gradient-to-r from-slate-900 via-gray-900 to-indigo-900 border-b border-indigo-500/30 sticky top-0 z-50 shadow-2xl backdrop-blur-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-cubes text-indigo-400 text-2xl"></i>
+                <div><h1 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">建筑修改工具</h1><p class="text-[11px] text-gray-400 hidden sm:block">位清零 · 原点校准 · 分组前缀</p></div>
+            </div>
+            <div class="badge-version text-xs px-3 py-1 rounded-full text-indigo-300 font-mono">v4.2 · 复制文本</div>
+        </div>
+    </header>
+    <main class="max-w-3xl mx-auto p-4 mt-3">
+        <div class="card p-5">
+            <div class="flex items-center gap-2 border-b border-gray-800 pb-3 mb-3">
+                <i class="fa-solid fa-microchip text-indigo-400 text-lg"></i>
+                <h2 class="text-lg font-semibold text-indigo-300">核心处理规则</h2>
+            </div>
+            <div class="text-sm text-gray-300 space-y-2">
+                <p><span class="font-bold text-cyan-400">① 位清零：</span>正数清除第11~14位；负数保留低10位。</p>
+                <p><span class="font-bold text-cyan-400">② 计算：</span>清零后 → <code>新ID = 新值 % 16384</code> ，<code>特殊值 = floor(新值 / 16384)</code>。</p>
+                <p><span class="font-bold text-cyan-400">③ 分组前缀：</span>每个新方块ID组使用独立文本前缀，输出 <code>x,y,z,前缀:特殊值</code>。</p>
+                <p><span class="font-bold text-cyan-400">④ 原点校准：</span>自动将建筑<strong>最低层最中心方块</strong>移至 <code>(0,0,0)</code>，最低层y=0。</p>
+            </div>
+        </div>
+
+        <div class="card p-5">
+            <div class="flex items-center gap-2 border-b border-gray-800 pb-3 mb-4">
+                <i class="fa-solid fa-cloud-upload-alt text-indigo-400"></i>
+                <h2 class="text-lg font-semibold text-indigo-300">数据输入</h2>
+            </div>
+            <div class="mb-5">
+                <label class="block text-sm font-medium text-gray-300 mb-2">1. 上传 TXT 文件</label>
+                <div class="file-upload-wrapper" id="dropZone">
+                    <input type="file" id="fileInput" accept=".txt">
+                    <i class="fa-solid fa-cubes-stack text-4xl text-indigo-400/60 mb-2"></i>
+                    <p class="text-sm text-gray-400 font-medium" id="fileNameDisplay">点击或拖拽 .txt 文件至此</p>
+                    <p class="text-xs text-gray-500 mt-1">每行格式：x,y,z,方块值</p>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">2. 默认前缀（初始填充）</label>
+                <div class="input-group">
+                    <i class="fa-solid fa-tag input-icon"></i>
+                    <input type="text" id="defaultPrefixInput" class="custom-input" placeholder="例如：建筑" value="建筑">
+                </div>
+                <p class="text-[11px] text-gray-500 mt-1">每个ID组可独立修改前缀，修改后自动刷新输出</p>
+            </div>
+            <div id="statsOffsetPanel" class="hidden info-panel fade-in">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span class="text-sm font-semibold text-gray-300"><i class="fa-solid fa-arrows-spin text-green-400 mr-1"></i>建筑尺寸 & 原点校准</span>
+                    <button id="calibrateOriginBtn" class="bg-purple-700 hover:bg-purple-600 text-white px-3 py-1.5 rounded-lg text-sm flex items-center gap-1"><i class="fa-solid fa-crosshairs"></i> 校准原点</button>
+                </div>
+                <div class="info-grid" id="dimensionDisplay">
+                    <div class="info-card"><span class="text-xs text-gray-400">X范围</span><br><span id="xRange" class="text-sm font-mono text-white">—</span></div>
+                    <div class="info-card"><span class="text-xs text-gray-400">Z范围</span><br><span id="zRange" class="text-sm font-mono text-white">—</span></div>
+                    <div class="info-card"><span class="text-xs text-gray-400">X长度</span><br><span id="xLen" class="text-sm font-mono text-emerald-400">—</span></div>
+                    <div class="info-card"><span class="text-xs text-gray-400">Z长度</span><br><span id="zLen" class="text-sm font-mono text-emerald-400">—</span></div>
+                    <div class="info-card"><span class="text-xs text-gray-400">Y最低层</span><br><span id="minY" class="text-sm font-mono text-cyan-400">—</span></div>
+                </div>
+                <div class="offset-control">
+                    <div class="flex flex-wrap gap-3 items-end">
+                        <div><label class="text-xs text-gray-400 block mb-1">偏移 X</label><input type="number" id="targetCenterX" value="0" step="1" class="w-28 px-2 py-1 rounded-md bg-black/40 border border-gray-600 text-sm"></div>
+                        <div><label class="text-xs text-gray-400 block mb-1">偏移 Z</label><input type="number" id="targetCenterZ" value="0" step="1" class="w-28 px-2 py-1 rounded-md bg-black/40 border border-gray-600 text-sm"></div>
+                        <button id="applyOffsetBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-1.5 rounded-lg text-sm"><i class="fa-solid fa-up-down-left-right"></i> 手动移动</button>
+                        <button id="resetOffsetBtn" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1.5 rounded-lg text-sm"><i class="fa-solid fa-undo"></i> 重置</button>
+                    </div>
+                    <p class="text-[11px] text-gray-500 mt-2">★ 推荐“校准原点”自动将最低层中心方块设为(0,0,0)</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="statusArea" class="hidden mb-4 status-message fade-in"></div>
+        <div id="resultSection" class="card p-5 hidden fade-in">
+            <div class="flex items-center gap-2 border-b border-gray-800 pb-3 mb-4"><i class="fa-solid fa-chart-pie text-indigo-400"></i><h2 class="text-lg font-semibold text-indigo-300">分组统计 · 独立前缀</h2></div>
+            <div class="mb-4"><h3 class="text-sm font-medium text-gray-400 mb-2">按新方块ID归类（清零后）</h3><div id="groupStatsContainer" class="stat-container"><div class="text-center text-gray-500 py-8">等待文件处理</div></div></div>
+            <div><div class="flex justify-between items-center mb-2"><h3 class="text-sm font-medium text-gray-400">修改后内容预览 (前50行)</h3><span class="text-[11px] text-gray-500 bg-gray-800 px-2 py-0.5 rounded-full">只读</span></div><textarea id="previewArea" class="preview-area" rows="6" readonly></textarea></div>
+        </div>
+        <div id="copySection" class="hidden mt-4"><button id="copyBtn" class="w-full btn-success text-white font-bold py-4 px-6 rounded-xl shadow-xl flex items-center justify-center gap-3 text-lg"><i class="fa-regular fa-copy"></i> 复制建筑文本</button><p class="text-center text-xs text-gray-500 mt-2">点击复制全部修改后的内容到剪贴板</p></div>
+    </main>
+    <footer class="text-center text-gray-500 text-xs py-6 border-t border-gray-800 mt-8"><i class="fa-regular fa-gem text-indigo-500"></i> 分组前缀 · 自动原点校准 · 复制输出</footer>
+
+    <script>
+        (function(){
+            const B=16384,P=~(0b1111<<10),N=0x3FF;
+            const fv=v=>{let n=v|0;return n<0?{n:n&N}:{n:n&P};};
+            const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+            const fi=$('#fileInput'),dz=$('#dropZone'),fn=$('#fileNameDisplay'),dp=$('#defaultPrefixInput');
+            const sa=$('#statusArea'),rs=$('#resultSection'),cs=$('#copySection'),gs=$('#groupStatsContainer');
+            const pa=$('#previewArea'),cb=$('#copyBtn'),so=$('#statsOffsetPanel');
+            const xr=$('#xRange'),zr=$('#zRange'),xl=$('#xLen'),zl=$('#zLen'),my=$('#minY');
+            const tx=$('#targetCenterX'),tz=$('#targetCenterZ'),ao=$('#applyOffsetBtn'),ro=$('#resetOffsetBtn'),co=$('#calibrateOriginBtn');
+            let raw=[],orig=[],out='',groups={},prefMap={},minX,maxX,minZ,maxZ,minY;
+
+            const st=(m,t)=>{sa.className='hidden status-message fade-in';sa.innerHTML='<i class="fa-regular fa-bell mr-2"></i>'+m;if(t==='error')sa.classList.add('error');else if(t==='warning')sa.classList.add('warning');else sa.classList.add('success');sa.classList.remove('hidden');setTimeout(()=>sa.classList.add('fade-in'),10);};
+            const cf=()=>{let c=180,o={origin:{y:0.7},startVelocity:18,spread:55,decay:0.9,scalar:0.9};const f=(r,p)=>confetti(Object.assign({},o,p,{particleCount:Math.floor(c*r)}));f(0.25,{spread:26,startVelocity:45});f(0.3,{spread:60,startVelocity:35});f(0.2,{spread:100,decay:0.91,scalar:0.8,startVelocity:25});f(0.15,{spread:120,startVelocity:30,scalar:1.1});f(0.1,{spread:90,startVelocity:45,scalar:1.2});};
+
+            const updDim=()=>{if(!raw.length)return;let mnX=Infinity,mxX=-Infinity,mnZ=Infinity,mxZ=-Infinity,mnY=Infinity;for(let l of raw){let p=l.split(',');if(p.length<3)continue;let x=+p[0].trim(),y=+p[1].trim(),z=+p[2].trim();if(isNaN(x)||isNaN(y)||isNaN(z))continue;if(x<mnX)mnX=x;if(x>mxX)mxX=x;if(z<mnZ)mnZ=z;if(z>mxZ)mxZ=z;if(y<mnY)mnY=y;}if(mnX===Infinity)return;minX=mnX;maxX=mxX;minZ=mnZ;maxZ=mxZ;minY=mnY;xr.innerText=Math.floor(mnX)+' ~ '+Math.floor(mxX);zr.innerText=Math.floor(mnZ)+' ~ '+Math.floor(mxZ);xl.innerText=Math.floor(mxX-mnX)+1;zl.innerText=Math.floor(mxZ-mnZ)+1;my.innerText=Math.floor(mnY);};
+
+            const buildGroups=()=>{groups={};prefMap={};let def=dp.value.trim()||'建筑';for(let l of raw){let t=l.trim();if(!t)continue;let p=l.split(',');if(p.length<4)continue;let v=parseInt(p[3].trim(),10);if(isNaN(v))continue;let{n}=fv(v);let id=n%B,sp=Math.floor(n/B);if(!groups[id])groups[id]=[];groups[id].push({p,sp,raw:l});}for(let k in groups)prefMap[k]=def;};
+
+            const renderStats=()=>{let ids=Object.keys(groups);if(!ids.length){gs.innerHTML='<div class="text-gray-500 text-center py-8 italic">无有效分组数据</div>';return;}let sorted=ids.map(Number).sort((a,b)=>a-b);let html='';for(let id of sorted){let cnt=groups[id].length,pre=prefMap[id]||(dp.value.trim()||'建筑');html+=`<div class="stat-item group-prefix-row"><span class="stat-id"><i class="fa-regular fa-hashtag mr-1"></i>ID ${id}</span><span class="stat-count">${cnt} 个方块</span><span class="stat-prefix-label">前缀</span><input type="text" class="stat-prefix-input" data-id="${id}" value="${pre}" placeholder="前缀"></div>`;}gs.innerHTML=html;$$('.stat-prefix-input').forEach(inp=>{inp.addEventListener('input',function(){prefMap[this.dataset.id]=this.value.trim()||'建筑';renderPreview();});});let all=$$('.stat-prefix-input');if(all.length){dp.addEventListener('input',function(){let v=this.value.trim()||'建筑';all.forEach(inp=>{inp.value=v;prefMap[inp.dataset.id]=v;});renderPreview();});}};
+
+            const renderPreview=()=>{if(!Object.keys(groups).length){pa.value='';out='';cs.classList.add('hidden');return;}let lines=[];for(let id in groups){let pre=prefMap[id]||(dp.value.trim()||'建筑');for(let it of groups[id]){let np=[...it.p];np[3]=pre+':'+it.sp;lines.push(np.join(','));}}out=lines.join('\n');let preLines=lines.slice(0,50);pa.value=preLines.join('\n')+(lines.length>50?'\n\n... (剩余 '+(lines.length-50)+' 行未显示)':'');if(lines.length){cs.classList.remove('hidden');cs.classList.add('fade-in');rs.classList.remove('hidden');rs.classList.add('fade-in');}else cs.classList.add('hidden');st('✓ 处理成功！共 '+lines.length+' 个方块，'+Object.keys(groups).length+' 个ID组，每组独立前缀。','success');setTimeout(()=>rs.scrollIntoView({behavior:'smooth',block:'start'}),80);};
+
+            const loadData=(text,name)=>{orig=text.split(/\r?\n/).filter(l=>l!==undefined);if(!orig.length){st('文件为空','error');return;}raw=[...orig];updDim();buildGroups();renderStats();renderPreview();cf();fn.innerHTML='<i class="fa-regular fa-file-lines mr-1"></i> '+name+' ('+raw.length+'行)';fn.classList.add('text-indigo-400','font-semibold');so.classList.remove('hidden');so.classList.add('fade-in');tx.value=0;tz.value=0;};
+
+            const readFile=file=>{if(!file)return;if(!file.name.toLowerCase().endsWith('.txt')){st('仅支持 .txt 文件','error');return;}let r=new FileReader();r.onload=e=>loadData(e.target.result,file.name);r.onerror=()=>st('读取失败','error');r.readAsText(file,'UTF-8');};
+
+            const setupDrag=()=>{['dragenter','dragover','dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();}));dz.addEventListener('dragenter',()=>{dz.style.borderColor='#3b82f6';dz.style.backgroundColor='#1e293b';});dz.addEventListener('dragleave',()=>{dz.style.borderColor='#374151';dz.style.backgroundColor='#0f0f1a';});dz.addEventListener('drop',e=>{e.preventDefault();dz.style.borderColor='#374151';dz.style.backgroundColor='#0f0f1a';let f=e.dataTransfer.files;if(f.length){let file=f[0];if(file.name.toLowerCase().endsWith('.txt')){fi.files=f;readFile(file);}else st('请拖入 .txt 文件','error');}});};
+
+            const calibrate=()=>{if(!orig.length){st('请先上传文件','error');return;}let pts=[];let mnY=Infinity;for(let l of orig){let p=l.split(',');if(p.length<3)continue;let x=+p[0].trim(),y=+p[1].trim(),z=+p[2].trim();if(isNaN(x)||isNaN(y)||isNaN(z))continue;if(y<mnY)mnY=y;pts.push({x,y,z,l});}let bottom=pts.filter(p=>Math.abs(p.y-mnY)<0.1);if(!bottom.length){st('无法定位最低层','error');return;}let sx=0,sz=0;for(let p of bottom){sx+=p.x;sz+=p.z;}let cx=sx/bottom.length,cz=sz/bottom.length;let closest=bottom.reduce((b,p)=>{let d=Math.hypot(p.x-cx,p.z-cz);return d<b.dist?{p,dist:d}:b;},{p:bottom[0],dist:Infinity}).p;let dx=-closest.x,dz=-closest.z,dy=-mnY;let nl=[];for(let l of orig){let p=l.split(',');if(p.length<3){nl.push(l);continue;}let x=+p[0].trim(),y=+p[1].trim(),z=+p[2].trim();if(isNaN(x)||isNaN(y)||isNaN(z)){nl.push(l);continue;}p[0]=Math.round(x+dx);p[1]=Math.round(y+dy);p[2]=Math.round(z+dz);nl.push(p.join(','));}raw=nl;orig=[...nl];updDim();buildGroups();renderStats();renderPreview();st('原点校准完成：最低层中心方块移至(0,0,0)，最低层y=0','success');cf();};
+
+            const manualOffset=()=>{let ox=+(tx.value)||0,oz=+(tz.value)||0;if(!orig.length){st('无数据','error');return;}let mnX=Infinity,mxX=-Infinity,mnZ=Infinity,mxZ=-Infinity;for(let l of orig){let p=l.split(',');if(p.length<3)continue;let x=+p[0].trim(),z=+p[2].trim();if(isNaN(x)||isNaN(z))continue;if(x<mnX)mnX=x;if(x>mxX)mxX=x;if(z<mnZ)mnZ=z;if(z>mxZ)mxZ=z;}if(mnX===Infinity)return;let cx=(mnX+mxX)/2,cz=(mnZ+mxZ)/2;let dx=ox-cx,dz=oz-cz;let nl=[];for(let l of orig){let p=l.split(',');if(p.length<3){nl.push(l);continue;}let x=+p[0].trim(),z=+p[2].trim();if(!isNaN(x))x=Math.round(x+dx);if(!isNaN(z))z=Math.round(z+dz);p[0]=x;p[2]=z;nl.push(p.join(','));}raw=nl;orig=[...nl];updDim();buildGroups();renderStats();renderPreview();st('手动偏移：建筑中心移至 ('+ox+', '+oz+')','success');cf();};
+
+            const resetCoord=()=>{if(!orig.length)return;raw=[...orig];updDim();buildGroups();renderStats();renderPreview();st('坐标已重置为原始状态','success');};
+
+            fi.addEventListener('change',e=>{if(e.target.files.length)readFile(e.target.files[0]);});
+            cb.addEventListener('click',function(){if(!out||!out.length){st('无可复制内容','warning');return;}navigator.clipboard.writeText(out).then(()=>{let old=this.innerHTML;this.innerHTML='<i class="fa-regular fa-circle-check"></i> 已复制';this.classList.add('bg-emerald-800');setTimeout(()=>{this.innerHTML=old;this.classList.remove('bg-emerald-800');},1800);cf();st('已复制全部建筑文本到剪贴板','success');}).catch(()=>st('复制失败，请手动选择复制','error'));});
+            ao.addEventListener('click',manualOffset);ro.addEventListener('click',resetCoord);co.addEventListener('click',calibrate);setupDrag();
+            dp.addEventListener('input',function(){let v=this.value.trim()||'建筑';$$('.stat-prefix-input').forEach(inp=>{inp.value=v;prefMap[inp.dataset.id]=v;});renderPreview();});
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>图片处理</title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdn.staticfile.net/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.net/jszip/3.10.1/jszip.min.js">
+    </script>
+    <script src="https://cdn.staticfile.net/file-saver/2.0.5/FileSaver.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.0/dist/background-removal.umd.js">
+    </script>
+    <style>
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #4b5563 #1e1e1e;
+            -webkit-tap-highlight-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        html,
+        body {
+            overflow-y: auto;
+            min-height: 100vh;
+            background: #121212;
+            color: #e5e5e5;
+            font-family: system-ui, -apple-system, 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        }
+        .card {
+            background: #1e1e1e;
+            border-radius: 1rem;
+            border: 1px solid #2d2d2d;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: border-color .2s;
+        }
+        .card:hover {
+            border-color: #3b82f6;
+        }
+        .file-upload-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 120px;
+            border: 2px dashed #374151;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: #0f0f1a;
+            padding: 1.2rem;
+            transition: all .2s;
+        }
+        .file-upload-wrapper:active {
+            transform: scale(.98);
+        }
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+        }
+        .btn-primary {
+            background: linear-gradient(105deg, #2563eb, #1d4ed8);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: all .2s;
+            touch-action: manipulation;
+        }
+        .btn-primary:active {
+            transform: scale(.96);
+        }
+        .btn-secondary {
+            background: linear-gradient(105deg, #4b5563, #374151);
+            transition: all .2s;
+        }
+        .btn-secondary:active {
+            transform: scale(.96);
+        }
+        .btn-danger {
+            background: linear-gradient(105deg, #dc2626, #b91c1c);
+            transition: all .2s;
+        }
+        .btn-danger:active {
+            transform: scale(.96);
+        }
+        .btn-ai {
+            background: linear-gradient(105deg, #7c3aed, #6d28d9);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+            transition: all .2s;
+            touch-action: manipulation;
+        }
+        .btn-ai:active {
+            transform: scale(.96);
+        }
+        .transparency-grid {
+            background-image: linear-gradient(45deg, #2a2a3a 25%, transparent 25%), linear-gradient(-45deg, #2a2a3a 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #2a2a3a 75%), linear-gradient(-45deg, transparent 75%, #2a2a3a 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        .preview-box {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #2d2d2d;
+            background: #0f0f1a;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            touch-action: auto;
+        }
+        .preview-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            pointer-events: none;
+            user-select: none;
+        }
+        .preview-box canvas {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            background: #1a1a1a;
+            border-radius: .75rem;
+            border: 1px solid #2d2d2d;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .tab-nav a.nav-link {
+            flex: 1 0 auto;
+            padding: .6rem .5rem;
+            background: transparent;
+            color: #9ca3af;
+            font-size: .75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .3rem;
+            border-bottom: 2px solid transparent;
+            text-decoration: none;
+            white-space: nowrap;
+            touch-action: manipulation;
+        }
+        .tab-nav a.nav-link:active {
+            background: rgba(59, 130, 246, 0.1);
+        }
+        .tab-nav a.nav-link.active {
+            color: #60a5fa;
+            border-bottom-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.08);
+        }
+        .form-input {
+            width: 100%;
+            padding: .6rem .8rem;
+            background: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: .75rem;
+            outline: none;
+            transition: all .2s;
+            font-size: .9rem;
+            color: #f0f0f0;
+            -webkit-appearance: none;
+        }
+        .form-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            background: #1a1a1a;
+        }
+        .form-label {
+            display: block;
+            font-size: .7rem;
+            font-weight: 500;
+            color: #9ca3af;
+            margin-bottom: .2rem;
+        }
+        .form-range {
+            width: 100%;
+            accent-color: #3b82f6;
+            background: #2d2d2d;
+            height: 4px;
+            border-radius: 2px;
+            -webkit-appearance: none;
+        }
+        .form-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        .form-range::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            border: none;
+        }
+        .badge-version {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+        .status-message {
+            background: #1e1e2f;
+            border-left: 4px solid;
+            border-radius: .75rem;
+            padding: .6rem 1rem;
+            font-size: .8rem;
+            display: none;
+            margin-bottom: .8rem;
+        }
+        .status-message.success {
+            border-left-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            color: #a7f3d0;
+        }
+        .status-message.error {
+            border-left-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            color: #fecaca;
+        }
+        .status-message.warning {
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+            color: #fed7aa;
+        }
+        .status-message.info {
+            border-left-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+        }
+        .fade-in {
+            animation: fadeInUp .3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .progress-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(4px);
+            transition: opacity .3s;
+        }
+        .progress-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .progress-box {
+            background: #1e1e2e;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            max-width: 90vw;
+            width: 360px;
+            text-align: center;
+            border: 1px solid #3b82f6;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+        .progress-box .title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #93c5fd;
+            margin-bottom: .4rem;
+        }
+        .progress-box .sub {
+            font-size: .8rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: #2d2d3d;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: .4rem;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 4px;
+            transition: width .15s ease;
+        }
+        .progress-text {
+            font-size: .75rem;
+            color: #6b7280;
+        }
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            pointer-events: none;
+            width: 90%;
+            max-width: 400px;
+        }
+        .toast {
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: #1e1e2e;
+            border: 1px solid #3b82f6;
+            color: #e5e5e5;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all .3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .85rem;
+            pointer-events: auto;
+            width: 100%;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .toast.success {
+            border-color: #10b981;
+        }
+        .toast.error {
+            border-color: #ef4444;
+        }
+        .toast.warning {
+            border-color: #f59e0b;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .main-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            width: 100%;
+        }
+        .cursor-crosshair {
+            cursor: crosshair !important;
+        }
+        .cursor-grabbing {
+            cursor: grabbing !important;
+        }
+        .selection-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .selection-box {
+            position: absolute;
+            border: 2px dashed #60a5fa;
+            background: rgba(59, 130, 246, 0.15);
+            pointer-events: none;
+            display: none;
+        }
+        .selection-box.active {
+            display: block;
+        }
+        .tolerance-group {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .tolerance-group input[type="number"] {
+            width: 56px;
+            flex-shrink: 0;
+            padding: .3rem .2rem;
+            text-align: center;
+            font-size: .85rem;
+            background: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: .5rem;
+            color: #f0f0f0;
+            outline: none;
+            -moz-appearance: textfield;
+        }
+        .tolerance-group input[type="number"]::-webkit-outer-spin-button,
+        .tolerance-group input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .tolerance-group input[type="number"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        .wm-status {
+            font-size: .7rem;
+            color: #9ca3af;
+            padding: .2rem .6rem;
+            border-radius: .5rem;
+            background: #1a1a2a;
+            border: 1px solid #2d2d3d;
+        }
+        .wm-status.active {
+            border-color: #60a5fa;
+            color: #60a5fa;
+        }
+        .btn-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .btn-group .btn {
+            flex: 1;
+            min-width: 60px;
+        }
+        @media(max-width:640px) {
+            .tab-nav a.nav-link {
+                font-size: .65rem;
+                padding: .5rem .3rem;
+                gap: .2rem;
+            }
+            .tab-nav a.nav-link i {
+                font-size: .7rem;
+            }
+            .file-upload-wrapper {
+                min-height: 90px;
+                padding: 1rem;
+            }
+            .preview-box {
+                min-height: 140px;
+            }
+            .progress-box {
+                padding: 1.2rem;
+                width: 90vw;
+            }
+            .btn-group .btn {
+                font-size: .7rem;
+                padding: .3rem .5rem;
+            }
+        }
+        @media(max-width:480px) {
+            .grid-cols-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gap-2 {
+                gap: 0.4rem;
+            }
+            .form-input {
+                font-size: .8rem;
+                padding: .4rem .6rem;
+            }
+            .btn {
+                font-size: .75rem;
+                padding: .4rem .8rem;
+            }
+        }
+        .ai-badge {
+            background: rgba(124, 58, 237, 0.2);
+            color: #a78bfa;
+            font-size: .55rem;
+            padding: .1rem .4rem;
+            border-radius: .3rem;
+            margin-left: .2rem;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+        .btn-ai:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        .btn-ai .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-gradient-to-r from-slate-900 via-gray-900 to-indigo-900 border-b border-indigo-500/30 sticky top-0 z-50 shadow-2xl backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-indigo-400 text-xl"></i>
+                <div>
+                    <h1 class="text-base font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">图片处理</h1>
+                    <p class="text-[9px] text-gray-400 hidden xs:block">抠图·压缩·分割·去水印</p>
+                </div>
+            </div>
+            <div class="badge-version text-xs px-2 py-0.5 rounded-full text-indigo-300 font-mono flex items-center gap-1">
+                <span id="fileBadge">未加载</span>
+                <i class="fa-regular fa-circle-check text-emerald-400 hidden" id="loadedIcon"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container" id="mainContent">
+        <div id="statusArea" class="status-message fade-in"></div>
+
+        <div class="card p-3 mb-3">
+            <div class="file-upload-wrapper" id="dropZone">
+                <input type="file" id="fileInput" accept="image/*">
+                <i class="fa-solid fa-cloud-arrow-up text-2xl text-indigo-400/60 mb-1"></i>
+                <p class="text-sm text-gray-400 font-medium" id="fileNameDisplay">点击或拖拽图片</p>
+                <p class="text-xs text-gray-500 mt-0.5">PNG, JPG, WebP · 最大 8192px</p>
+            </div>
+        </div>
+
+        <div id="editorContainer" class="hidden">
+            <div class="tab-nav" id="modeTabs">
+                <a class="nav-link active" data-mode="matting"><i class="fa-solid fa-scissors"></i> 抠图</a>
+                <a class="nav-link" data-mode="compress"><i class="fa-solid fa-compress"></i> 压缩</a>
+                <a class="nav-link" data-mode="grid"><i class="fa-solid fa-table-cells"></i> 分割打包</a>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                <div class="card p-2">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-1 mb-2">
+                        <span class="text-xs font-semibold text-gray-400"><i class="fa-regular fa-image mr-1"></i>原始</span>
+                        <span class="text-xs text-gray-500" id="origSize">-</span>
+                    </div>
+                    <div class="preview-box" style="height:220px;position:relative;" id="originalPreviewWrap">
+                        <canvas id="originalCanvas" style="max-width:100%;max-height:100%;display:block;object-fit:contain;"></canvas>
+                        <div class="selection-overlay" id="selectionOverlay">
+                            <div class="selection-box" id="selectionBox"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-2">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-1 mb-2">
+                        <span class="text-xs font-semibold text-gray-400"><i class="fa-regular fa-image mr-1"></i>处理后</span>
+                        <span class="text-xs text-gray-500" id="procSize">-</span>
+                    </div>
+                    <div class="preview-box transparency-grid" style="height:220px;position:relative;" id="processedPreviewWrap">
+                        <img id="processedPreview" src="" alt="处理后" class="max-w-full max-h-full object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-3 mt-3">
+                <div id="panelMatting" class="mode-panel">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <div>
+                            <label class="form-label"><i class="fa-solid fa-eyedropper mr-1"></i>颜色</label>
+                            <div class="flex gap-1">
+                                <input type="color" id="mattingColor" value="#ffffff" class="form-input p-1 h-10 flex-1">
+                                <button id="pickColorBtn" class="btn-secondary text-white px-2 py-1 rounded-lg text-sm" title="从原始图片吸取颜色"><i class="fa-solid fa-eye-dropper"></i></button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">容差 <span id="toleranceVal" class="text-indigo-400">30</span></label>
+                            <div class="tolerance-group">
+                                <input type="range" id="mattingTolerance" class="form-range flex-1" min="0" max="100" value="30">
+                                <input type="number" id="toleranceInput" value="30" min="0" max="100" step="1">
+                            </div>
+                        </div>
+                        <div class="flex items-end">
+                            <div class="w-full btn-group">
+                                <button id="applyMattingBtn" class="btn btn-primary text-white font-medium rounded-lg px-3 py-2 text-sm flex-1"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i>抠图</button>
+                                <button id="applyAIMattingBtn" class="btn btn-ai text-white font-medium rounded-lg px-3 py-2 text-sm flex-1 relative"><i class="fa-solid fa-brain mr-1"></i>AI<span class="ai-badge">β</span></button>
+                            </div>
+                        </div>
+                        <div class="flex items-end text-xs text-gray-400" id="pickHint"></div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2 pt-2 border-t border-gray-800">
+                        <div class="col-span-2 md:col-span-1">
+                            <button id="watermarkBtn" class="w-full btn-secondary text-white font-medium rounded-lg px-3 py-2 text-sm transition-all"><i class="fa-solid fa-brush mr-1"></i> <span id="wmBtnText">去水印</span></button>
+                        </div>
+                        <div class="col-span-2 md:col-span-3 flex items-center gap-2 flex-wrap">
+                            <span class="wm-status" id="wmStatus">● 在图片上拖拽选择水印区域</span>
+                            <button id="wmCancelBtn" class="text-xs text-gray-500 hover:text-red-400 transition-colors"><i class="fa-solid fa-times mr-1"></i>取消</button>
+                            <button id="wmApplyBtn" class="text-xs text-emerald-400 hover:text-emerald-300 transition-colors hidden"><i class="fa-solid fa-check mr-1"></i>执行</button>
+                        </div>
+                    </div>
+                    <div id="aiProgressWrap" class="hidden mt-2">
+                        <div class="flex justify-between text-xs text-gray-400 mb-0.5">
+                            <span id="aiProgressText">AI模型加载中...</span>
+                            <span id="aiProgressPercent">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
+                            <div id="aiProgressBar" class="bg-purple-600 h-1.5 rounded-full transition-all duration-300" style="width:0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panelCompress" class="mode-panel hidden">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        <div>
+                            <label class="form-label">缩放 <span id="scaleVal" class="text-indigo-400">100</span>%</label>
+                            <input type="range" id="compressScale" class="form-range" min="10" max="200" value="100">
+                        </div>
+                        <div class="flex items-end col-span-2">
+                            <button id="applyCompressBtn" class="w-full btn-primary text-white font-medium rounded-lg px-3 py-2 text-sm"><i class="fa-solid fa-compress mr-1"></i>压缩</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panelGrid" class="mode-panel hidden">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <div><label class="form-label">横向 (列)</label><input type="number" id="gridCols" class="form-input" value="10" min="1" max="50"></div>
+                        <div><label class="form-label">纵向 (行)</label><input type="number" id="gridRows" class="form-input" value="10" min="1" max="50"></div>
+                        <div><label class="form-label">目标宽度 (px)</label><input type="number" id="gridTargetWidth" class="form-input" value="" placeholder="自动" min="1"></div>
+                        <div><label class="form-label">目标高度 (px)</label><input type="number" id="gridTargetHeight" class="form-input" value="" placeholder="自动" min="1"></div>
+                        <div class="col-span-2 flex flex-wrap items-center gap-2 pt-1">
+                            <label class="text-xs text-gray-400 flex items-center gap-1"><input type="checkbox" id="gridRemoveWhite" checked class="accent-indigo-500"> 去白底</label>
+                            <label class="text-xs text-gray-400 flex items-center gap-1"><input type="checkbox" id="gridTrim" checked class="accent-indigo-500"> 去透明边</label>
+                            <button id="applyGridBtn" class="flex-1 btn-primary text-white font-medium rounded-lg px-3 py-2 text-sm"><i class="fa-solid fa-table-cells mr-1"></i>分割打包</button>
+                        </div>
+                    </div>
+                    <div class="mt-1 text-xs text-gray-500">生成 <span id="gridTotal" class="text-indigo-400 font-bold">100</span> 张小图，打包为 ZIP</div>
+                </div>
+
+                <div id="progressContainer" class="hidden mt-2">
+                    <div class="flex justify-between text-xs text-gray-400 mb-0.5">
+                        <span id="progressText">处理中...</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
+                        <div id="progressBar" class="bg-indigo-600 h-1.5 rounded-full transition-all duration-300" style="width:0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 mt-3 justify-end">
+                <button id="resetAllBtn" class="btn-secondary text-white px-3 py-2 rounded-lg text-sm"><i class="fa-solid fa-rotate-left mr-1"></i>重置</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-gray-500 text-xs py-3 border-t border-gray-800 mt-2">
+        <i class="fa-regular fa-gem text-indigo-500"></i> 本地处理 · 隐私安全
+    </footer>
+
+    <div id="progressOverlay" class="progress-overlay hidden">
+        <div class="progress-box">
+            <div class="title"><i class="fa-solid fa-spinner fa-pulse mr-2"></i>处理中</div>
+            <div class="sub" id="progressSub">请稍候...</div>
+            <div class="progress-track"><div class="progress-bar" id="progressBarOverlay" style="width:0%"></div></div>
+            <div class="progress-text"><span id="progressPercentOverlay">0</span>%</div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        (function() {
+            const $ = id => document.getElementById(id);
+            const qsa = (s, ctx) => (ctx || document).querySelectorAll(s);
+
+            let originalImage = null,
+                processedCanvas = null,
+                originalDataCanvas = null;
+            let currentMode = 'matting';
+            let zipBlob = null;
+            let isPicking = false;
+
+            let wmActive = false,
+                wmDrawing = false;
+            let wmStartX = 0,
+                wmStartY = 0,
+                wmEndX = 0,
+                wmEndY = 0;
+            let wmRect = null;
+
+            let aiLoaded = false,
+                aiLoading = false;
+            const AI_MODEL = 'small';
+
+            const fileInput = $('fileInput'),
+                dropZone = $('dropZone'),
+                fileBadge = $('fileBadge'),
+                loadedIcon = $('loadedIcon');
+            const editorContainer = $('editorContainer'),
+                statusArea = $('statusArea');
+            const originalCanvas = $('originalCanvas'),
+                processedPreview = $('processedPreview');
+            const origSize = $('origSize'),
+                procSize = $('procSize');
+            const progressContainer = $('progressContainer'),
+                progressBar = $('progressBar'),
+                progressText = $('progressText'),
+                progressPercent = $('progressPercent');
+            const progressOverlay = $('progressOverlay'),
+                progressBarOverlay = $('progressBarOverlay'),
+                progressPercentOverlay = $('progressPercentOverlay'),
+                progressSub = $('progressSub');
+            const resetAllBtn = $('resetAllBtn');
+            const toastContainer = $('toastContainer');
+            const pickHint = $('pickHint');
+            const selectionBox = $('selectionBox');
+            const modeTabs = qsa('#modeTabs .nav-link');
+            const panels = { matting: $('panelMatting'), compress: $('panelCompress'), grid: $('panelGrid') };
+            const mattingColor = $('mattingColor'),
+                mattingTolerance = $('mattingTolerance'),
+                toleranceVal = $('toleranceVal'),
+                toleranceInput = $('toleranceInput');
+            const compressScale = $('compressScale'),
+                scaleVal = $('scaleVal');
+            const gridRows = $('gridRows'),
+                gridCols = $('gridCols'),
+                gridTotal = $('gridTotal');
+            const gridTargetWidth = $('gridTargetWidth'),
+                gridTargetHeight = $('gridTargetHeight');
+            const gridRemoveWhite = $('gridRemoveWhite'),
+                gridTrim = $('gridTrim');
+            const applyMattingBtn = $('applyMattingBtn'),
+                applyAIMattingBtn = $('applyAIMattingBtn'),
+                applyCompressBtn = $('applyCompressBtn'),
+                applyGridBtn = $('applyGridBtn');
+            const pickColorBtn = $('pickColorBtn');
+            const watermarkBtn = $('watermarkBtn'),
+                wmBtnText = $('wmBtnText'),
+                wmStatus = $('wmStatus'),
+                wmCancelBtn = $('wmCancelBtn'),
+                wmApplyBtn = $('wmApplyBtn');
+            const aiProgressWrap = $('aiProgressWrap'),
+                aiProgressBar = $('aiProgressBar'),
+                aiProgressText = $('aiProgressText'),
+                aiProgressPercent = $('aiProgressPercent');
+
+            function showStatus(msg, type) {
+                statusArea.className = 'status-message fade-in';
+                if (type) statusArea.classList.add(type);
+                statusArea.innerHTML = `<i class="fa-regular fa-bell mr-2"></i> ${msg}`;
+                statusArea.style.display = 'block';
+                clearTimeout(statusArea._timer);
+                statusArea._timer = setTimeout(() => statusArea.style.display = 'none', 5000);
+            }
+
+            function showToast(msg, type) {
+                const t = document.createElement('div');
+                t.className = `toast ${type||''}`;
+                const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-triangle-exclamation',
+                    info: 'fa-info-circle' };
+                t.innerHTML = `<i class="fa-solid ${icons[type]||icons.info}"></i><span>${msg}</span>`;
+                toastContainer.appendChild(t);
+                requestAnimationFrame(() => { t.classList.add('show') });
+                setTimeout(() => { t.classList.remove('show');
+                    setTimeout(() => t.remove(), 300) }, 3500);
+            }
+
+            function showProgress(pct, text) {
+                progressContainer.classList.remove('hidden');
+                progressBar.style.width = pct + '%';
+                progressPercent.textContent = pct + '%';
+                progressText.textContent = text || '';
+            }
+
+            function hideProgress() { progressContainer.classList.add('hidden') }
+
+            function showOverlay(pct, text) {
+                progressOverlay.classList.remove('hidden');
+                progressBarOverlay.style.width = pct + '%';
+                progressPercentOverlay.textContent = pct + '%';
+                progressSub.textContent = text || '';
+            }
+
+            function hideOverlay() { progressOverlay.classList.add('hidden') }
+
+            function updateGridTotal() {
+                const r = parseInt(gridRows.value) || 1,
+                    c = parseInt(gridCols.value) || 1;
+                gridTotal.textContent = r * c;
+            }
+            gridRows.addEventListener('input', updateGridTotal);
+            gridCols.addEventListener('input', updateGridTotal);
+
+            compressScale.addEventListener('input', function() { scaleVal.textContent = this.value });
+
+            function syncTolerance(val) {
+                const v = Math.min(100, Math.max(0, parseInt(val) || 0));
+                mattingTolerance.value = v;
+                toleranceInput.value = v;
+                toleranceVal.textContent = v;
+            }
+            mattingTolerance.addEventListener('input', function() { syncTolerance(this.value) });
+            toleranceInput.addEventListener('input', function() {
+                let v = parseInt(this.value);
+                if (isNaN(v)) return;
+                v = Math.min(100, Math.max(0, v));
+                syncTolerance(v);
+            });
+            toleranceInput.addEventListener('blur', function() {
+                let v = parseInt(this.value);
+                if (isNaN(v) || v < 0) v = 0;
+                if (v > 100) v = 100;
+                syncTolerance(v);
+            });
+
+            modeTabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modeTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentMode = this.dataset.mode;
+                    Object.keys(panels).forEach(k => panels[k].classList.toggle('hidden', k !== currentMode));
+                    if (currentMode === 'grid') updateGridTotal();
+                    if (processedCanvas) updatePreview(processedCanvas);
+                    if (currentMode !== 'matting') { cancelPick();
+                        cancelWatermark(); }
+                });
+            });
+
+            function cancelPick() {
+                if (isPicking) {
+                    isPicking = false;
+                    originalCanvas.classList.remove('cursor-crosshair');
+                    pickHint.textContent = '';
+                    document.removeEventListener('click', pickListener);
+                }
+            }
+
+            function getCanvasCoords(e) {
+                const rect = originalCanvas.getBoundingClientRect();
+                if (rect.width === 0 || rect.height === 0) return { x: 0, y: 0 };
+                const scaleX = originalCanvas.width / rect.width;
+                const scaleY = originalCanvas.height / rect.height;
+                let clientX = e.clientX,
+                    clientY = e.clientY;
+                if (e.touches && e.touches.length > 0) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+                const x = (clientX - rect.left) * scaleX;
+                const y = (clientY - rect.top) * scaleY;
+                return { x: Math.min(originalCanvas.width, Math.max(0, x)), y: Math.min(originalCanvas.height, Math.max(0, y)) };
+            }
+
+            function pickListener(e) {
+                if (!isPicking) return;
+                const pos = getCanvasCoords(e);
+                const px = Math.round(pos.x),
+                    py = Math.round(pos.y);
+                if (!originalDataCanvas) return;
+                const ctx = originalDataCanvas.getContext('2d');
+                const pixel = ctx.getImageData(px, py, 1, 1).data;
+                if (pixel[3] === 0) { showToast('该区域透明，请选择不透明区域', 'warning'); return; }
+                const hex = '#' + [pixel[0], pixel[1], pixel[2]].map(c => c.toString(16).padStart(2, '0')).join('');
+                mattingColor.value = hex;
+                mattingColor.dispatchEvent(new Event('input'));
+                showToast('已吸取颜色: ' + hex, 'success');
+                cancelPick();
+            }
+
+            pickColorBtn.addEventListener('click', function() {
+                if (!originalImage) { showStatus('请先上传图片', 'warning'); return; }
+                if (isPicking) { cancelPick(); return; }
+                isPicking = true;
+                originalCanvas.classList.add('cursor-crosshair');
+                pickHint.textContent = '点击原始图片取色';
+                document.addEventListener('click', pickListener);
+                showToast('点击原始图片中的颜色吸取', 'info');
+            });
+
+            function trimTransparent(canvas) {
+                const w = canvas.width,
+                    h = canvas.height;
+                const ctx = canvas.getContext('2d');
+                const id = ctx.getImageData(0, 0, w, h);
+                const d = id.data;
+                let minX = w,
+                    minY = h,
+                    maxX = 0,
+                    maxY = 0,
+                    found = false;
+                for (let y = 0; y < h; y++) {
+                    for (let x = 0; x < w; x++) {
+                        if (d[(y * w + x) * 4 + 3] > 0) {
+                            if (x < minX) minX = x;
+                            if (x > maxX) maxX = x;
+                            if (y < minY) minY = y;
+                            if (y > maxY) maxY = y;
+                            found = true;
+                        }
+                    }
+                }
+                if (!found) return canvas;
+                const tw = maxX - minX + 1,
+                    th = maxY - minY + 1;
+                if (tw === w && th === h) return canvas;
+                const trimmed = document.createElement('canvas');
+                trimmed.width = tw;
+                trimmed.height = th;
+                const tctx = trimmed.getContext('2d');
+                tctx.drawImage(canvas, minX, minY, tw, th, 0, 0, tw, th);
+                return trimmed;
+            }
+
+            function downloadCanvas(canvas, filename) {
+                const link = document.createElement('a');
+                link.download = filename || `processed_${Date.now()}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }
+
+            function downloadBlob(blob, filename) {
+                const link = document.createElement('a');
+                link.download = filename || `processed_${Date.now()}.zip`;
+                link.href = URL.createObjectURL(blob);
+                link.click();
+                setTimeout(() => URL.revokeObjectURL(link.href), 5000);
+            }
+
+            function loadImage(file) {
+                if (!file || !file.type.startsWith('image/')) { showStatus('请上传图片', 'error'); return }
+                const url = URL.createObjectURL(file);
+                const img = new Image();
+                img.onload = function() {
+                    originalImage = img;
+                    const c = document.createElement('canvas');
+                    c.width = img.naturalWidth;
+                    c.height = img.naturalHeight;
+                    const ctx = c.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    originalDataCanvas = c;
+                    displayOriginal(img);
+                    fileBadge.textContent = file.name;
+                    loadedIcon.classList.remove('hidden');
+                    editorContainer.classList.remove('hidden');
+                    editorContainer.classList.add('fade-in');
+                    origSize.textContent = `${img.naturalWidth}×${img.naturalHeight}`;
+                    const c2 = document.createElement('canvas');
+                    c2.width = img.naturalWidth;
+                    c2.height = img.naturalHeight;
+                    const ctx2 = c2.getContext('2d');
+                    ctx2.drawImage(img, 0, 0);
+                    processedCanvas = c2;
+                    updatePreview(c2);
+                    procSize.textContent = `${img.naturalWidth}×${img.naturalHeight}`;
+                    zipBlob = null;
+                    hideProgress();
+                    showStatus(`✓ 已加载: ${file.name} (${img.naturalWidth}×${img.naturalHeight})，请选择操作`, 'success');
+                    URL.revokeObjectURL(url);
+                    cancelWatermark();
+                    aiProgressWrap.classList.add('hidden');
+                };
+                img.onerror = function() { showStatus('图片加载失败', 'error') };
+                img.src = url;
+            }
+
+            function displayOriginal(img) {
+                const wrap = originalCanvas.parentElement;
+                const rect = wrap.getBoundingClientRect();
+                const containerW = rect.width - 4;
+                const containerH = 220 - 4;
+                const iw = img.naturalWidth,
+                    ih = img.naturalHeight;
+                let dw = iw,
+                    dh = ih;
+                if (dw > containerW || dh > containerH) {
+                    const scale = Math.min(containerW / dw, containerH / dh);
+                    dw = Math.round(dw * scale);
+                    dh = Math.round(dh * scale);
+                }
+                originalCanvas.width = iw;
+                originalCanvas.height = ih;
+                originalCanvas.style.width = dw + 'px';
+                originalCanvas.style.height = dh + 'px';
+                const ctx = originalCanvas.getContext('2d');
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
+                ctx.drawImage(img, 0, 0);
+                selectionBox.style.display = 'none';
+                wmRect = null;
+            }
+
+            function updatePreview(canvas) {
+                if (!canvas) return;
+                processedCanvas = canvas;
+                processedPreview.src = canvas.toDataURL('image/png');
+                procSize.textContent = `${canvas.width}×${canvas.height}`;
+            }
+
+            function getProcessedCanvas() {
+                if (processedCanvas) return processedCanvas;
+                if (!originalImage) return null;
+                const c = document.createElement('canvas');
+                c.width = originalImage.naturalWidth;
+                c.height = originalImage.naturalHeight;
+                const ctx = c.getContext('2d');
+                ctx.drawImage(originalImage, 0, 0);
+                return c;
+            }
+
+            function applyMatting() {
+                if (!originalImage) { showStatus('请先上传图片', 'warning'); return }
+                cancelWatermark();
+                const color = mattingColor.value;
+                const tol = parseInt(mattingTolerance.value) || 30;
+                const rgb = hexToRgb(color);
+                if (!rgb) return;
+                const c = document.createElement('canvas');
+                c.width = originalImage.naturalWidth;
+                c.height = originalImage.naturalHeight;
+                const ctx = c.getContext('2d');
+                ctx.drawImage(originalImage, 0, 0);
+                const id = ctx.getImageData(0, 0, c.width, c.height);
+                const d = id.data;
+                for (let i = 0; i < d.length; i += 4) {
+                    const dr = d[i] - rgb.r,
+                        dg = d[i + 1] - rgb.g,
+                        db = d[i + 2] - rgb.b;
+                    if (Math.sqrt(dr * dr + dg * dg + db * db) <= tol) d[i + 3] = 0;
+                }
+                ctx.putImageData(id, 0, 0);
+                updatePreview(c);
+                downloadCanvas(c, `matting_${Date.now()}.png`);
+                showStatus('✓ 抠图完成，已下载', 'success');
+            }
+
+            function applyCompress() {
+                if (!originalImage) { showStatus('请先上传图片', 'warning'); return }
+                cancelWatermark();
+                const scale = parseInt(compressScale.value) / 100;
+                const c = document.createElement('canvas');
+                const w = Math.round(originalImage.naturalWidth * scale);
+                const h = Math.round(originalImage.naturalHeight * scale);
+                c.width = Math.max(1, w);
+                c.height = Math.max(1, h);
+                const ctx = c.getContext('2d');
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
+                ctx.drawImage(originalImage, 0, 0, c.width, c.height);
+                const trimmed = trimTransparent(c);
+                updatePreview(trimmed);
+                downloadCanvas(trimmed, `compress_${Date.now()}.png`);
+                showStatus(`✓ 压缩完成 (缩放${Math.round(scale*100)}%)，已下载`, 'success');
+            }
+
+            async function applyGrid() {
+                if (!originalImage) { showStatus('请先上传图片', 'warning'); return }
+                cancelWatermark();
+                const rows = parseInt(gridRows.value) || 1,
+                    cols = parseInt(gridCols.value) || 1;
+                const total = rows * cols;
+                if (total > 2500) { showStatus('图片数量过多 (最大2500)', 'warning'); return }
+                const removeWhite = gridRemoveWhite.checked;
+                const trim = gridTrim.checked;
+                const src = getProcessedCanvas() || originalImage;
+                const sw = src.width,
+                    sh = src.height;
+                const pw = sw / cols,
+                    ph = sh / rows;
+
+                let targetW = parseInt(gridTargetWidth.value);
+                let targetH = parseInt(gridTargetHeight.value);
+                const hasTarget = !(isNaN(targetW) || targetW < 1 || isNaN(targetH) || targetH < 1);
+
+                const zip = new JSZip();
+                const folder = zip.folder("images");
+                showOverlay(0, '准备处理...');
+                await sleep(50);
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        const x = Math.floor(j * pw),
+                            y = Math.floor(i * ph);
+                        const w = Math.ceil(pw),
+                            h = Math.ceil(ph);
+                        let outW = w,
+                            outH = h;
+                        if (hasTarget) {
+                            outW = targetW;
+                            outH = targetH;
+                        }
+                        const c = document.createElement('canvas');
+                        c.width = outW;
+                        c.height = outH;
+                        const ctx = c.getContext('2d');
+                        ctx.imageSmoothingEnabled = true;
+                        ctx.imageSmoothingQuality = 'high';
+                        ctx.drawImage(src, x, y, w, h, 0, 0, outW, outH);
+                        if (removeWhite) {
+                            const id = ctx.getImageData(0, 0, outW, outH);
+                            const d = id.data;
+                            for (let k = 0; k < d.length; k += 4) {
+                                if (d[k] > 240 && d[k + 1] > 240 && d[k + 2] > 240) d[k + 3] = 0;
+                            }
+                            ctx.putImageData(id, 0, 0);
+                        }
+                        let outCanvas = c;
+                        if (!hasTarget && trim) {
+                            outCanvas = trimTransparent(c);
+                        }
+                        const blob = await new Promise(r => outCanvas.toBlob(r, 'image/png'));
+                        folder.file(`${i}_${j}.png`, blob);
+                        const pct = Math.round(((i * cols + j + 1) / total) * 100);
+                        showOverlay(pct, `处理 ${i+1}/${rows} 行 ${j+1}/${cols} 列`);
+                        if ((i * cols + j + 1) % 5 === 0) await sleep(0);
+                    }
+                }
+                showOverlay(95, '打包 ZIP...');
+                zipBlob = await zip.generateAsync({ type: "blob" });
+                showOverlay(100, '完成！');
+                await sleep(300);
+                hideOverlay();
+                downloadBlob(zipBlob, `grid_${Date.now()}.zip`);
+                showStatus(`✓ 分割打包完成，共 ${total} 张图片，已下载`, 'success');
+            }
+
+            function sleep(ms) { return new Promise(r => setTimeout(r, ms)) }
+
+            function hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3],
+                    16) } : null;
+            }
+
+            function handleFile(file) {
+                if (!file) return;
+                if (file.size > 100 * 1024 * 1024) { showStatus('文件过大 (超过100MB)', 'error'); return }
+                loadImage(file);
+            }
+
+            fileInput.addEventListener('change', function(e) {
+                if (this.files.length) handleFile(this.files[0]);
+                this.value = '';
+            });
+
+            dropZone.addEventListener('dragover', e => { e.preventDefault();
+                dropZone.style.borderColor = '#3b82f6';
+                dropZone.style.background = '#1e293b' });
+            dropZone.addEventListener('dragleave', e => { e.preventDefault();
+                dropZone.style.borderColor = '#374151';
+                dropZone.style.background = '#0f0f1a' });
+            dropZone.addEventListener('drop', e => {
+                e.preventDefault();
+                dropZone.style.borderColor = '#374151';
+                dropZone.style.background = '#0f0f1a';
+                if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+            });
+            dropZone.addEventListener('click', function(e) { if (e.target.tagName !== 'INPUT') fileInput.click() });
+
+            applyMattingBtn.addEventListener('click', applyMatting);
+            applyCompressBtn.addEventListener('click', applyCompress);
+            applyGridBtn.addEventListener('click', applyGrid);
+
+            resetAllBtn.addEventListener('click', function() {
+                originalImage = null;
+                processedCanvas = null;
+                zipBlob = null;
+                originalDataCanvas = null;
+                originalCanvas.width = 0;
+                originalCanvas.height = 0;
+                processedPreview.src = '';
+                origSize.textContent = '-';
+                procSize.textContent = '-';
+                fileBadge.textContent = '未加载';
+                loadedIcon.classList.add('hidden');
+                editorContainer.classList.add('hidden');
+                hideProgress();
+                cancelPick();
+                cancelWatermark();
+                showStatus('已重置', 'info');
+                fileInput.value = '';
+                selectionBox.style.display = 'none';
+                wmRect = null;
+                aiProgressWrap.classList.add('hidden');
+                aiLoaded = false;
+                aiLoading = false;
+                applyAIMattingBtn.disabled = false;
+                applyAIMattingBtn.innerHTML = '<i class="fa-solid fa-brain mr-1"></i>AI<span class="ai-badge">β</span>';
+            });
+
+            function updateSelectionBox() {
+                if (!wmActive) return;
+                const x1 = Math.min(wmStartX, wmEndX),
+                    y1 = Math.min(wmStartY, wmEndY);
+                const x2 = Math.max(wmStartX, wmEndX),
+                    y2 = Math.max(wmStartY, wmEndY);
+                const w = x2 - x1,
+                    h = y2 - y1;
+                if (w < 2 || h < 2) { selectionBox.style.display = 'none';
+                    wmRect = null; return; }
+                const canvasRect = originalCanvas.getBoundingClientRect();
+                const parentRect = originalCanvas.parentElement.getBoundingClientRect();
+                const offX = canvasRect.left - parentRect.left;
+                const offY = canvasRect.top - parentRect.top;
+                const scaleX = canvasRect.width / originalCanvas.width;
+                const scaleY = canvasRect.height / originalCanvas.height;
+                selectionBox.style.display = 'block';
+                selectionBox.style.left = (x1 * scaleX + offX) + 'px';
+                selectionBox.style.top = (y1 * scaleY + offY) + 'px';
+                selectionBox.style.width = (w * scaleX) + 'px';
+                selectionBox.style.height = (h * scaleY) + 'px';
+                wmRect = { x: Math.round(x1), y: Math.round(y1), w: Math.round(w), h: Math.round(h) };
+            }
+
+            function cancelWatermark() {
+                if (!wmActive) return;
+                wmActive = false;
+                wmDrawing = false;
+                originalCanvas.classList.remove('cursor-crosshair', 'cursor-grabbing');
+                selectionBox.style.display = 'none';
+                wmRect = null;
+                wmBtnText.textContent = '去水印';
+                watermarkBtn.className = 'w-full btn-secondary text-white font-medium rounded-lg px-3 py-2 text-sm transition-all';
+                wmStatus.textContent = '● 在图片上拖拽选择水印区域';
+                wmStatus.className = 'wm-status';
+                wmCancelBtn.classList.add('hidden');
+                wmApplyBtn.classList.add('hidden');
+                originalCanvas.removeEventListener('mousedown', wmMouseDown);
+                originalCanvas.removeEventListener('touchstart', wmTouchStart);
+                document.removeEventListener('mousemove', wmMouseMove);
+                document.removeEventListener('mouseup', wmMouseUp);
+                document.removeEventListener('touchmove', wmTouchMove);
+                document.removeEventListener('touchend', wmTouchEnd);
+            }
+
+            function wmMouseDown(e) {
+                if (!wmActive) return;
+                if (e.target !== originalCanvas) return;
+                e.preventDefault();
+                const pos = getCanvasCoords(e);
+                wmStartX = pos.x;
+                wmStartY = pos.y;
+                wmDrawing = true;
+                selectionBox.style.display = 'block';
+                originalCanvas.classList.add('cursor-grabbing');
+                wmCancelBtn.classList.remove('hidden');
+                wmApplyBtn.classList.add('hidden');
+                document.addEventListener('mousemove', wmMouseMove);
+                document.addEventListener('mouseup', wmMouseUp);
+            }
+
+            function wmMouseMove(e) {
+                if (!wmActive || !wmDrawing) return;
+                e.preventDefault();
+                const pos = getCanvasCoords(e);
+                wmEndX = pos.x;
+                wmEndY = pos.y;
+                updateSelectionBox();
+            }
+
+            function wmMouseUp(e) {
+                if (!wmActive || !wmDrawing) return;
+                wmDrawing = false;
+                originalCanvas.classList.remove('cursor-grabbing');
+                document.removeEventListener('mousemove', wmMouseMove);
+                document.removeEventListener('mouseup', wmMouseUp);
+                if (wmRect && wmRect.w > 4 && wmRect.h > 4) {
+                    wmApplyBtn.classList.remove('hidden');
+                    wmStatus.textContent = '✓ 已选区域，点击"执行"去水印';
+                    wmStatus.className = 'wm-status active';
+                } else {
+                    selectionBox.style.display = 'none';
+                    wmRect = null;
+                    wmApplyBtn.classList.add('hidden');
+                    wmStatus.textContent = '● 选区太小，请重新拖拽选择';
+                    wmStatus.className = 'wm-status';
+                }
+            }
+
+            function wmTouchStart(e) {
+                if (!wmActive) return;
+                if (e.target !== originalCanvas) return;
+                e.preventDefault();
+                const pos = getCanvasCoords(e);
+                wmStartX = pos.x;
+                wmStartY = pos.y;
+                wmDrawing = true;
+                selectionBox.style.display = 'block';
+                wmCancelBtn.classList.remove('hidden');
+                wmApplyBtn.classList.add('hidden');
+                document.addEventListener('touchmove', wmTouchMove, { passive: false });
+                document.addEventListener('touchend', wmTouchEnd, { passive: false });
+            }
+
+            function wmTouchMove(e) {
+                if (!wmActive || !wmDrawing) return;
+                e.preventDefault();
+                const pos = getCanvasCoords(e);
+                wmEndX = pos.x;
+                wmEndY = pos.y;
+                updateSelectionBox();
+            }
+
+            function wmTouchEnd(e) {
+                if (!wmActive || !wmDrawing) return;
+                wmDrawing = false;
+                document.removeEventListener('touchmove', wmTouchMove);
+                document.removeEventListener('touchend', wmTouchEnd);
+                if (wmRect && wmRect.w > 4 && wmRect.h > 4) {
+                    wmApplyBtn.classList.remove('hidden');
+                    wmStatus.textContent = '✓ 已选区域，点击"执行"去水印';
+                    wmStatus.className = 'wm-status active';
+                } else {
+                    selectionBox.style.display = 'none';
+                    wmRect = null;
+                    wmApplyBtn.classList.add('hidden');
+                    wmStatus.textContent = '● 选区太小，请重新拖拽选择';
+                    wmStatus.className = 'wm-status';
+                }
+            }
+
+            function startWatermark() {
+                if (!originalImage) { showStatus('请先上传图片', 'warning'); return; }
+                if (wmActive) { cancelWatermark(); return; }
+                wmActive = true;
+                wmBtnText.textContent = '取消选区';
+                watermarkBtn.className = 'w-full btn-danger text-white font-medium rounded-lg px-3 py-2 text-sm transition-all';
+                wmStatus.textContent = '● 在图片上拖拽选择水印区域';
+                wmStatus.className = 'wm-status active';
+                wmCancelBtn.classList.remove('hidden');
+                wmApplyBtn.classList.add('hidden');
+                selectionBox.style.display = 'none';
+                wmRect = null;
+                originalCanvas.classList.add('cursor-crosshair');
+                originalCanvas.addEventListener('mousedown', wmMouseDown);
+                originalCanvas.addEventListener('touchstart', wmTouchStart, { passive: false });
+                showToast('在原始图片上拖拽选择水印区域', 'info');
+            }
+
+            function executeWatermark() {
+                if (!wmRect || !originalImage) { showToast('请先选择水印区域', 'warning'); return; }
+                const { x, y, w, h } = wmRect;
+                if (w < 3 || h < 3) { showToast('选区太小，请重新选择', 'warning'); return; }
+                let srcCanvas = getProcessedCanvas();
+                if (!srcCanvas) { showToast('无可用图片', 'error'); return; }
+                const srcW = srcCanvas.width,
+                    srcH = srcCanvas.height;
+                const origW = originalImage.naturalWidth,
+                    origH = originalImage.naturalHeight;
+                const scaleX = srcW / origW,
+                    scaleY = srcH / origH;
+                const x1 = Math.round(x * scaleX),
+                    y1 = Math.round(y * scaleY);
+                const x2 = Math.round((x + w) * scaleX),
+                    y2 = Math.round((y + h) * scaleY);
+                const rw = x2 - x1,
+                    rh = y2 - y1;
+                if (rw < 2 || rh < 2) { showToast('映射后选区过小', 'warning'); return; }
+                const workCanvas = document.createElement('canvas');
+                workCanvas.width = srcW;
+                workCanvas.height = srcH;
+                const ctx = workCanvas.getContext('2d');
+                ctx.drawImage(srcCanvas, 0, 0);
+                const imgData = ctx.getImageData(0, 0, srcW, srcH);
+                const data = imgData.data;
+                const W = srcW,
+                    H = srcH;
+                const clipX1 = Math.max(0, x1),
+                    clipY1 = Math.max(0, y1);
+                const clipX2 = Math.min(W, x2),
+                    clipY2 = Math.min(H, y2);
+                const cw = clipX2 - clipX1,
+                    ch = clipY2 - clipY1;
+                if (cw < 2 || ch < 2) { showToast('选区无效', 'warning'); return; }
+                for (let py = clipY1; py < clipY2; py++) {
+                    for (let px = clipX1; px < clipX2; px++) {
+                        const idx = (py * W + px) * 4;
+                        data[idx + 3] = 0;
+                    }
+                }
+                ctx.putImageData(imgData, 0, 0);
+                const result = trimTransparent(workCanvas);
+                updatePreview(result);
+                downloadCanvas(result, `watermark_${Date.now()}.png`);
+                showStatus('✓ 去水印完成（已清除选区），已下载', 'success');
+                cancelWatermark();
+                showToast('去水印完成！', 'success');
+            }
+
+            watermarkBtn.addEventListener('click', startWatermark);
+            wmCancelBtn.addEventListener('click', cancelWatermark);
+            wmApplyBtn.addEventListener('click', executeWatermark);
+            wmCancelBtn.classList.remove('hidden');
+
+            async function applyAIMatting() {
+                if (!originalImage) { showStatus('请先上传图片', 'warning'); return; }
+                cancelWatermark();
+                const btn = applyAIMattingBtn;
+                if (btn.disabled) return;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa-solid fa-spinner mr-1"></i>加载中...';
+
+                try {
+                    const br = window.backgroundRemoval;
+                    if (!br || !br.removeBackground) {
+                        showStatus('AI库未加载，请检查网络后重试', 'error');
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fa-solid fa-brain mr-1"></i>AI<span class="ai-badge">β</span>';
+                        return;
+                    }
+
+                    const origW = originalImage.naturalWidth,
+                        origH = originalImage.naturalHeight;
+                    const MAX_INPUT = 1024;
+                    let scale = 1;
+                    let inputW = origW,
+                        inputH = origH;
+                    if (origW > MAX_INPUT || origH > MAX_INPUT) {
+                        scale = Math.min(MAX_INPUT / origW, MAX_INPUT / origH);
+                        inputW = Math.round(origW * scale);
+                        inputH = Math.round(origH * scale);
+                    }
+
+                    const inputCanvas = document.createElement('canvas');
+                    inputCanvas.width = inputW;
+                    inputCanvas.height = inputH;
+                    const ictx = inputCanvas.getContext('2d');
+                    ictx.imageSmoothingEnabled = true;
+                    ictx.imageSmoothingQuality = 'high';
+                    ictx.drawImage(originalImage, 0, 0, inputW, inputH);
+
+                    const inputBlob = await new Promise(r => inputCanvas.toBlob(r, 'image/png'));
+                    aiProgressWrap.classList.remove('hidden');
+                    aiProgressBar.style.width = '0%';
+                    aiProgressPercent.textContent = '0%';
+                    aiProgressText.textContent = 'AI推理中...';
+
+                    const resultBlob = await br.removeBackground(inputBlob, {
+                        model: AI_MODEL,
+                        output: 'image/png',
+                        progress: (p) => {
+                            const pc = Math.round(p * 100);
+                            aiProgressBar.style.width = pc + '%';
+                            aiProgressPercent.textContent = pc + '%';
+                            if (p < 0.3) aiProgressText.textContent = '加载模型中...';
+                            else if (p < 0.7) aiProgressText.textContent = 'AI推理中...';
+                            else aiProgressText.textContent = '生成结果...';
+                        }
+                    });
+
+                    const resultImg = await new Promise((resolve, reject) => {
+                        const img = new Image();
+                        img.onload = () => resolve(img);
+                        img.onerror = () => reject(new Error('结果图片加载失败'));
+                        img.src = URL.createObjectURL(resultBlob);
+                    });
+
+                    const outCanvas = document.createElement('canvas');
+                    outCanvas.width = origW;
+                    outCanvas.height = origH;
+                    const octx = outCanvas.getContext('2d');
+                    octx.imageSmoothingEnabled = true;
+                    octx.imageSmoothingQuality = 'high';
+                    if (scale < 1) {
+                        octx.drawImage(resultImg, 0, 0, origW, origH);
+                    } else {
+                        octx.drawImage(resultImg, 0, 0);
+                    }
+
+                    URL.revokeObjectURL(resultImg.src);
+                    updatePreview(outCanvas);
+                    downloadCanvas(outCanvas, `ai_matting_${Date.now()}.png`);
+                    showStatus('✓ AI抠图完成，已下载 (AI模型: ' + AI_MODEL + ')', 'success');
+                    showToast('AI抠图完成！', 'success');
+
+                } catch (err) {
+                    console.error(err);
+                    showStatus('AI抠图失败: ' + (err.message || '未知错误'), 'error');
+                    showToast('AI抠图失败，请重试', 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-brain mr-1"></i>AI<span class="ai-badge">β</span>';
+                    setTimeout(() => { aiProgressWrap.classList.add('hidden') }, 1000);
+                }
+            }
+
+            applyAIMattingBtn.addEventListener('click', applyAIMatting);
+
+            updateGridTotal();
+
+            window.addEventListener('dragover', e => e.preventDefault());
+            window.addEventListener('drop', e => e.preventDefault());
+
+            if (typeof saveAs === 'undefined') {
+                window.saveAs = function(blob, name) {
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = name;
+                    a.click();
+                    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+                };
+            }
+
+            showStatus('上传图片开始处理 · AI抠图需加载模型', 'info');
+
+            window.addEventListener('resize', function() {
+                if (originalImage) displayOriginal(originalImage);
+            });
+
+            if (window.backgroundRemoval) {
+                aiLoaded = true;
+            } else {
+                const checkAI = setInterval(() => {
+                    if (window.backgroundRemoval && window.backgroundRemoval.removeBackground) {
+                        aiLoaded = true;
+                        clearInterval(checkAI);
+                    }
+                }, 500);
+                setTimeout(() => clearInterval(checkAI), 15000);
+            }
+        })();
+    </script>
+</body>
+</html>
