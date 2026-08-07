@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="荒野之路.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Engine" HintPath="../引用/Engine.dll" />
+    <Reference Include="EntitySystem" HintPath="../引用/EntitySystem.dll" />
+    <Reference Include="Survivalcraft" HintPath="../引用/Survivalcraft.dll" />
+    <Reference Include="System.Xml.Linq" HintPath="../引用/System.Xml.Linq.dll" />
+    <Reference Include="LiteNetLib" HintPath="../引用/LiteNetLib.dll" />
+    <Reference Include="Assembly-CSharp-firstpass" HintPath="../引用/Assembly-CSharp-firstpass.dll" />
+    <Reference Include="Assembly-CSharp" HintPath="../引用/Assembly-CSharp.dll" />
+    <Reference Include="Assembly-CSharp-Editor-firstpass" HintPath="../引用/Assembly-CSharp-Editor-firstpass.dll" />
+    <Reference Include="0Harmony" HintPath="../引用/0Harmony.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <LangVersion>latestMajor</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <UseMauiEssentials>false</UseMauiEssentials>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+</Project>
