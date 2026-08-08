@@ -1,0 +1,4 @@
+<AccessNewTrapManager>
+<AccessNewTrap BlockID ="0" TheModelPath ="Models/FishAndShrimpTraps" Part ="2" Texture ="Textures/Trap/FishAndShrimpTraps" Name ="鱼虾陷阱" DefaultDropContent ="NewTrap:0"/>
+<AccessNewTrap BlockID ="1" TheModelPath ="Models/RabbitTrap" Part ="2" Texture ="Textures/Trap/RabbitTrap" Name ="野兔陷阱" DefaultDropContent ="NewTrap:1"/>
+</AccessNewTrapManager>

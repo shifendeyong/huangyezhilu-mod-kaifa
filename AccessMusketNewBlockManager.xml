@@ -1,0 +1,4 @@
+<AccessMusketNewBlockManager>
+<AccessMusketNewBlock BlockID ="0" TheModelPath ="Models/BlowingAnArrow" ModelComponents ="BlowingAnArrow" Texture ="Textures/MusketNewBlock/BlowingAnArrow" Name ="吹箭" Bulletvalue ="NewProjectiles:2" Bulletspeed ="100" Damage ="120" InfiniteBullet ="true"/>
+<AccessMusketNewBlock BlockID ="1" TheModelPath ="Models/FakePocketPistols" ModelComponents ="FakePocketPistols" Texture ="Textures/MusketNewBlock/FakePocketPistols" Name ="伪袖珍手枪" Bulletvalue ="NewProjectiles:3" Bulletspeed ="500" Impulse ="5" Gunsmoke ="true" Damage ="0.8"/>
+</AccessMusketNewBlockManager>

@@ -1,0 +1,32 @@
+<AccessTalentManager>
+<AccessTalent TalentID ="0" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/AngryPeopleTalent" Have ="false" InterpretationID ="1" MaxLevel ="65" MeleeCriticalStrikeRate ="0.03"/>
+<AccessTalent TalentID ="1" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/SilverWolfTalent" Have ="false" InterpretationID ="2" MaxLevel ="23" ReturnBloodWhenBattleIsOver ="0.08"/>
+<AccessTalent TalentID ="2" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/WeaknessesPeopleTalent" Have ="false" InterpretationID ="3" MaxLevel ="23" TheDamageDoneToPeopleIncreases ="0.08"/>
+<AccessTalent TalentID ="3" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/TheKillerTalent" Have ="false" InterpretationID ="4" CriticalStrikeRateOnThrowingAttacks ="0.15"/>
+<AccessTalent TalentID ="4" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/AdversityTalent" Have ="false" InterpretationID ="5" AttackIncreasesWhenTheHPIsLow ="0.03"/>
+<AccessTalent TalentID ="5" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/DrugDealerTalent" Have ="false" InterpretationID ="6" MaxLevel ="38" IncreasedProbabilityOfWeaponPoisoning ="0.05"/>
+<AccessTalent TalentID ="6" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/WeaponAxeTalent" Have ="false" InterpretationID ="7" MaxLevel ="23" AxeWeaponAttackUpgrade ="0.08"/>
+<AccessTalent TalentID ="7" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/GibbonsTalent" Have ="false" InterpretationID ="8" MaxLevel ="10" AttackRangeIncreased ="1" AmountOfVariationInAvoidance ="-0.2"/>
+<AccessTalent TalentID ="8" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/KarateTalent" Have ="false" InterpretationID ="9" MaxLevel ="8" EmptyHandedAttackUpgrade ="15" AmountOfVariationInAvoidance ="0.15"/>
+<AccessTalent TalentID ="9" TalentType ="FightingTalent" Texture ="Textures/Gui/Talent/WarmongersTalent" Have ="false" InterpretationID ="10" TheSpiritOfTheBattleIsLifted ="1"/>
+<AccessTalent TalentID ="10" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/EuropeansTalent" Have ="false" InterpretationID ="11" MaxLevel ="65" IncreasedLuck ="0.03"/>
+<AccessTalent TalentID ="11" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/SnackerTalent" Have ="false" InterpretationID ="12" ImprovedEffectOfFoodRecovery ="0.1"/>
+<AccessTalent TalentID ="12" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/TheHungryTalent" Have ="false" InterpretationID ="13" IncreasedUpperLimitOfSatiety ="10"/>
+<AccessTalent TalentID ="13" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/TheNorthernerTalent" Have ="false" InterpretationID ="14" ImprovementOfLowTemperatureResistance ="15"/>
+<AccessTalent TalentID ="14" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/AfricansTalent" Have ="false" InterpretationID ="15" ImprovementOfResistanceToHighTemperature ="15"/>
+<AccessTalent TalentID ="15" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/ThePharmacistTalent" Have ="false" InterpretationID ="16" ImprovedRecoveryFromDrugUse ="0.1"/>
+<AccessTalent TalentID ="16" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/TheStoneSkinTalent" Have ="false" InterpretationID ="17" MaxLevel ="3" TheIncidenceOfTraumaWasReduced ="0.3"/>
+<AccessTalent TalentID ="17" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/HeyGuysTalent" Have ="false" InterpretationID ="18" UpperLimitOfHealthIncreased ="100"/>
+<AccessTalent TalentID ="18" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/RockBodyTalent" Have ="false" InterpretationID ="19" MaxLevel ="18" InternalAndExternalInjuriesReduceTheSpeed ="0.1"/>
+<AccessTalent TalentID ="19" TalentType ="SurvivalTalent" Texture ="Textures/Gui/Talent/TheFixerTalent" Have ="false" InterpretationID ="20" MaxLevel ="18" TheRateAtWhichInsomniaDecreases ="0.1"/>
+<AccessTalent TalentID ="20" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/TheTrapperTalent" Have ="false" InterpretationID ="21" MaxLevel ="23" ImprovedTrapCaptureProbability ="0.08"/>
+<AccessTalent TalentID ="21" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/PedicuristTalent" Have ="false" InterpretationID ="22" SpeedOfMovementIncreased ="0.03"/>
+<AccessTalent TalentID ="22" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/TheSweeperTalent" Have ="false" InterpretationID ="23" MaxLevel ="48" DropProbabilityOfExtraLoot ="0.04"/>
+<AccessTalent TalentID ="23" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/TheNightWhispererTalent" Have ="false" InterpretationID ="24" MaxLevel ="23" CampIsLessLikelyToBeAttackedAtMight ="0.08"/>
+<AccessTalent TalentID ="24" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/ArchitectsTalent" Have ="false" InterpretationID ="25" IncreaseInTheUpperLimitOfBuildingDurability ="10"/>
+<AccessTalent TalentID ="25" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/TheKeepersTalent" Have ="false" InterpretationID ="26" MaxLevel ="8" WeaponDurabilityCostReduced ="0.2"/>
+<AccessTalent TalentID ="26" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/HeartthrobTalent" Have ="false" InterpretationID ="27" MaxLevel ="48" DoubleTheProbabilityOfSpoils ="0.04"/>
+<AccessTalent TalentID ="27" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/DoublerTalent" Have ="false" InterpretationID ="28" MaxLevel ="8" NPCIsFavorabilityLevelGoesUp ="0.5"/>
+<AccessTalent TalentID ="28" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/SpeedSwimmersTalent" Have ="false" InterpretationID ="29" ShipwreckTerrainAttacksIncreased ="0.1"/>
+<AccessTalent TalentID ="29" TalentType ="ExplorationTalent" Texture ="Textures/Gui/Talent/ANegotiatorTalent" Have ="false" InterpretationID ="30" MaxLevel ="8" DiscountAtTheTimeOfTransaction ="0.9"/>
+</AccessTalentManager>

@@ -1,0 +1,4 @@
+<AccessNewPortalBlockManager>
+<AccessNewPortalBlock BlockID ="0" Texture ="Textures/PortalBlock/MainWorldTransferToWindGapTransferGateFrame" Name ="主世界传送破风口传送门框" IsCollidable ="true"/>
+<AccessNewPortalBlock BlockID ="1" Texture ="Textures/PortalBlock/MainWorldTeleportToWindGapPortal" Name ="主世界传送破风口传送门" IsCollidable ="false"/>
+</AccessNewPortalBlockManager>

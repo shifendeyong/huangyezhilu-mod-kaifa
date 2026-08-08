@@ -1,0 +1,9 @@
+<AccessNewWaterBlockManager>
+<AccessNewWaterBlock BlockID ="0" OverlayColors ="68, 92, 104, 107"/>
+<AccessNewWaterBlock BlockID ="1" OverlayColors ="76, 102, 68, 112"/>
+<AccessNewWaterBlock BlockID ="2" OverlayColors ="204, 212, 218, 140"/>
+<AccessNewWaterBlock BlockID ="3" OverlayColors ="23, 135, 212, 160"/>
+<AccessNewWaterBlock BlockID ="4" OverlayColors ="62, 168, 152, 136"/>
+<AccessNewWaterBlock BlockID ="5" OverlayColors ="72, 124, 148, 132"/>
+<AccessNewWaterBlock BlockID ="6" OverlayColors ="32, 76, 82, 148"/>
+</AccessNewWaterBlockManager>

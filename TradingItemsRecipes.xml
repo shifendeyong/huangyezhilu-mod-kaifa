@@ -1,0 +1,9 @@
+<TradingItemsRecipes>
+<Recipe MedicinesLevel ="3" MaterialsLevel ="0" FoodLevel ="0" WeaponsLevel ="0" FavorabilityLevel ="0" NumberOfDays ="0" a ="newarticles:15" acount ="4" b ="newplants:65537" bcount ="4"/>
+
+<Recipe MedicinesLevel ="0" MaterialsLevel ="3" FoodLevel ="0" WeaponsLevel ="0" FavorabilityLevel ="0" NumberOfDays ="0" a ="newarticles:0" acount ="4" b ="newarticles:2" bcount ="4" c ="newarticles:12" ccount ="4"/>
+
+<Recipe MedicinesLevel ="0" MaterialsLevel ="0" FoodLevel ="3" WeaponsLevel ="0" FavorabilityLevel ="0" NumberOfDays ="0" a ="newfood:4" acount ="4" b ="newfood:5" bcount ="4"/>
+
+<Recipe MedicinesLevel ="0" MaterialsLevel ="0" FoodLevel ="0" WeaponsLevel ="3" FavorabilityLevel ="0" NumberOfDays ="0" a ="newtoolsblock:0" acount ="1" b ="clothing:38" bcount ="1" c ="clothing:39" ccount ="1" d ="clothing:40" dcount ="1" e ="clothing:41" ecount ="1" f ="newprojectiles:0" fcount ="10" g ="newlongrangeweaponsblock:0" gcount ="1" h ="newshield:1" hcount ="1"/>
+</TradingItemsRecipes>

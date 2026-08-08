@@ -1,0 +1,8 @@
+<AccessNewProjectilesManager>
+<AccessNewProjectiles BlockID ="0" TheModelPath ="Models/OrdinaryArrows" ModelComponents ="OrdinaryArrows" Texture ="Textures/Projectiles/OrdinaryArrows" Name ="普通箭矢" ProjectilePower ="15"/>
+<AccessNewProjectiles BlockID ="1" TheModelPath ="Models/BalanceArrow" ModelComponents ="BalanceArrow" Texture ="Textures/Projectiles/BalanceArrow" Name ="平衡箭矢" ProjectilePower ="30"/>
+<AccessNewProjectiles BlockID ="2" TheModelPath ="Models/PoisonFeatherArrow" ModelComponents ="PoisonFeatherArrow" Texture ="Textures/Projectiles/PoisonFeatherArrow" Name ="毒羽箭" ProjectilePower ="15" PoisonRate ="0.1"/>
+<AccessNewProjectiles BlockID ="3" TheModelPath ="Models/Ammunition" ModelComponents ="Ammunition" Texture ="Textures/Projectiles/Ammunition" Name ="弹药" ProjectilePower ="120" IsAnArrow ="false"/>
+<AccessNewProjectiles BlockID ="4" TheModelPath ="Models/IceFeatherArrow" ModelComponents ="IceFeatherArrow" Texture ="Textures/Projectiles/IceFeatherArrow" Name ="寒冰羽箭" ProjectilePower ="15" FreezingRate ="0.1"/>
+<AccessNewProjectiles BlockID ="5" TheModelPath ="Models/ParalysisNeedle" ModelComponents ="ParalysisNeedle" Texture ="Textures/Projectiles/ParalysisNeedle" Name ="麻痹针" ProjectilePower ="20" IsAnArrow ="false" ParalysisRate ="0.1"/>
+</AccessNewProjectilesManager>

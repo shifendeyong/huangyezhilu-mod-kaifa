@@ -1,0 +1,5 @@
+<AccessNewLongRangeWeaponsManager>
+<AccessNewLongRangeWeapons BlockID ="0" TheModelPath ="Models/Crossbow1" Texture ="Textures/Crossbow/Crossbow1" Name ="简易弩" Durability ="60" ProjectilePower ="2.4" ProjectileCriticalStrikeRate ="0.1" ProjectileCriticalStrikeMultiplier ="1.8"/>
+<AccessNewLongRangeWeapons BlockID ="1" TheModelPath ="Models/MechanicalSword" Texture ="Textures/Crossbow/MechanicalSword" Name ="机关剑" Durability ="120" ProjectilePower ="3.5" ProjectileCriticalStrikeRate ="0.05" ProjectileCriticalStrikeMultiplier ="2" MeleePower ="3" MeleeHitProbability ="0.85" MeleeCriticalStrikeRate ="0.1" MeleeCriticalStrikeMultiplier ="1.8"/>
+<AccessNewLongRangeWeapons BlockID ="2" TheModelPath ="Models/MechanicalCrossbow" Texture ="Textures/Crossbow/MechanicalCrossbow" Name ="机关连弩" Durability ="100" ProjectilePower ="5.6" ProjectileCriticalStrikeRate ="0.15" ProjectileCriticalStrikeMultiplier ="2" NumberOfArrowsFired ="3"/>
+</AccessNewLongRangeWeaponsManager>

@@ -1,0 +1,24 @@
+<AccessNewFoodManager>
+<AccessNewFood BlockID ="0" TheModelPath ="Models/RawMeat" ModelComponents ="RawMeat" Texture ="Textures/Food/RawMeat" Name ="生肉" NutritionalValue ="0.15" ButDelicious ="false" InternalInjuriesValue ="-5" IntestinalInfectionProbability ="0.2" DefaultDropContent ="NewFood:0" />
+<AccessNewFood BlockID ="1" TheModelPath ="Models/CookedMeat" ModelComponents ="CookedMeat" Texture ="Textures/Food/CookedMeat" Name ="熟肉" NutritionalValue ="0.35" DefaultDropContent ="NewFood:1" />
+<AccessNewFood BlockID ="2" TheModelPath ="Models/Berries" ModelComponents ="Berries" Texture ="Textures/Food/Berries" Name ="浆果" NutritionalValue ="0.15" ButDelicious ="false" DefaultDropContent ="NewFood:2" />
+<AccessNewFood BlockID ="3" TheModelPath ="Models/Coconuts" ModelComponents ="Coconuts" Texture ="Textures/Food/Coconuts" Name ="椰子" NutritionalValue ="0.1" ButDelicious ="false" IsPlaceable ="true" StartingPositionOfCollisionBox ="0.05,0,0.03" EndPositionOfCollisionBox ="0.94,0.93,1" DefaultDropContent ="NewFood:3" />
+<AccessNewFood BlockID ="4" TheModelPath ="Models/RoastedCorn" ModelComponents ="RoastedCorn" Texture ="Textures/Food/RoastedCorn" Name ="烤玉米" NutritionalValue ="0.3" DefaultDropContent ="NewFood:4" />
+<AccessNewFood BlockID ="5" TheModelPath ="Models/BakedPotato" ModelComponents ="BakedPotato" Texture ="Textures/Food/BakedPotato" Name ="烤土豆" NutritionalValue ="0.3" DefaultDropContent ="NewFood:5" />
+<AccessNewFood BlockID ="6" TheModelPath ="Models/BarbecueInTheWild" ModelComponents ="BarbecueInTheWild" Texture ="Textures/Food/BarbecueInTheWild" Name ="荒野烤肉" NutritionalValue ="0.2" DefaultDropContent ="NewFood:5" />
+<AccessNewFood BlockID ="7" TheModelPath ="Models/ThinSlicesOfMeat" ModelComponents ="ThinSlicesOfMeat" Texture ="Textures/Food/ThinSlicesOfMeat" Name ="薄肉片" NutritionalValue ="0.15"  InternalInjuriesValue ="-5" IntestinalInfectionProbability ="0.3" DefaultDropContent ="NewFood:5" />
+<AccessNewFood BlockID ="8" TheModelPath ="Models/Caviar" ModelComponents ="Caviar" Texture ="Textures/Food/Caviar" Name ="鱼子酱" NutritionalValue ="0.3" DefaultDropContent ="NewFood:5" />
+<AccessNewFood BlockID ="9" TheModelPath ="Models/ThinFilletOfFish" ModelComponents ="ThinFilletOfFish" Texture ="Textures/Food/ThinFilletOfFish" Name ="薄鱼片" NutritionalValue ="0.15" InternalInjuriesValue ="-5" IntestinalInfectionProbability ="0.3" DefaultDropContent ="NewFood:5" />
+<AccessNewFood BlockID ="10" TheModelPath ="Models/Cell" ModelComponents ="Cell" Texture ="Textures/Food/Cell" Name ="蜂窝" NutritionalValue ="0.05" ButDelicious ="false" InsomniaValue ="5" IsPlaceable ="true" StartingPositionOfCollisionBox ="0.006,0,0.02" EndPositionOfCollisionBox ="0.94,0.23,1" DefaultDropContent ="NewFood:10" />
+<AccessNewFood BlockID ="11" TheModelPath ="Models/MeatSoup" ModelComponents ="MeatSoup" Texture ="Textures/Food/MeatSoup" Name ="肉汤" NutritionalValue ="0.45" />
+<AccessNewFood BlockID ="12" TheModelPath ="Models/CornMush" ModelComponents ="CornMush" Texture ="Textures/Food/CornMush" Name ="玉米糊" NutritionalValue ="0.4" />
+<AccessNewFood BlockID ="13" TheModelPath ="Models/PotatoPure" ModelComponents ="PotatoPure" Texture ="Textures/Food/PotatoPure" Name ="土豆泥" NutritionalValue ="0.4" />
+<AccessNewFood BlockID ="14" TheModelPath ="Models/WandCandy" ModelComponents ="WandCandy" Texture ="Textures/Food/WandCandy" Name ="拐杖糖" NutritionalValue ="0.3" />
+<AccessNewFood BlockID ="15" TheModelPath ="Models/GingerbreadMan" ModelComponents ="GingerbreadMan" Texture ="Textures/Food/GingerbreadMan" Name ="姜饼人" NutritionalValue ="0.2" />
+<AccessNewFood BlockID ="16" TheModelPath ="Models/MilitaryFoodPellets" ModelComponents ="MilitaryFoodPellets" Texture ="Textures/Food/MilitaryFoodPellets" Name ="军粮丸" NutritionalValue ="0.5" />
+<AccessNewFood BlockID ="17" TheModelPath ="Models/WoodEarsSoup" ModelComponents ="WoodEarsSoup" Texture ="Textures/Food/WoodEarsSoup" Name ="木耳汤" NutritionalValue ="0.3" />
+<AccessNewFood BlockID ="18" TheModelPath ="Models/ChristmasPudding" ModelComponents ="ChristmasPudding" Texture ="Textures/Food/ChristmasPudding" Name ="圣诞布丁" NutritionalValue ="0.7" />
+<AccessNewFood BlockID ="19" TheModelPath ="Models/ChristmasCake" ModelComponents ="ChristmasCake" Texture ="Textures/Food/ChristmasCake" Name ="圣诞蛋糕" NutritionalValue ="1" />
+<AccessNewFood BlockID ="20" TheModelPath ="Models/SmokedHam" ModelComponents ="SmokedHam" Texture ="Textures/Food/SmokedHam" Name ="熏火腿" NutritionalValue ="0.5" />
+<AccessNewFood BlockID ="21" TheModelPath ="Models/CornMush1" ModelComponents ="CornMush1" Texture ="Textures/Food/CornMush1" Name ="玉米糊" NutritionalValue ="0.5" />
+</AccessNewFoodManager>

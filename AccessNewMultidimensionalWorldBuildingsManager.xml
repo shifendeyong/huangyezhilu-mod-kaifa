@@ -1,0 +1,8 @@
+<AccessNewMultidimensionalWorldBuildingsManager>
+<AccessNewMultidimensionalWorldBuildings WorldName ="Windholes" ArchitecturePath ="Construction/Architecture/Windholes/BotanicalLaboratory" GeneratingProbability ="0.005" SquareOfDistance ="100" SquareUnderfoot ="NewBlock:33"/>
+<AccessNewMultidimensionalWorldBuildings WorldName ="Windholes" ArchitecturePath ="Construction/Architecture/Windholes/AbandonedLand" GeneratingProbability ="0.005" SquareOfDistance ="100" SquareUnderfoot ="NewBlock:33"/>
+<AccessNewMultidimensionalWorldBuildings WorldName ="Windholes" ArchitecturePath ="Construction/Architecture/Windholes/Reservoir" GeneratingProbability ="0.005" SquareOfDistance ="100" SquareUnderfoot ="NewBlock:33"/>
+<AccessNewMultidimensionalWorldBuildings WorldName ="Windholes" ArchitecturePath ="Construction/Architecture/Windholes/BurningGasRotaryBall" GeneratingProbability ="0.005" SquareOfDistance ="100" SquareUnderfoot ="NewBlock:33"/>
+<AccessNewMultidimensionalWorldBuildings WorldName ="Windholes" ArchitecturePath ="Construction/Architecture/Windholes/WindGapRuins" GeneratingProbability ="0.005" SquareOfDistance ="100" SquareUnderfoot ="NewBlock:33"/>
+<AccessNewMultidimensionalWorldBuildings WorldName ="Windholes" ArchitecturePath ="Construction/Architecture/Windholes/BiologicalLaboratories" GeneratingProbability ="0.005" SquareOfDistance ="100" SquareUnderfoot ="NewBlock:33"/>
+</AccessNewMultidimensionalWorldBuildingsManager>

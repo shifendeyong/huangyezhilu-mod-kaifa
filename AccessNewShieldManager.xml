@@ -1,0 +1,7 @@
+<AccessNewShieldManager>
+<AccessNewShield BlockID ="0" TheModelPath ="Models/WoodShield" ModelComponents ="WoodShield" Texture ="Textures/Shield/WoodShield" Name ="木盾" Durability ="100" BlockRate ="0.15" Defense ="5"/>
+<AccessNewShield BlockID ="1" TheModelPath ="Models/SmallLeatherShield" ModelComponents ="SmallLeatherShield" Texture ="Textures/Shield/SmallLeatherShield" Name ="小皮盾" Durability ="150" BlockRate ="0.25" Defense ="15"/>
+<AccessNewShield BlockID ="2" TheModelPath ="Models/ResearchersShield" ModelComponents ="ResearchersShield" Texture ="Textures/Shield/ResearchersShield" Name ="研究人员盾牌" Durability ="175" BlockRate ="0.28" Defense ="17"/>
+<AccessNewShield BlockID ="3" TheModelPath ="Models/SomeonesNewShield" ModelComponents ="SomeonesNewShield" Texture ="Textures/Shield/SomeonesNewShield" Name ="某人的新盾" Durability ="200" BlockRate ="0.3" Defense ="20"/>
+<AccessNewShield BlockID ="4" TheModelPath ="Models/FeatherShield" ModelComponents ="FeatherShield" Texture ="Textures/Shield/FeatherShield" Name ="羽毛盾" Durability ="100" BlockRate ="0.2" Defense ="10" CounterInjury ="5"/>
+</AccessNewShieldManager>

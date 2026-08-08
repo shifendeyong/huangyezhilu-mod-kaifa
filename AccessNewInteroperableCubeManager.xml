@@ -1,0 +1,5 @@
+<AccessNewInteroperableCubeManager>
+<AccessNewInteroperableCube BlockID ="0" StartingPositionOfCollisionBox ="0.03,0,0.27" EndPositionOfCollisionBox ="0.95,1,0.72" TheModelPath ="Models/MechanicalDolls" ModelComponents ="MechanicalDolls" Texture ="Textures/NewInteroperableCube/MechanicalDolls" Name ="机关假人" DefaultDropContent ="NewInteroperableCube:0"/>
+<AccessNewInteroperableCube BlockID ="1" StartingPositionOfCollisionBox ="0.05,0,0.04" EndPositionOfCollisionBox ="0.94,1,0.94" TheModelPath ="Models/MechaProductionDesk" ModelComponents ="MechaProductionDesk" Texture ="Textures/NewInteroperableCube/MechaProductionDesk" Name ="机甲制作台" DefaultDropContent ="NewInteroperableCube:1"/>
+<AccessNewInteroperableCube BlockID ="2" StartingPositionOfCollisionBox ="0.0005,0,0.03" EndPositionOfCollisionBox ="1,0.77,0.95" TheModelPath ="Models/MysteryBox" ModelComponents ="MysteryBox" Texture ="Textures/NewInteroperableCube/MysteryBox" Name ="神秘匣子" DefaultDropContent ="NewInteroperableCube:2"/>
+</AccessNewInteroperableCubeManager>

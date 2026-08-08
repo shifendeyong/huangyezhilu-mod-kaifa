@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:complexType name="RecipesFolderType">
+        <xs:sequence>
+            <xs:element ref="Recipe" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="RecipesType" />
+
+    <xs:element name="Recipes" type="RecipesType" />
+    <xs:element name="Mod" type="RecipesType" />
+
+    <xs:element name="Recipe">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="RecipeContentType">
+                    <xs:attribute name="a" type="xs:string" />
+                    <xs:attribute name="acount" type="xs:string" />
+                    <xs:attribute name="b" type="xs:string" />
+                    <xs:attribute name="bcount" type="xs:string" />
+                    <xs:attribute name="c" type="xs:string" />
+                    <xs:attribute name="ccount" type="xs:string" />
+                    <xs:attribute name="d" type="xs:string" />
+                    <xs:attribute name="dcount" type="xs:string" />
+                    <xs:attribute name="e" type="xs:string" />
+                    <xs:attribute name="ecount" type="xs:string" />
+                    <xs:attribute name="f" type="xs:string" />
+                    <xs:attribute name="fcount" type="xs:string" />
+                    <xs:attribute name="g" type="xs:string" />
+                    <xs:attribute name="gcount" type="xs:string" />
+                    <xs:attribute name="h" type="xs:string" />
+                    <xs:attribute name="hcount" type="xs:string" />
+                    <xs:attribute name="i" type="xs:string" />
+                    <xs:attribute name="icount" type="xs:string" />
+                    <xs:attribute name="j" type="xs:string" />
+                    <xs:attribute name="jcount" type="xs:string" />
+                    <xs:attribute name="k" type="xs:string" />
+                    <xs:attribute name="kcount" type="xs:string" />
+                    <xs:attribute name="l" type="xs:string" />
+                    <xs:attribute name="lcount" type="xs:string" />
+                    <xs:attribute name="m" type="xs:string" />
+                    <xs:attribute name="mcount" type="xs:string" />
+                    <xs:attribute name="n" type="xs:string" />
+                    <xs:attribute name="ncount" type="xs:string" />
+                    <xs:attribute name="o" type="xs:string" />
+                    <xs:attribute name="ocount" type="xs:string" />
+                    <xs:attribute name="p" type="xs:string" />
+                    <xs:attribute name="pcount" type="xs:string" />
+                    <xs:attribute name="q" type="xs:string" />
+                    <xs:attribute name="qcount" type="xs:string" />
+                    <xs:attribute name="r" type="xs:string" />
+                    <xs:attribute name="rcount" type="xs:string" />
+                    <xs:attribute name="s" type="xs:string" />
+                    <xs:attribute name="scount" type="xs:string" />
+                    <xs:attribute name="t" type="xs:string" />
+                    <xs:attribute name="tcount" type="xs:string" />
+                    <xs:attribute name="u" type="xs:string" />
+                    <xs:attribute name="ucount" type="xs:string" />
+                    <xs:attribute name="v" type="xs:string" />
+                    <xs:attribute name="vcount" type="xs:string" />
+                    <xs:attribute name="w" type="xs:string" />
+                    <xs:attribute name="wcount" type="xs:string" />
+                    <xs:attribute name="x" type="xs:string" />
+                    <xs:attribute name="xcount" type="xs:string" />
+                    <xs:attribute name="y" type="xs:string" />
+                    <xs:attribute name="ycount" type="xs:string" />
+                    <xs:attribute name="z" type="xs:string" />
+                    <xs:attribute name="zcount" type="xs:string" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="RecipeContentType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\n?([ \t]*&quot;[a-z ]*&quot;\n?)+[ \t]*" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

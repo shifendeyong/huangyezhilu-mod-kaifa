@@ -1,0 +1,4 @@
+<CraftingTrapRecipes>
+<Recipe BottomSquareValue ="NewBlock:12" ResultValue ="NewTrap:0" ResultCount ="1" a ="newarticles:2" acount ="3" b ="newarticles:7" bcount ="1" aa ="newfish:2" aacount ="1" aachance ="0.6" aadur ="1" ab ="newfish:3" abcount ="1" abchance ="0.6" abdur ="1" ac ="newfish:5" account ="1" acchance ="0.4" acdur ="2" ad ="newfish:7" adcount ="1" adchance ="0.8" addur ="1" ae ="newfish:10" aecount ="1" aechance ="0.6" aedur ="1" af ="newfish:11" afcount ="1" afchance ="0.2" afdur ="1" ag ="newfish:18" agcount ="1" agchance ="0.4" agdur ="1" ah ="newfish:29" ahcount ="1" ahchance ="0.2" ahdur ="1"/>
+<Recipe BottomSquareValue ="NewBlock:23" ResultValue ="NewTrap:1" ResultCount ="1" a ="newarticles:7" acount ="2" b ="newarticles:9" bcount ="2" aa ="newfood:0" aacount ="1" aachance ="0.8" aadur ="1" ab ="newarticles:11" abcount ="1" abchance ="0.2" abdur ="1" ac ="newarticles:22" account ="1" acchance ="0.1"/>
+</CraftingTrapRecipes>

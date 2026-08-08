@@ -1,0 +1,3 @@
+<CraftingBedRecipes>
+<Recipe Description ="1级的床，每升1级就能让睡眠更舒适" Message ="制作完成" TimeConsuming ="54" RequiredBedLevel ="0" a ="newarticles:2" acount ="2" b ="newarticles:0" bcount ="2"/>
+</CraftingBedRecipes>

@@ -1,0 +1,6 @@
+<CraftingCookingTableRecipes>
+<Recipe Description ="1级的烹饪台，每升1级就能解锁部分物品的配方" Message ="制作完成" TimeConsuming ="54" RequiredCookingTableLevel ="0" a ="newarticles:2" acount ="2" b ="newarticles:0" bcount ="2"/>
+<Recipe Description ="2级的烹饪台，每升1级就能解锁部分物品的配方" Message ="制作完成" TimeConsuming ="108" RequiredCookingTableLevel ="1" a ="newarticles:12" acount ="3" b ="newarticles:2" bcount ="3" c ="newarticles:0" ccount ="2"/>
+<Recipe Description ="3级的烹饪台，每升1级就能解锁部分物品的配方" Message ="制作完成" TimeConsuming ="162" RequiredCookingTableLevel ="2" a ="newarticles:12" acount ="5" b ="newarticles:2" bcount ="6" c ="newarticles:1" ccount ="4"/>
+<Recipe Description ="4级的烹饪台，每升1级就能解锁部分物品的配方" Message ="制作完成" TimeConsuming ="216" RequiredCookingTableLevel ="3" a ="newarticles:12" acount ="5" b ="newarticles:2" bcount ="6" c ="newarticles:1" ccount ="4"/>
+</CraftingCookingTableRecipes>

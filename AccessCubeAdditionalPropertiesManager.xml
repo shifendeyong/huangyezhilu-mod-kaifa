@@ -1,0 +1,234 @@
+<AccessCubeAdditionalPropertiesManager>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:0" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:1" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:2" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:3" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:4" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:5" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:7" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:8" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:9" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:10" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:11" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:13" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:14" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:20" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:21" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:22" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:0" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:1" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:2" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:3" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:4" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:5" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:7" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:8" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:9" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:10" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:11" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:0" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:3" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:4" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:6" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewPlants:65536" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewPlants:65537" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewPlants:65538" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewPlants:65539" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewPlants:65540" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewPlants:65541" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewProjectiles:0" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:23" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:24" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:15" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:16" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:17" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:18" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:19" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:20" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:22" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:23" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:24" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:25" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:27" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:29" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:25" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:27" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:28" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:29" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:30" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:33" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:36" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:37" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:39" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewProjectiles:3" Price ="1"/>
+<AccessCubeAdditionalProperties BlockClass ="NewProjectiles:4" Price ="1"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:12" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:15" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:14" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:1" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:5" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:6" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:9" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:10" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:1" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:2" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:6" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:13" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:21" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:26" Price ="2"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFish:28" Price ="2"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:16" Price ="3"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:17" Price ="3"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:18" Price ="3"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:7" Price ="3"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:0" Price ="3"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:4" Price ="3"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:11" Price ="3"/>
+<AccessCubeAdditionalProperties BlockClass ="NewProjectiles:2" Price ="3"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131071" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131068" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131067" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:8" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131064" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131063" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:0" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131071" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131070" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:12" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:13" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:34" Price ="4"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:35" Price ="4"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:5" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:1" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewLongRangeWeaponsBlock:1" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:32" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:38" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:7" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:9" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:11" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="MusketNewBlock:0" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:54" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:55" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:56" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:57" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:62" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:63" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:64" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:65" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:70" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:71" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:72" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:73" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:78" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:79" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:80" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:81" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:2" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:3" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:4" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:14" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:15" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:16" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:17" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:18" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:19" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:20" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:21" Price ="5"/>
+<AccessCubeAdditionalProperties BlockClass ="NewProjectiles:5" Price ="5"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131066" Price ="6"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131072" Price ="6"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:4" Price ="6"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:8" Price ="6"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:12" Price ="6"/>
+<AccessCubeAdditionalProperties BlockClass ="NewLongRangeWeaponsBlock:2" Price ="6"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131061" Price ="6"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:19" Price ="7"/>
+<AccessCubeAdditionalProperties BlockClass ="NewLongRangeWeaponsBlock:0" Price ="7"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:3" Price ="7"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:46" Price ="7"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:49" Price ="7"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:6" Price ="7"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131065" Price ="8"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:41" Price ="8"/>
+<AccessCubeAdditionalProperties BlockClass ="NewArticles:31" Price ="8"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:-131070" Price ="8"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131060" Price ="8"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131059" Price ="8"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:10" Price ="9"/>
+
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:38" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131065" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131063" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131061" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewLongRangeWeaponsBlock:-131071" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="MusketNewBlock:-131072" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:58" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:59" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:60" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:61" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:66" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:67" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:68" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:69" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:74" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:75" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:76" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:77" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:82" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:83" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:84" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:85" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:-131069" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:-131068" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:-131067" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewShield:-131066" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131058" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131057" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131056" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131055" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131054" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131053" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131052" Price ="10"/>
+<AccessCubeAdditionalProperties BlockClass ="NewFood:-131051" Price ="10"/>
+
+
+<AccessCubeAdditionalProperties BlockClass ="NewProjectiles:1" Price ="11"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131064" Price ="12"/>
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131060" Price ="12"/>
+<AccessCubeAdditionalProperties BlockClass ="NewLongRangeWeaponsBlock:-131070" Price ="12"/>
+
+<AccessCubeAdditionalProperties BlockClass ="MusketNewBlock:1" Price ="13"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131069" Price ="14"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:40" Price ="14"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:48" Price ="14"/>
+<AccessCubeAdditionalProperties BlockClass ="NewLongRangeWeaponsBlock:-131072" Price ="14"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:50" Price ="14"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:53" Price ="14"/>
+
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:39" Price ="16"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:45" Price ="16"/>
+
+<AccessCubeAdditionalProperties BlockClass ="NewToolsBlock:-131062" Price ="18"/>
+
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:42" Price ="20"/>
+
+<AccessCubeAdditionalProperties BlockClass ="MusketNewBlock:-131071" Price ="26"/>
+
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:47" Price ="28"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:44" Price ="28"/>
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:52" Price ="28"/>
+
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:43" Price ="32"/>
+
+<AccessCubeAdditionalProperties BlockClass ="ClothingBlock:51" Price ="56"/>
+</AccessCubeAdditionalPropertiesManager>

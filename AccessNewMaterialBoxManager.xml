@@ -1,0 +1,15 @@
+<AccessNewMaterialBoxManager>
+<AccessNewMaterialBox BlockID ="0" DroppedItems ="NewArticles:31,1,3"/>
+<AccessNewMaterialBox BlockID ="1" DroppedItems ="NewArticles:34,0,2"/>
+<AccessNewMaterialBox BlockID ="2" DroppedItems ="NewFood:17,1,3"/>
+<AccessNewMaterialBox BlockID ="3" DroppedItems ="NewFood:17,1,3"/>
+<AccessNewMaterialBox BlockID ="4" DroppedItems ="MusketNewBlock:0,1,3"/>
+<AccessNewMaterialBox BlockID ="5" DroppedItems ="NewFood:16,0,2"/>
+<AccessNewMaterialBox BlockID ="6" DroppedItems ="NewArticles:33,1,3"/>
+<AccessNewMaterialBox BlockID ="7" DroppedItems ="NewFood:16,2,4"/>
+<AccessNewMaterialBox BlockID ="8" DroppedItems ="NewArticles:9,3,5"/>
+<AccessNewMaterialBox BlockID ="9" DroppedItems ="NewArticles:39,1,3"/>
+<AccessNewMaterialBox BlockID ="10" DroppedItems ="NewArticles:11,0,2"/>
+<AccessNewMaterialBox BlockID ="11" DroppedItems ="NewToolsBlock:12,0,2"/>
+<AccessNewMaterialBox BlockID ="12" DroppedItems ="NewArticles:31,0,2"/>
+</AccessNewMaterialBoxManager>

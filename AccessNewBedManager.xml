@@ -1,0 +1,6 @@
+<AccessNewBedManager>
+<AccessNewBed BlockID ="0" StartingPositionOfCollisionBox ="0.1619,0,0.0002" EndPositionOfCollisionBox ="0.84,0.55,0.99" TheModelPath ="Models/Bed_Level_0" ModelComponents ="Bed_Level_0" Texture ="Textures/Bed/Bed_Level_0" Name ="0级床" DefaultDropContent ="NewBed:0" DigResilience ="10" ExplosionResilience ="10" Durability ="10"/>
+<AccessNewBed BlockID ="1" StartingPositionOfCollisionBox ="0.142,0,0.0001" EndPositionOfCollisionBox ="0.85,0.55,1" TheModelPath ="Models/Bed_Level_1" ModelComponents ="Bed_Level_1" Texture ="Textures/Bed/Bed_Level_1" Name ="1级床" DefaultDropContent ="NewBed:1" DigResilience ="50" ExplosionResilience ="50" Durability ="50"/>
+<AccessNewBed BlockID ="2" StartingPositionOfCollisionBox ="0.15,0,0.0001" EndPositionOfCollisionBox ="0.81,0.57,1" TheModelPath ="Models/Bed_Level_2" ModelComponents ="Bed_Level_2" Texture ="Textures/Bed/Bed_Level_2" Name ="2级床" DefaultDropContent ="NewBed:2" DigResilience ="60" ExplosionResilience ="60" Durability ="60"/>
+<AccessNewBed BlockID ="3" StartingPositionOfCollisionBox ="0.07,0,0.0001" EndPositionOfCollisionBox ="0.92,0.62,1" TheModelPath ="Models/Bed_Level_3" ModelComponents ="Bed_Level_3" Texture ="Textures/Bed/Bed_Level_3" Name ="3级床" DefaultDropContent ="NewBed:3" DigResilience ="70" ExplosionResilience ="70" Durability ="70"/>
+</AccessNewBedManager>

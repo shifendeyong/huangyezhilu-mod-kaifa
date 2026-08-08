@@ -1,0 +1,3 @@
+<AccessMultidimensionalWorldManager>
+<AccessMultidimensionalWorld TransmittingWorldNames ="Windholes" PortalPath ="Construction/Portal/Windholes" PortalPositionOffset ="-2, -1" TransportCubeClassName ="NewPortalBlock:1" GenerateBaseRange ="10, 10" BaseCubeClassName ="NewPortalBlock:0" ClearingARangeOfSquares ="10, 10, 10" ObtainingItems ="NewInteroperableCube:0,1;NewInteroperableCube:1,1;NewInteroperableCube:2,1"/>
+</AccessMultidimensionalWorldManager>
