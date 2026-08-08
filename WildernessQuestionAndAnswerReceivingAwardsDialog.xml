@@ -1,0 +1,23 @@
+<WildernessQuestionAndAnswerReceivingAwardsDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="318, 511" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <CanvasWidget CanvasWidget.Position="260, 3" Size="64, 64">
+      <BitmapButtonWidget Name="CancelButton" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center" NormalSubtexture="{Textures/Gui/Button/CancelButton}" ClickedSubtexture="{Textures/Gui/Button/CancelButton_Pressed}" Margin="0, 0" />
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="32, 74" Size="254, 127">
+      <BitmapButtonWidget Name="Background" CanvasWidget.Position="0, 0" Size="254, 127" NormalSubtexture="{Textures/Gui/Activity/QuestionAndAnswerBackgroundButton}" ClickedSubtexture="{Textures/Gui/Activity/QuestionAndAnswerBackgroundButton}" Margin="0, 0" />
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 221" Size="318, 20">
+      <LabelWidget Name="AnswerLogarithmsLabel" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="2"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 300" Size="318, 64">
+      <BitmapButtonWidget Name="ShellsButton" CanvasWidget.Position="30, 0" Size="64, 64" NormalSubtexture="{Textures/Gui/Money/Shells}" ClickedSubtexture="{Textures/Gui/Money/Shells}" Margin="0, 0" />
+      <LabelWidget Name="ShellsLabel" CanvasWidget.Position="95, 15" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="1.5"/>
+      <BitmapButtonWidget Name="SurvivalManualButton" CanvasWidget.Position="150, 0" Size="64, 64" NormalSubtexture="{Textures/Gui/Money/SurvivalManual}" ClickedSubtexture="{Textures/Gui/Money/SurvivalManual}" Margin="0, 0" />
+      <LabelWidget Name="SurvivalManualLabel" CanvasWidget.Position="215, 15" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="1.5"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 400" Size="318, 70">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_180x60}" HorizontalAlignment="Center" Name="ReceiveRewardsButton" Text="领取奖励" FontScale ="1.25"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</WildernessQuestionAndAnswerReceivingAwardsDialog>

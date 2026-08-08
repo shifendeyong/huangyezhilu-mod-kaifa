@@ -1,0 +1,28 @@
+<WildernessQuestionAndAnswerDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="318, 511" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <CanvasWidget CanvasWidget.Position="260, 3" Size="64, 64">
+      <BitmapButtonWidget Name="CancelButton" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center" NormalSubtexture="{Textures/Gui/Button/CancelButton}" ClickedSubtexture="{Textures/Gui/Button/CancelButton_Pressed}" Margin="0, 0" />
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="32, 74" Size="254, 127">
+      <BitmapButtonWidget Name="Background" CanvasWidget.Position="0, 0" Size="254, 127" NormalSubtexture="{Textures/Gui/Activity/QuestionAndAnswerBackgroundButton}" ClickedSubtexture="{Textures/Gui/Activity/QuestionAndAnswerBackgroundButton}" Margin="0, 0" />
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 201" Size="318, 20">
+      <LabelWidget Name="NumberOfTopicsLabel" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Near" Margin="10, 0" FontScale ="1.5"/>
+      <LabelWidget Name="CorrectNumbersLabel" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Far" Margin="10, 0" FontScale ="1.5"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 240" Size="318, 32">
+      <StackPanelWidget Direction="Vertical" HorizontalAlignment="Center" Margin="0, 2">
+        <ListPanelWidget Name="IntroductionList" Direction="Vertical" Margin="5, 5" ItemSize="10" SelectionColor="107, 103, 92, 255"/>
+      </StackPanelWidget>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 280" Size="318, 150">
+      <StackPanelWidget Direction="Vertical" HorizontalAlignment="Center" Margin="0, 2">
+        <ListPanelWidget Name="OptionsList" Direction="Vertical" Margin="5, 5" ItemSize="38" SelectionColor="145, 138, 123, 255"/>
+      </StackPanelWidget>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 440" Size="318, 70">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_180x60}" HorizontalAlignment="Center" Name="NextQuestionButton" Text="下一题" FontScale ="1.25"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</WildernessQuestionAndAnswerDialog>

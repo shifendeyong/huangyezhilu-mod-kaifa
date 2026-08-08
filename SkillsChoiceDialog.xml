@@ -1,0 +1,133 @@
+<SkillsChoiceDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="382, 614" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <CanvasWidget CanvasWidget.Position="1.5, 1.5" Size="380, 190">
+      <BevelledRectangleWidget BevelSize="-3" />
+      <ScrollPanelWidget Direction="Vertical" HorizontalAlignment="Near" VerticalAlignment="Near" Margin="0, 0">
+        <StackPanelWidget Direction="Vertical" HorizontalAlignment="Near" VerticalAlignment="Near" Margin="0, 0">
+          <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton1" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton1" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton1" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton1" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton2" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton2" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton2" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton2" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton3" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton3" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton3" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton3" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton4" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton4" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton4" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton4" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+          </StackPanelWidget>
+          <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton5" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton5" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton5" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton5" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton6" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton6" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton6" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton6" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton7" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton7" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton7" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton7" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton8" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton8" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton8" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton8" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+          </StackPanelWidget>
+          <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton9" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton9" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton9" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton9" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton10" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton10" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton10" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton10" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton11" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton11" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton11" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton11" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton12" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton12" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton12" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton12" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+          </StackPanelWidget>
+          <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton13" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton13" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton13" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton13" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton14" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton14" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton14" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton14" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton15" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton15" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton15" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton15" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton16" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton16" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton16" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton16" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+          </StackPanelWidget>
+          <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+            <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+              <BitmapButtonWidget Name="SkillsButton17" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" ClickedSubtexture="{Textures/Gui/Skills/BoilingOilSpilledSkills}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLevelButton17" CanvasWidget.Position="38, 78" Size="25, 25" NormalSubtexture="{Textures/Gui/Skills/SkillsLevel1}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLevel1}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SelectButton17" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/Select}" ClickedSubtexture="{Textures/Gui/Skills/Select}" Margin="0, 0" />
+              <BitmapButtonWidget Name="SkillsLockButton17" Size="95, 95" NormalSubtexture="{Textures/Gui/Skills/SkillsLock}" ClickedSubtexture="{Textures/Gui/Skills/SkillsLock}" Margin="0, 0" />
+            </CanvasWidget>
+          </StackPanelWidget>
+        </StackPanelWidget>
+      </ScrollPanelWidget>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 193" Size="380, 300">
+      <BevelledRectangleWidget BevelSize="-3" />
+      <LabelWidget Name="BasicPropertiesLabel" CanvasWidget.Position="3, 3"/>
+      <LabelWidget Name="IntroductionLabel" CanvasWidget.Position="3, 23" FontScale ="1.3"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 493" Size="380, 110">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_140x100}" CanvasWidget.Position="3, 13" Name="ReturnButton" Text="返回" FontScale ="1.5"/>
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_140x100}" CanvasWidget.Position="233, 13" Name="OkButton" Text="确定" FontScale ="1.5"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</SkillsChoiceDialog>

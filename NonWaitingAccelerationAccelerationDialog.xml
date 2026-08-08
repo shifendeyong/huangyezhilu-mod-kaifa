@@ -1,0 +1,17 @@
+<NonWaitingAccelerationAccelerationDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="287, 382" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <LabelWidget Text="时间就是金钱，我的朋友！" CanvasWidget.Position="3, 3"/>
+    <LabelWidget Text="花少许钱，就能立刻完成当前行" CanvasWidget.Position="3, 20"/>
+    <LabelWidget Text="动" CanvasWidget.Position="3, 37"/>
+    <CanvasWidget CanvasWidget.Position="70, 216" Size="150, 64">
+      <BevelledRectangleWidget BevelSize="3" CenterColor="167, 152, 145, 255" BevelColor="222, 209, 200, 255" />
+      <BitmapButtonWidget Name="MoneyButton" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Near" NormalSubtexture="{Textures/Gui/Money/Shells}" ClickedSubtexture="{Textures/Gui/Money/Shells}" Margin="4, 0" />
+      <LabelWidget Name="Quantity" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Far" Margin="10, 0" FontScale ="1.5"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 298" Size="287, 176">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_120x60}" CanvasWidget.Position="3, 18" HorizontalAlignment="Center" Name="ReturnButton" Text="返回"/>
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_120x60}" CanvasWidget.Position="153, 18" HorizontalAlignment="Center" Name="IAmSureButton" Text="确定"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</NonWaitingAccelerationAccelerationDialog>

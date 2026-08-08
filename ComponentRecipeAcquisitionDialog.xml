@@ -1,0 +1,11 @@
+<ComponentRecipeAcquisitionDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="382, 614" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <CanvasWidget CanvasWidget.Position="0, 0" Size="382, 500">
+      <ListPanelWidget Name="ComponentList" Direction="Vertical" Margin="5, 5" ItemSize="125" SelectionColor="145, 138, 123, 255"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 503" Size="382, 114">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_240x90}" HorizontalAlignment="Center" Name="ReturnButton" Text="返回" FontScale ="1.5"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</ComponentRecipeAcquisitionDialog>

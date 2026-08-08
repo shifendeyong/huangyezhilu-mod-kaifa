@@ -1,0 +1,28 @@
+<EmailInformationDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="287, 382" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <LabelWidget CanvasWidget.Position="80, 3" Name="TitleLabel" FontScale ="1.5"/>
+    <CanvasWidget CanvasWidget.Position="33, 40" Size="227, 32">
+      <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+      <LabelWidget CanvasWidget.Position="3, 3" Name="NameLabel" FontScale ="0.5"/>
+      <LabelWidget CanvasWidget.Position="3, 15" Name="UIDLabel" FontScale ="0.5"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="33, 80" Size="227, 32">
+      <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+      <StackPanelWidget Direction="Vertical" HorizontalAlignment="Center" Margin="0, 2">
+        <ListPanelWidget Name="IntroductionList" Direction="Vertical" Margin="5, 5" ItemSize="10" SelectionColor="145, 138, 123, 255"/>
+      </StackPanelWidget>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="33, 112" Size="227, 176">
+      <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+      <StackPanelWidget Direction="Vertical" HorizontalAlignment="Center" Margin="0, 2">
+        <ListPanelWidget Name="LotteryItemsList" Direction="Vertical" Margin="5, 5" ItemSize="75" SelectionColor="145, 138, 123, 255"/>
+      </StackPanelWidget>
+      <LabelWidget CanvasWidget.Position="3, 165" Name="MailDeletionLabel" FontScale ="0.5"/>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 298" Size="287, 176">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_120x60}" CanvasWidget.Position="3, 18" HorizontalAlignment="Center" Name="ReturnButton" Text="返回"/>
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_120x60}" CanvasWidget.Position="153, 18" HorizontalAlignment="Center" Name="IAmSureButton" Text="确定"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</EmailInformationDialog>

@@ -1,0 +1,193 @@
+<ObtainingCollectionItemsDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="254, 408" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <LabelWidget Text="恭喜获得" CanvasWidget.Position="90, 20" HorizontalAlignment="Center" />
+    <CanvasWidget CanvasWidget.Position="10, 30" Size="250, 350">
+      <StackPanelWidget Direction="Vertical" HorizontalAlignment="Near" VerticalAlignment="Near" Margin="0, 0">
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon1" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel1" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon2" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel2" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon3" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel3" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon4" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel4" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon5" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel5" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon6" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel6" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon7" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel7" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon8" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel8" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon9" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel9" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon10" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel10" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon11" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel11" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon12" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel12" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon13" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel13" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon14" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel14" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon15" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel15" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon16" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel16" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon17" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel17" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon18" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel18" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon19" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel19" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon20" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel20" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon21" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel21" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon22" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel22" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon23" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel23" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon24" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel24" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon25" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel25" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon26" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel26" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon27" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel27" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon28" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel28" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon29" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel29" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon30" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel30" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon31" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel31" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon32" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel32" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon33" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel33" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon34" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel34" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon35" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel35" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon36" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel36" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+        <StackPanelWidget Direction="Horizontal" Margin="0, 0">
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon37" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel37" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon38" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel38" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon39" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel39" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+          <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+            <BlockIconWidget Name="Icon40" Size="25, 25" CanvasWidget.Position="0, 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <LabelWidget Name="QuantityLabel40" CanvasWidget.Position="25, 13" FontScale ="0.5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+          </CanvasWidget>
+        </StackPanelWidget>
+      </StackPanelWidget>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="5, 350" Size="250, 108">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_160x60}" HorizontalAlignment="Center" Name="ReturnButton" Text="返回" FontScale ="1.5"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</ObtainingCollectionItemsDialog>

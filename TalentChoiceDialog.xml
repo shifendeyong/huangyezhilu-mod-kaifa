@@ -1,0 +1,13 @@
+<TalentChoiceDialog xmlns="runtime-namespace:Game">
+  <CanvasWidget Size="614, 382" ClampToBounds="true" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <BevelledRectangleWidget BevelSize="3" />
+    <CanvasWidget CanvasWidget.Position="3, 3" Size="614, 350">
+      <StackPanelWidget Direction="Vertical" HorizontalAlignment="Center" Margin="0, 2">
+        <ListPanelWidget Name="TalentList" Direction="Vertical" Margin="5, 5" ItemSize="100" SelectionColor="145, 138, 123, 255"/>
+      </StackPanelWidget>
+    </CanvasWidget>
+    <CanvasWidget CanvasWidget.Position="3, 353" Size="614, 30">
+      <BevelledButtonWidget Style="{Styles/ButtonStyle_80x30}" HorizontalAlignment="Center" Name="OkButton" Text="确定" FontScale ="0.5"/>
+    </CanvasWidget>
+  </CanvasWidget>
+</TalentChoiceDialog>
