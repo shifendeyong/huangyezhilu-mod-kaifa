@@ -1,0 +1,66 @@
+<HYZL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Database.xsd">
+    <Parameter Name="EggTypeIndex" Guid="792d2283-e6e6-4718-90da-7deb650d949b" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="9676f9e3-1ca6-4c38-b6df-1639e214a9f8" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="6eed107c-609b-4605-b43b-ea98b9346eff" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="3edb6cc9-5d0c-4216-bcda-92f7360dd5af" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="3c72c3db-a09e-4757-acf0-d5d9b26188dd" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="61647c7e-0795-4a57-93bf-ef08234822f7" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="49db6073-350a-4d70-af52-f9e19fd1bc2a" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="e45256a0-46c4-4691-a7e4-c8a8f5b4405e" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="eaa43b9b-a743-4484-ae27-937575532b07" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="7aa463c4-2124-4252-99fc-a069a848b1a3" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="02a62f20-26f1-41c0-b77c-9891f9feae8c" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="333e2990-e318-42d1-8983-573b2b29fb7c" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="d06ff3bf-bba4-479e-98a8-16f7aa2f2d7e" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="3ef4303b-21c9-4a0c-8b87-241798089e49" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="594f44bb-1dd1-4ed1-a784-0839df242974" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="402a94f1-3f18-416b-983e-67e90c2f7513" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="ea09b989-8c3c-4163-91c4-81ab61737db0" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="d59d6e1b-c3aa-4090-9ce9-3f538f32b04d" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="06b4ea91-a153-49ed-a7d4-6bfdb9ac16a6" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="08049363-3327-426c-8706-6a2c067b5780" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="c00f9bc1-327e-427a-8f2d-2cdb90f544f4" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="3109cd95-c997-4773-abf0-9cba4b857e9c" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="1e074543-f285-4e66-9c99-7b4bc7683019" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="70f8ba3a-a273-47d5-aac9-6346e3fc2f71" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="90dbf1f6-dfba-41bc-9ba2-8787ca2f082c" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="4323414d-75d1-448d-a088-f61695cae468" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="ce3b5828-aa7a-4fae-a1b9-6347624302f9" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="40410b86-86cb-4fbe-8483-1e71becdf8ee" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="67fc4091-850d-4dc5-a3ed-5eb2cc10aec6" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="a9a0cfbe-91fb-43bc-9e7c-382ab6bba8e4" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="e0348aa1-b683-46bc-bbc6-9399465f6843" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="993d4579-61ec-4937-a29b-c3010ae0d606" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="9666d538-addb-4874-b0a9-6f8979fbcf97" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="88cd9196-db41-44a8-b6f9-813976b3e959" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="e41e3744-1600-4cbb-a0b8-d45c7d3fe1e5" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="81780b3e-c985-4dae-8a91-19fbae927a28" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="3e1dbf91-6187-4ff2-a174-e1b5a7432455" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="e07888df-3357-4353-a1d4-b7b6e915b7ad" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="351592e2-e462-4fc0-8fa2-50a0d222586c" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="8cf12c1f-6695-45af-9a8a-7c37e8491eba" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="81536664-43db-48a5-bf3f-9de302ab1dc4" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="4ccf2516-d49d-45e9-b45f-522d1ac2f8e6" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="d2a2998d-e560-4172-8129-9211172b98da" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="cabca66b-f9cd-4808-8f8b-9e5dda5882d4" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="5e0c68eb-c6fb-4a9f-9416-5f328d1eeb3e" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="087ae04f-f688-4bbc-aa42-5709cbe7cde9" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="45348673-e657-44f9-bc72-c9c6d3b8c367" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="c95bf022-c698-4503-898a-8e8813a5cd19" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="85f5bc3f-efd3-4fad-a6f7-5f58ef62df13" new-Value="-1" Type="int" />
+    <Parameter Name="EggTypeIndex" Guid="83916ad1-e010-4e82-9523-1d309340e437" new-Value="-1" Type="int" />
+    <Parameter Name="AttackResilience" Guid="e88e0e33-2186-4384-98e4-c161a496f14f" new-Value="350" Type="float" />
+    <Parameter Name="AttackPower" Guid="30571960-fcc8-4897-abf3-54d6543f191d" new-Value="15" Type="float" />
+    <Parameter Name="AttackResilience" Guid="c83ef685-d311-42ba-bf4a-4e2994ef1859" new-Value="350" Type="float" />
+    <Parameter Name="AttackPower" Guid="b043ad2c-2d7a-4c64-85f8-b42af071eb89" new-Value="15" Type="float" />
+    <Parameter Name="Food" Guid="97f0f58e-44b1-4f49-a284-54250cab5049" new-Value="1" Type="float" />
+    <Folder Name="Entities" Guid="5fcdf35f-7001-442c-883e-e0502b15d291">
+        <Folder Name="Creatures" Guid="beb2de3c-1a77-4950-b74f-9dd470f751fe">
+            <Folder Name="Abstract" Guid="662d69f8-483c-4271-966b-da9cbb4f5042">
+                
+            </Folder>
+            <Folder Name="Animals" Guid="66a49cbb-cb12-4479-9b40-fbadd9db3425">
+            </Folder>
+        </Folder>
+    </Folder>
+</HYZL>

@@ -1,0 +1,12 @@
+﻿{
+  "Name": "荒野之路",
+  "Version": "1.0",
+  "ApiVersion": "1.8",
+  "Description": "",
+  "ScVersion": "2.4.0.0",
+  "Link": "",
+  "Author": "十分的勇",
+  "PackageName": "com.sccrf",
+  "Dependencies": [],
+  "LoadOrder": -20000
+}
