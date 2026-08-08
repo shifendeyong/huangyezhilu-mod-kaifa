@@ -1,0 +1,10 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+ 	<CanvasWidget Size="100, 100">
+ 	    <BitmapButtonWidget Name="TalentButton" VerticalAlignment="Center" Size="80, 80" NormalSubtexture="{Textures/Gui/Talent/AngryPeopleTalent}" ClickedSubtexture="{Textures/Gui/Talent/AngryPeopleTalent}" Margin="4, 0" />
+ 	    <BitmapButtonWidget Name="LockTalent" VerticalAlignment="Center" Size="80, 80" NormalSubtexture="{Textures/Gui/Talent/LockTalent}" ClickedSubtexture="{Textures/Gui/Talent/LockTalent}" Margin="4, 0" />
+ 	    <BitmapButtonWidget Name="TalentLevelButton" VerticalAlignment="Far" HorizontalAlignment="Center" Size="15, 15" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+ 	</CanvasWidget>
+ 	<CanvasWidget Size="460, 100">
+ 	    <LabelWidget Name="TalentDisplayName" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" Margin="10, 0"/>
+ 	</CanvasWidget>
+</StackPanelWidget>

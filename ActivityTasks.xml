@@ -1,0 +1,33 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+    <CanvasWidget Size="382, 20">
+        <BevelledRectangleWidget BevelSize="0" CenterColor="163, 129, 123, 255" BevelColor="163, 129, 123, 255" />
+        <LabelWidget Name="TaskDescription" Text="This" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Near" Margin="10, 0" FontScale ="0.6"/>
+        <LabelWidget Name="TaskProgress" Text="This" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Far" Margin="10, 0" FontScale ="0.6"/>
+ 	</CanvasWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+     	<CanvasWidget Size="56, 62">
+            <BitmapButtonWidget Name="MoneyButton1" Size="56, 56" VerticalAlignment="Center" HorizontalAlignment="Center" NormalSubtexture="{Textures/Gui/Button/MailButton}" ClickedSubtexture="{Textures/Gui/Button/MailButton}" Margin="4, 0" />
+     	</CanvasWidget>
+     	<CanvasWidget Size="23, 62">
+     	    <LabelWidget Name="Quantity1" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0" FontScale ="1.05"/>
+     	</CanvasWidget>
+     	<CanvasWidget Size="56, 62">
+            <BitmapButtonWidget Name="MoneyButton2" Size="56, 56" VerticalAlignment="Center" HorizontalAlignment="Center" NormalSubtexture="{Textures/Gui/Button/MailButton}" ClickedSubtexture="{Textures/Gui/Button/MailButton}" Margin="4, 0" />
+     	</CanvasWidget>
+     	<CanvasWidget Size="23, 62">
+     	    <LabelWidget Name="Quantity2" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0" FontScale ="1.05"/>
+     	</CanvasWidget>
+     	<CanvasWidget Size="56, 62">
+            <BitmapButtonWidget Name="MoneyButton3" Size="56, 56" VerticalAlignment="Center" HorizontalAlignment="Center" NormalSubtexture="{Textures/Gui/Button/MailButton}" ClickedSubtexture="{Textures/Gui/Button/MailButton}" Margin="4, 0" />
+     	</CanvasWidget>
+     	<CanvasWidget Size="23, 62">
+     	    <LabelWidget Name="Quantity3" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0" FontScale ="1.05"/>
+     	</CanvasWidget>
+     	<CanvasWidget Size="56, 62">
+            <BitmapButtonWidget Name="MoneyButton4" Size="56, 56" VerticalAlignment="Center" HorizontalAlignment="Center" NormalSubtexture="{Textures/Gui/Button/MailButton}" ClickedSubtexture="{Textures/Gui/Button/MailButton}" Margin="4, 0" />
+     	</CanvasWidget>
+     	<CanvasWidget Size="23, 62">
+     	    <LabelWidget Name="Quantity4" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0" FontScale ="1.05"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+</StackPanelWidget>

@@ -1,0 +1,4 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+ 	<BitmapButtonWidget Name="MailButton" Size="98, 98" NormalSubtexture="{Textures/Gui/Button/MailButton}" ClickedSubtexture="{Textures/Gui/Button/MailButton}" Margin="4, 0" />
+ 	<LabelWidget Name="Title" Color="255, 255, 255" Margin="10, 0" FontScale ="1.5"/>
+</StackPanelWidget>

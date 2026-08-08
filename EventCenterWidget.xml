@@ -1,0 +1,21 @@
+<EventCenterWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="382, 614" BevelSize="3" />
+  <LabelWidget Text="活动中心" CanvasWidget.Position="140, 10"/>
+  <LabelWidget Text="每日活动重置时间：北京时间8：00" CanvasWidget.Position="3, 30" FontScale ="0.5"/>
+  <CanvasWidget CanvasWidget.Position="3, 50" Size="382, 64">
+    <BevelledRectangleWidget BevelSize="0" CenterColor="139, 94, 88, 255" BevelColor="139, 94, 88, 255" />
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center" Margin="0, 2">
+      <ListPanelWidget Name="TypesList" Direction="Horizontal" Margin="5, 5" ItemSize="96" SelectionColor="139, 94, 88, 255"/>
+    </StackPanelWidget>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 114" Size="377, 150">
+    <BevelledRectangleWidget BevelSize="-3" CenterColor="180, 81, 67, 255" BevelColor="120, 54, 48, 255" />
+    <BitmapButtonWidget Name="Background" CanvasWidget.Position="8, 8" Size="360, 135" NormalSubtexture="{Textures/Gui/Activity/WildernessQuestionAndAnswerBackgroundButton}" ClickedSubtexture="{Textures/Gui/Activity/WildernessQuestionAndAnswerBackgroundButton}" Margin="4, 0" />
+    <LabelWidget CanvasWidget.Position="25, 55" Name="TextLabel" FontScale ="1.5"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 264" Size="382, 330">
+    <StackPanelWidget Direction="Vertical" HorizontalAlignment="Center" Margin="0, 2">
+      <ListPanelWidget Name="TaskList" Direction="Vertical" Margin="5, 5" ItemSize="96" SelectionColor="145, 138, 123, 255"/>
+    </StackPanelWidget>
+  </CanvasWidget>
+</EventCenterWidget>

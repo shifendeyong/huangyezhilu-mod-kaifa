@@ -1,0 +1,15 @@
+<TrapDurabilitySettingsWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="614, 382" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="3, 0" Size="614, 150">
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+	  <BlockIconWidget Name="Icon" Size="150, 150" VerticalAlignment="Center" HorizontalAlignment="Center"/>  
+    </StackPanelWidget>
+  </CanvasWidget>
+  <LabelWidget Text="尽量在指针指向绿色区域时点击按钮" CanvasWidget.Position="150, 150" HorizontalAlignment="Center" />
+  <CanvasWidget CanvasWidget.Position="3, 225" Size="614, 150">
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+	  <DurabilitySettingCirclePointerWidget Name="Pointer" Color1 ="255, 50, 50" Color2 ="255, 150, 50" Color3 ="50, 220, 100" PointerColor ="255, 255, 255" BackColor ="40, 40, 40" CircleSize ="50" Thickness ="0.75" PointerLength ="1.2" Color1Ratio ="0.6" Color2Ratio ="0.3" Color3Ratio ="0.1" PointerStartAngle ="0" PointerEndAngle ="6.28" PointerSpeed ="5" IsReversed ="false"/>
+    </StackPanelWidget>
+  </CanvasWidget>
+  <BevelledButtonWidget CanvasWidget.Position="227, 288" Name="IAmSureButton" Style="{Styles/ButtonStyle_180x60}" Text="确定"/>
+</TrapDurabilitySettingsWidget>

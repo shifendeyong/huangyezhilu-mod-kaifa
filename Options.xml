@@ -1,0 +1,8 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+    <CanvasWidget Size="38, 38">
+        <BitmapButtonWidget Name="RightWrong" Size="38, 38" NormalSubtexture="{Textures/Gui/Skills/SkillsButton_None}" ClickedSubtexture="{Textures/Gui/Skills/SkillsButton_None}" Margin="4, 0" />
+    </CanvasWidget>
+    <CanvasWidget Size="280, 38">
+        <LabelWidget Name="OptionsLabel" Text="This" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Near" Margin="10, 0" FontScale ="0.6"/>
+ 	</CanvasWidget>
+</StackPanelWidget>

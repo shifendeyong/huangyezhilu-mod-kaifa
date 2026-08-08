@@ -1,0 +1,3 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+	<BlockIconWidget Name="Icon" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+</StackPanelWidget>

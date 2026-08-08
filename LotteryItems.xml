@@ -1,0 +1,40 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="64, 60">
+     	    <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+     	        <BlockIconWidget Name="Icon1" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	        <BitmapButtonWidget Name="Money1" Size="64, 60" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+     	    </CanvasWidget>
+     	</CanvasWidget>
+     	<CanvasWidget Size="64, 4">
+     	    <LabelWidget Name="Quantity1" Text="This"  Color="255, 255, 255" VerticalAlignment="Near" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="64, 60">
+     	    <BlockIconWidget Name="Icon2" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	    <BitmapButtonWidget Name="Money2" Size="64, 60" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+     	</CanvasWidget>
+     	<CanvasWidget Size="64, 4">
+     	    <LabelWidget Name="Quantity2" Text="This"  Color="255, 255, 255" VerticalAlignment="Near" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="64, 60">
+     	    <BlockIconWidget Name="Icon3" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	    <BitmapButtonWidget Name="Money3" Size="64, 60" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+     	</CanvasWidget>
+     	<CanvasWidget Size="64, 4">
+     	    <LabelWidget Name="Quantity3" Text="This"  Color="255, 255, 255" VerticalAlignment="Near" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="64, 60">
+     	    <BlockIconWidget Name="Icon4" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	    <BitmapButtonWidget Name="Money4" Size="64, 60" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+     	</CanvasWidget>
+     	<CanvasWidget Size="64, 4">
+     	    <LabelWidget Name="Quantity4" Text="This"  Color="255, 255, 255" VerticalAlignment="Near" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+</StackPanelWidget>

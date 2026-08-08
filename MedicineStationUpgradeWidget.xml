@@ -1,0 +1,73 @@
+<MedicineStationUpgradeWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="614, 382" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="232, 3" Size="150, 150">
+    <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+	  <BlockIconWidget Name="Icon" Size="150, 150" VerticalAlignment="Center" HorizontalAlignment="Center"/>  
+    </StackPanelWidget>
+  </CanvasWidget>
+  <LabelWidget CanvasWidget.Position="230, 130" Name="LevelLabel" />
+  <CanvasWidget CanvasWidget.Position="3, 153" Size="610, 10">
+    <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+    <LabelWidget Name="DescriptionLabel" FontScale ="0.5"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 163" Size="614, 70">
+    <BlockIconWidget Name="Materials1" CanvasWidget.Position="3, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="18, 3" Name="Materials1Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials2" CanvasWidget.Position="63, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="78, 3" Name="Materials2Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials3" CanvasWidget.Position="123, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="138, 3" Name="Materials3Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials4" CanvasWidget.Position="183, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="198, 3" Name="Materials4Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials5" CanvasWidget.Position="243, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="258, 3" Name="Materials5Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials6" CanvasWidget.Position="303, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="318, 3" Name="Materials6Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials7" CanvasWidget.Position="363, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="378, 3" Name="Materials7Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials8" CanvasWidget.Position="423, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="438, 3" Name="Materials8Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials9" CanvasWidget.Position="483, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="498, 3" Name="Materials9Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials10" CanvasWidget.Position="543, 3" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="558, 3" Name="Materials10Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials11" CanvasWidget.Position="3, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="18, 33" Name="Materials11Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials12" CanvasWidget.Position="63, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="78, 33" Name="Materials12Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials13" CanvasWidget.Position="123, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="138, 33" Name="Materials13Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials14" CanvasWidget.Position="183, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="198, 33" Name="Materials14Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials15" CanvasWidget.Position="243, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="258, 33" Name="Materials15Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials16" CanvasWidget.Position="303, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="318, 33" Name="Materials16Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials17" CanvasWidget.Position="363, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="378, 33" Name="Materials17Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials18" CanvasWidget.Position="423, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="438, 33" Name="Materials18Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials19" CanvasWidget.Position="483, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="498, 33" Name="Materials19Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials20" CanvasWidget.Position="543, 33" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="558, 33" Name="Materials20Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials21" CanvasWidget.Position="3, 63" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="18, 63" Name="Materials21Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials22" CanvasWidget.Position="63, 63" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="78, 63" Name="Materials22Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials23" CanvasWidget.Position="123, 63" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="138, 63" Name="Materials23Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials24" CanvasWidget.Position="183, 63" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="198, 63" Name="Materials24Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials25" CanvasWidget.Position="243, 63" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="258, 63" Name="Materials25Label" FontScale ="0.8"/>
+    <BlockIconWidget Name="Materials26" CanvasWidget.Position="303, 63" Size="15, 15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <LabelWidget CanvasWidget.Position="318, 63" Name="Materials26Label" FontScale ="0.8"/>
+  </CanvasWidget>
+  <LabelWidget CanvasWidget.Position="500, 313" Name="TimeConsumingLabel" FontScale ="0.7"/>
+  <CanvasWidget CanvasWidget.Position="3, 323" Size="610, 50">
+    <BevelledButtonWidget CanvasWidget.Position="3, 3" Name="CancelItButton" Style="{Styles/ButtonStyle_120x50}" Text="取消"/>
+    <BevelledButtonWidget CanvasWidget.Position="490, 3" Name="IAmSureButton" Style="{Styles/ButtonStyle_120x50}" Text="确定"/>
+  </CanvasWidget>
+</MedicineStationUpgradeWidget>

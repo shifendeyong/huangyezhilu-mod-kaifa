@@ -1,0 +1,10 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+ 	<CanvasWidget Size="64, 64">
+ 	    <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+ 	        <BitmapButtonWidget Name="Background" Size="64, 64" NormalSubtexture="{Textures/Gui/Activity/EventBackgroundButton}" ClickedSubtexture="{Textures/Gui/Activity/EventBackgroundButton}" Margin="4, 0" />
+ 	        <BitmapButtonWidget Name="Icon" Size="64, 64" NormalSubtexture="{Textures/Gui/Activity/EventBackgroundButton}" ClickedSubtexture="{Textures/Gui/Activity/EventBackgroundButton}" Margin="4, 0" />
+            <BitmapButtonWidget Name="Select" Size="64, 64" NormalSubtexture="{Textures/Gui/Activity/ActivitySelectedButton}" ClickedSubtexture="{Textures/Gui/Activity/ActivitySelectedButton}" Margin="4, 0" />
+            <LabelWidget Name="Introduction" Text="This"  Color="255, 255, 255" VerticalAlignment="Far" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+ 	    </CanvasWidget>
+ 	</CanvasWidget>
+</StackPanelWidget>

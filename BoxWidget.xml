@@ -1,0 +1,16 @@
+<BoxWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="921, 573" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="60, 3" Size="500, 500">
+    <GridPanelWidget Name="BoxGridPanel" CanvasWidget.Position="3, 3" ColumnsCount="1" RowsCount="1"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="570, 3" Size="96, 192">
+    <BitmapButtonWidget Name="BoxPageUpButton" Size="96, 96" CanvasWidget.Position="3, 3" NormalSubtexture="{Textures/Gui/Button/BoxPageUp}" ClickedSubtexture="{Textures/Gui/Button/BoxPageUp_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="BoxPageDownButton" Size="96, 96" CanvasWidget.Position="3, 100" NormalSubtexture="{Textures/Gui/Button/BoxPageDown}" ClickedSubtexture="{Textures/Gui/Button/BoxPageDown_Pressed}" Margin="4, 0" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="670, 3" Size="96, 96">
+    <BitmapButtonWidget Name="UpgradeButton" Size="96, 96" NormalSubtexture="{Textures/Gui/Button/UpgradeButton}" ClickedSubtexture="{Textures/Gui/Button/UpgradeButton_Pressed}" Margin="4, 0" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="250, 520" Size="500, 20">
+    <LabelWidget Name="CapacityDisplayLabel" CanvasWidget.Position="3, 3"/>
+  </CanvasWidget>
+</BoxWidget>

@@ -1,0 +1,9 @@
+<AdvertisingLotteryWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="382, 287" BevelSize="3" />
+  <UShapedLotteryWidget Name="UShapedLotteryButton" CanvasWidget.Position="70, 40" VerticalCells="3" HorizontalCells="3" CellSize="48" GoldTexture="{Textures/Gui/AdvertisingLottery/TreasureChestButton}" SilverTexture="{Textures/Gui/AdvertisingLottery/SilverTreasureChestButton}" CopperTexture="{Textures/Gui/AdvertisingLottery/CopperTreasureChestButton}" HighlightBorderColor="255, 215, 0" SlotBackgroundColor="32, 32, 32" SlotBorderColor="64, 64, 64" SilverChestCount="3" AutoResetOnLoad="false" MinCycles ="3" MaxCycles ="5" AnimDuration ="10" Scale ="1.2" Margin="20" />
+  <BitmapButtonWidget Name="CharactersButton" CanvasWidget.Position="130, 25" Size="120, 120" NormalSubtexture="{Textures/Gui/AdvertisingLottery/CharactersButton}" ClickedSubtexture="{Textures/Gui/AdvertisingLottery/CharactersButton}" Margin="4, 0" />
+  <CanvasWidget CanvasWidget.Position="70, 194" Size="240, 48">
+    <BitmapButtonWidget Name="FieldMarkerBoardButton" CanvasWidget.Position="3, 3" Size="48, 48" NormalSubtexture="{Textures/Gui/AdvertisingLottery/FieldMarkerBoardButton}" ClickedSubtexture="{Textures/Gui/AdvertisingLottery/FieldMarkerBoardButton}" Margin="4, 0" />
+    <BevelledButtonWidget CanvasWidget.Position="60, 3" Name="ExtractionButton" Style="{Styles/ButtonStyle_128x48}" Text="抽取" FontScale ="1.15"/>
+  </CanvasWidget>
+</AdvertisingLotteryWidget>

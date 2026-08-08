@@ -1,0 +1,49 @@
+<TalentWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="614, 382" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="3, 3" Size="610, 45">
+    <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+    <LabelWidget Text="天赋" CanvasWidget.Position="3, 0" HorizontalAlignment="Center" FontScale ="2"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 45" Size="610, 110">
+    <LabelWidget Text="战斗天赋" CanvasWidget.Position="3, 50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <BitmapButtonWidget Name="FightingTalent1Button" CanvasWidget.Position="150, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingTalentLevel1Button" CanvasWidget.Position="193, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingLockTalent1Button" CanvasWidget.Position="150, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingTalent2Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingTalentLevel2Button" CanvasWidget.Position="343, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingLockItDownTalent1Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownTalent1Button}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownTalent1Button}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingLockTalent2Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingTalent3Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingTalentLevel3Button" CanvasWidget.Position="493, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingLockItDownTalent2Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownTalent2Button}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownTalent2Button}" Margin="4, 0" />
+    <BitmapButtonWidget Name="FightingLockTalent3Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 157" Size="610, 110">
+    <LabelWidget Text="生存天赋" CanvasWidget.Position="3, 50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <BitmapButtonWidget Name="SurvivalTalent1Button" CanvasWidget.Position="150, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalTalentLevel1Button" CanvasWidget.Position="193, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalLockTalent1Button" CanvasWidget.Position="150, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalTalent2Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalTalentLevel2Button" CanvasWidget.Position="343, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalLockItDownTalent1Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownTalent1Button}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownTalent1Button}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalLockTalent2Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalTalent3Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalTalentLevel3Button" CanvasWidget.Position="493, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalLockItDownTalent2Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownTalent2Button}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownTalent2Button}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SurvivalLockTalent3Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 269" Size="610, 110">
+    <LabelWidget Text="探索天赋" CanvasWidget.Position="3, 50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <BitmapButtonWidget Name="ExplorationTalent1Button" CanvasWidget.Position="150, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationTalentLevel1Button" CanvasWidget.Position="193, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationLockTalent1Button" CanvasWidget.Position="150, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationTalent2Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationTalentLevel2Button" CanvasWidget.Position="343, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationLockItDownTalent1Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownTalent1Button}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownTalent1Button}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationLockTalent2Button" CanvasWidget.Position="300, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationTalent3Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/TalentButton_None}" ClickedSubtexture="{Textures/Gui/Talent/TalentButton_None_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationTalentLevel3Button" CanvasWidget.Position="493, 83" Size="20, 20" NormalSubtexture="{Textures/Gui/Talent/TalentLevel1}" ClickedSubtexture="{Textures/Gui/Talent/TalentLevel1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationLockItDownTalent2Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownTalent2Button}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownTalent2Button}" Margin="4, 0" />
+    <BitmapButtonWidget Name="ExplorationLockTalent3Button" CanvasWidget.Position="450, 5" Size="100, 100" NormalSubtexture="{Textures/Gui/Talent/LockItDownButton}" ClickedSubtexture="{Textures/Gui/Talent/LockItDownButton}" Margin="4, 0" />
+  </CanvasWidget>
+</TalentWidget>

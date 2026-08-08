@@ -1,0 +1,38 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="75, 70">
+     	    <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+     	        <BitmapButtonWidget Name="Background1" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/MailItemBackgroundButton}" ClickedSubtexture="{Textures/Gui/Button/MailItemBackgroundButton}" Margin="4, 0" />
+     	        <BlockIconWidget Name="Icon1" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	        <BitmapButtonWidget Name="Money1" Size="64, 60" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+     	    </CanvasWidget>
+     	</CanvasWidget>
+     	<CanvasWidget Size="75, 5">
+     	    <LabelWidget Name="Quantity1" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="75, 70">
+     	    <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+     	        <BitmapButtonWidget Name="Background2" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/MailItemBackgroundButton}" ClickedSubtexture="{Textures/Gui/Button/MailItemBackgroundButton}" Margin="4, 0" />
+     	        <BlockIconWidget Name="Icon2" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	        <BitmapButtonWidget Name="Money2" Size="64, 60" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+     	    </CanvasWidget>
+     	</CanvasWidget>
+     	<CanvasWidget Size="75, 5">
+     	    <LabelWidget Name="Quantity2" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="75, 70">
+     	    <CanvasWidget HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0">
+     	        <BitmapButtonWidget Name="Background3" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/MailItemBackgroundButton}" ClickedSubtexture="{Textures/Gui/Button/MailItemBackgroundButton}" Margin="4, 0" />
+     	        <BlockIconWidget Name="Icon3" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	        <BitmapButtonWidget Name="Money3" Size="64, 60" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+     	    </CanvasWidget>
+     	</CanvasWidget>
+     	<CanvasWidget Size="75, 5">
+     	    <LabelWidget Name="Quantity3" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+</StackPanelWidget>

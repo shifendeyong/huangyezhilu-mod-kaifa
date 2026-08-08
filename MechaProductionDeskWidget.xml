@@ -1,0 +1,15 @@
+<MechaProductionDeskWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="382, 614" BevelSize="3" />
+  <LabelWidget Text="机甲制作台" CanvasWidget.Position="140, 10"/>
+  <CanvasWidget CanvasWidget.Position="0, 40" Size="382, 100">
+    <BevelledRectangleWidget BevelSize="3" CenterColor ="161, 152, 134" BevelColor ="141, 132, 114"/>
+    <CanvasWidget CanvasWidget.Position="0, 25" Size="50, 50">
+      <BevelledRectangleWidget BevelSize="3" CenterColor ="161, 152, 134" BevelColor ="41, 32, 14"/>
+      <BlockIconWidget Name="Icon" Size="50, 50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </CanvasWidget>
+    <LabelWidget Text="为机关假人制作组件的地方，配合不\n同的组件，机关假人可以发挥不同的\n作用" CanvasWidget.Position="60, 10"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="0, 140" Size="382, 480">
+    <ListPanelWidget Name="ComponentList" Direction="Vertical" Margin="5, 5" ItemSize="125" SelectionColor="145, 138, 123, 255"/>
+  </CanvasWidget>
+</MechaProductionDeskWidget>

@@ -1,0 +1,31 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+     	<CanvasWidget Size="125, 100">
+     	    <BlockIconWidget Name="Icon" Size="75, 75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	</CanvasWidget>
+     	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+         	    <CanvasWidget Size="100, 16">
+         	        <LabelWidget Name="Name" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+         	    </CanvasWidget>
+         	    <CanvasWidget Size="75, 16">
+         	        <LabelWidget Name="Level" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+         	    </CanvasWidget>
+         	</StackPanelWidget>
+         	<CanvasWidget Size="175, 68">
+         	    <LabelWidget Name="Introduction" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+         	</CanvasWidget>
+     	</StackPanelWidget>
+    </StackPanelWidget>
+    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+        <CanvasWidget Size="100, 20">
+ 	        <LabelWidget Text="升级进度：" Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+ 	    </CanvasWidget>
+ 	    <CanvasWidget Size="200, 20">
+ 	        <ValueBarWidget Name="LevelBar" LayoutDirection="Horizontal" Margin="8, 0" VerticalAlignment="Center" BarsCount="20" Spacing="-1" BarBlending="false" HalfBars="true" LitBarColor="212, 150, 109" UnlitBarColor="147, 134, 118, 255" BarSize="10, 20" BarSubtexture="{Textures/Gui/Bar/ProgressBar}" TextureLinearFilter="false"/>
+ 	    </CanvasWidget>
+ 	    <CanvasWidget Size="50, 20">
+ 	     	<LabelWidget Name="LevelLabel" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+ 	    </CanvasWidget>
+ 	</StackPanelWidget>
+</StackPanelWidget>

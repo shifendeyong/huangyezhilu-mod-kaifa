@@ -1,0 +1,37 @@
+<BedWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="614, 382" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="3, 0" Size="614, 150">
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+	  <BlockIconWidget Name="Icon" Size="100, 100" VerticalAlignment="Center" HorizontalAlignment="Center"/>  
+    </StackPanelWidget>
+  </CanvasWidget>
+  <LabelWidget CanvasWidget.Position="307, 3" Name="DurabilityLabel" />
+  <LabelWidget CanvasWidget.Position="240, 110" Name="LevelLabel" />
+  <CanvasWidget CanvasWidget.Position="560, 92" Size="48, 48">
+    <BitmapButtonWidget Name="UpgradeButton" Size="48, 48" NormalSubtexture="{Textures/Gui/Button/UpgradeButton}" ClickedSubtexture="{Textures/Gui/Button/UpgradeButton_Pressed}" Margin="4, 0" />
+    <BitmapButtonWidget Name="MaintenanceButton" Size="48, 48" NormalSubtexture="{Textures/Gui/Button/MaintenanceButton}" ClickedSubtexture="{Textures/Gui/Button/MaintenanceButton_Pressed}" Margin="4, 0" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 140" Size="614, 40">
+    <LabelWidget Text="睡觉" CanvasWidget.Position="20, 0" HorizontalAlignment="Center" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 182" Size="614, 64">
+    <BitmapButtonWidget Name="Sleep1hButton" CanvasWidget.Position="0, 0" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/Sleep1hButton}" ClickedSubtexture="{Textures/Gui/Button/Sleep1hButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="Sleep4hButton" CanvasWidget.Position="64, 0" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/Sleep4hButton}" ClickedSubtexture="{Textures/Gui/Button/Sleep4hButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="Sleep8hButton" CanvasWidget.Position="128, 0" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/Sleep8hButton}" ClickedSubtexture="{Textures/Gui/Button/Sleep8hButton}" Margin="4, 0" />
+    <BitmapButtonWidget Name="SleepDaybreakButton" CanvasWidget.Position="192, 0" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/SleepDaybreakButton}" ClickedSubtexture="{Textures/Gui/Button/SleepDaybreakButton}" Margin="4, 0" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 246" Size="610, 15">
+    <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+      <LabelWidget Name="MakingThingsLabel" Text="睡觉" FontScale ="0.7"/>
+      <CanvasWidget Size="30, 0"/>
+      <LabelWidget Name="TimeConsumingLabel" FontScale ="0.7"/>
+    </StackPanelWidget>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 261" Size="610, 10">
+    <LabelWidget Name="DescriptionLabel" FontScale ="0.5"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 341" Size="614, 30">
+    <BevelledButtonWidget CanvasWidget.Position="530, 3" Name="ProductionButton" Style="{Styles/ButtonStyle_80x30}" Text="睡觉" FontScale ="0.85"/>
+  </CanvasWidget>
+</BedWidget>

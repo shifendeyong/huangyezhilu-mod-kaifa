@@ -1,0 +1,49 @@
+<MechanicalDollsWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="614, 382" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="200, 180" Size="200, 200">
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+	  <BlockIconWidget Name="Icon" Size="200, 200" VerticalAlignment="Center" HorizontalAlignment="Center"/>  
+    </StackPanelWidget>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="100, 20" Size="360, 20">
+    <ValueBarWidget Name="CollectingBar" LayoutDirection="Horizontal" Margin="8, 0" VerticalAlignment="Center" BarsCount="26" Spacing="-1" BarBlending="false" HalfBars="true" LitBarColor="140, 120, 100" UnlitBarColor="70, 60, 50, 255" BarSize="10, 20" BarSubtexture="{Textures/Gui/Bar/ProgressBar}" TextureLinearFilter="true"/>
+    <LabelWidget CanvasWidget.Position="7, 0" Name="CollectingLabel"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="345, 15" Size="40, 40">
+    <BitmapButtonWidget CanvasWidget.Position="0, 0" Name="BoxButton" Size="40, 40" NormalSubtexture="{Textures/Gui/Button/BoxButton}" ClickedSubtexture="{Textures/Gui/Button/BoxButton}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4, 0" />
+    <LabelWidget CanvasWidget.Position="30, 30" Name="TheCurrentAmountOfStorageLabel" FontScale ="0.7"/>
+    <LabelWidget CanvasWidget.Position="25, 0" Name="FullLabel" FontScale ="0.7" Color ="200, 0, 0"/>
+  </CanvasWidget>
+  <ArrowLineWidget Color="0, 0, 0, 96" Width="8" ArrowWidth="24" AbsoluteCoordinates="true" PointsString="428, 67; 428, 97; 350, 97" />
+  <ArrowLineWidget Color="0, 0, 0, 96" Width="8" ArrowWidth="24" AbsoluteCoordinates="true" PointsString="428, 267; 428, 297; 378, 297" />
+  <ArrowLineWidget Color="0, 0, 0, 96" Width="8" ArrowWidth="24" AbsoluteCoordinates="true" PointsString="128, 117; 128, 147; 248, 147" />
+  <ArrowLineWidget Color="0, 0, 0, 96" Width="8" ArrowWidth="24" AbsoluteCoordinates="true" PointsString="178, 314; 178, 334; 248, 334" />
+  <CanvasWidget CanvasWidget.Position="400, 3" Size="64, 64">
+    <BevelledRectangleWidget BevelSize="-3"/>
+    <BlockIconWidget Name="Icon1" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <BitmapButtonWidget Name="Button1" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/Null}" ClickedSubtexture="{Textures/Gui/Button/Null}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4, 0" />
+    <LabelWidget CanvasWidget.Position="3, 64" Name="NameLabel1" FontScale ="0.7"/>
+    <LabelWidget CanvasWidget.Position="3, 76" Name="LevelLabel1" FontScale ="0.7"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="400, 200" Size="64, 64">
+    <BevelledRectangleWidget BevelSize="-3"/>
+    <BlockIconWidget Name="Icon2" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <BitmapButtonWidget Name="Button2" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/Null}" ClickedSubtexture="{Textures/Gui/Button/Null}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4, 0" />
+    <LabelWidget CanvasWidget.Position="3, 64" Name="NameLabel2" FontScale ="0.7"/>
+    <LabelWidget CanvasWidget.Position="3, 76" Name="LevelLabel2" FontScale ="0.7"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="100, 53" Size="64, 64">
+    <BevelledRectangleWidget BevelSize="-3"/>
+    <BlockIconWidget Name="Icon3" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <BitmapButtonWidget Name="Button3" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/Null}" ClickedSubtexture="{Textures/Gui/Button/Null}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4, 0" />
+    <LabelWidget CanvasWidget.Position="3, 64" Name="NameLabel3" FontScale ="0.7"/>
+    <LabelWidget CanvasWidget.Position="3, 76" Name="LevelLabel3" FontScale ="0.7"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="150, 250" Size="64, 64">
+    <BevelledRectangleWidget BevelSize="-3"/>
+    <BlockIconWidget Name="Icon4" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <BitmapButtonWidget Name="Button4" Size="64, 64" NormalSubtexture="{Textures/Gui/Button/Null}" ClickedSubtexture="{Textures/Gui/Button/Null}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4, 0" />
+    <LabelWidget CanvasWidget.Position="3, 64" Name="NameLabel4" FontScale ="0.7"/>
+    <LabelWidget CanvasWidget.Position="3, 76" Name="LevelLabel4" FontScale ="0.7"/>
+  </CanvasWidget>
+</MechanicalDollsWidget>

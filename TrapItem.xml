@@ -1,0 +1,4 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+    <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+	<BlockIconWidget Name="Icon" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+</StackPanelWidget>

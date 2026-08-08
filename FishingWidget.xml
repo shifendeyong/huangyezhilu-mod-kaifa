@@ -1,0 +1,11 @@
+<FishingWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="287, 382" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="40, 0" Size="167, 167">
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+	  <BlockIconWidget Name="FishIcon" Size="167, 167" VerticalAlignment="Center" HorizontalAlignment="Center"/>  
+    </StackPanelWidget>
+  </CanvasWidget>
+  <LabelWidget Text="获得了：" CanvasWidget.Position="20, 187" HorizontalAlignment="Center" />
+  <LabelWidget Name="FishLabel" CanvasWidget.Position="20, 207" HorizontalAlignment="Center" />
+  <BevelledButtonWidget CanvasWidget.Position="57, 322" Name="IAmSureButton" Style="{Styles/ButtonStyle_180x60}" Text="确定"/>
+</FishingWidget>

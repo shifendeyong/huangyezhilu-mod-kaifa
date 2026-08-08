@@ -1,0 +1,26 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="75, 70">
+     	    <BlockIconWidget Name="Icon1" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	</CanvasWidget>
+     	<CanvasWidget Size="75, 5">
+     	    <LabelWidget Name="Quantity1" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="75, 70">
+     	    <BlockIconWidget Name="Icon2" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	</CanvasWidget>
+     	<CanvasWidget Size="75, 5">
+     	    <LabelWidget Name="Quantity2" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+ 	<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	<CanvasWidget Size="75, 70">
+     	    <BlockIconWidget Name="Icon3" Size="64, 60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+     	</CanvasWidget>
+     	<CanvasWidget Size="75, 5">
+     	    <LabelWidget Name="Quantity3" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0" FontScale ="0.6"/>
+     	</CanvasWidget>
+ 	</StackPanelWidget>
+</StackPanelWidget>

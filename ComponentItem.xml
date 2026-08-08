@@ -1,0 +1,18 @@
+<StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Horizontal">
+ 	    <CanvasWidget Size="100, 100">
+ 	        <BlockIconWidget Name="Icon" Size="64, 64" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+ 	    </CanvasWidget>
+ 	    <StackPanelWidget xmlns="runtime-namespace:Game" Direction="Vertical">
+     	    <CanvasWidget Size="100, 50">
+     	        <LabelWidget Name="Name" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0"/>
+     	    </CanvasWidget>
+     	    <CanvasWidget Size="100, 50">
+     	        <LabelWidget Name="Level" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0"/>
+     	    </CanvasWidget>
+     	</StackPanelWidget>
+ 	</StackPanelWidget>
+ 	<CanvasWidget Size="100, 100">
+ 	    <LabelWidget Name="Introduction" Text="This"  Color="255, 255, 255" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0"/>
+ 	</CanvasWidget>
+</StackPanelWidget>

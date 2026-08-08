@@ -1,0 +1,28 @@
+<MysteryBoxWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="382, 614" BevelSize="3" />
+  <LabelWidget Text="神秘匣子" CanvasWidget.Position="150, 10"/>
+  <CanvasWidget CanvasWidget.Position="260, 12" Size="120, 30">
+    <BevelledRectangleWidget BevelSize="-2" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+    <BitmapButtonWidget Name="MysteryKey1" CanvasWidget.Position="0, 0" Size="30, 30" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+    <LabelWidget Name="QuantityLabel1" CanvasWidget.Position="30, 0"/>
+  </CanvasWidget>
+  <BitmapButtonWidget Name="ViewTheRecipeButton" CanvasWidget.Position="0, 60" Size="60, 60" NormalSubtexture="{Textures/Gui/Button/ViewTheRecipeButton}" ClickedSubtexture="{Textures/Gui/Button/ViewTheRecipeButton}" Margin="4, 0" />
+  <LabelWidget Text="查看配方" CanvasWidget.Position="60, 70"/>
+  <CanvasWidget CanvasWidget.Position="90, 200" Size="200, 200">
+    <StackPanelWidget Direction="Horizontal" HorizontalAlignment="Center">
+	  <BlockIconWidget Name="Icon" Size="150, 150" VerticalAlignment="Center" HorizontalAlignment="Center"/>  
+    </StackPanelWidget>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="40, 450" Size="120, 80">
+    <LabelWidget Text="消耗" CanvasWidget.Position="20, 40"/>
+    <BitmapButtonWidget Name="MysteryKey2" CanvasWidget.Position="55, 40" Size="30, 30" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+    <LabelWidget Text="X1" CanvasWidget.Position="80, 40"/>
+    <BevelledButtonWidget CanvasWidget.Position="0, 63" Name="StartOnceButton" Style="{Styles/ButtonStyle_120x60}" Text="启动一次" FontScale ="0.85"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="220, 450" Size="120, 80">
+    <LabelWidget Text="消耗" CanvasWidget.Position="20, 40"/>
+    <BitmapButtonWidget Name="MysteryKey3" CanvasWidget.Position="55, 40" Size="30, 30" NormalSubtexture="{Textures/Gui/Money/MysteryKey}" ClickedSubtexture="{Textures/Gui/Money/MysteryKey}" Margin="4, 0" />
+    <LabelWidget Text="X9" CanvasWidget.Position="80, 40"/>
+    <BevelledButtonWidget CanvasWidget.Position="0, 63" Name="StartTenButton" Style="{Styles/ButtonStyle_120x60}" Text="启动十次" FontScale ="0.85"/>
+  </CanvasWidget>
+</MysteryBoxWidget>

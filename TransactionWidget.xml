@@ -1,0 +1,30 @@
+<TransactionWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="614, 382" BevelSize="3" />
+  <CanvasWidget CanvasWidget.Position="3, 3" Size="384, 20">
+    <BevelledRectangleWidget BevelSize="0" CenterColor="145, 138, 123, 255" BevelColor="145, 138, 123, 255" />
+    <LabelWidget Name="NameLabel" CanvasWidget.Position="0, 3" HorizontalAlignment="Center" FontScale ="0.7" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 23" Size="384, 96">
+    <GridPanelWidget Name="ProductDisplayGrid" CanvasWidget.Position="3, 3" ColumnsCount="8" RowsCount="2"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="185, 126" Size="240, 48">
+    <GridPanelWidget Name="MerchandiseGrid" CanvasWidget.Position="3, 3" ColumnsCount="5" RowsCount="1"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="389, 3" Size="230, 96">
+    <LabelWidget Name="TipsLabel" FontScale ="0.7"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="185, 174" Size="240, 48">
+    <BitmapButtonWidget Name="TradingArrow1" CanvasWidget.Position="189, 3" Size="48, 48" NormalSubtexture="{Textures/Gui/Button/TradingArrow1}" ClickedSubtexture="{Textures/Gui/Button/TradingArrow1}" Margin="4, 0" />
+    <BitmapButtonWidget Name="TradingArrow2" CanvasWidget.Position="3, 3" Size="48, 48" NormalSubtexture="{Textures/Gui/Button/TradingArrow2}" ClickedSubtexture="{Textures/Gui/Button/TradingArrow2}" Margin="4, 0" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="185, 222" Size="240, 48">
+    <GridPanelWidget Name="TradingGoodsGrid" CanvasWidget.Position="3, 3" ColumnsCount="5" RowsCount="1"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="226, 270" Size="384, 96">
+    <GridPanelWidget Name="InventoryGrid" CanvasWidget.Position="3, 3" ColumnsCount="8" RowsCount="2"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="3, 270" Size="230, 96">
+    <BevelledButtonWidget CanvasWidget.Position="3, 0" Name="CancelButton" Style="{Styles/ButtonStyle_200x60}" Text="取消" FontScale ="2"/>
+    <BevelledButtonWidget CanvasWidget.Position="3, 56" Name="DeterminedButton" Style="{Styles/ButtonStyle_200x60}" Text="确定" FontScale ="2"/>
+  </CanvasWidget>
+</TransactionWidget>

@@ -1,0 +1,22 @@
+<PlayerStatsWidget xmlns="runtime-namespace:Game">
+  <BevelledRectangleWidget Size="614, 382" BevelSize="3" />
+  <LabelWidget Text="玩家属性" CanvasWidget.Position="267, 10" HorizontalAlignment="Center" />
+  <CanvasWidget CanvasWidget.Position="0, 15" Size="614, 100">
+    <LabelWidget Name="StrengthLabel" CanvasWidget.Position="20, 20" HorizontalAlignment="Center" />
+    <LabelWidget Name="AgilityLabel" CanvasWidget.Position="320, 20" HorizontalAlignment="Center" />
+    <LabelWidget Name="EnduranceLabel" CanvasWidget.Position="20, 50" HorizontalAlignment="Center" />
+    <LabelWidget Name="IntelligenceLabel" CanvasWidget.Position="320, 50" HorizontalAlignment="Center" />
+    <LabelWidget Name="LuckyLabel" CanvasWidget.Position="20, 80" HorizontalAlignment="Center" />
+    <LabelWidget Name="SpeedLabel" CanvasWidget.Position="320, 80" HorizontalAlignment="Center" />
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="0, 120" Size="614, 75">
+    <BevelledRectangleWidget BevelSize="-3" />
+    <BitmapButtonWidget Name="SkillsButton" CanvasWidget.Position="5, 5" Size="64, 64" NormalSubtexture="{Textures/Gui/Skills/SkillsButton_None}" ClickedSubtexture="{Textures/Gui/Skills/SkillsButton_None}" Margin="4, 0" />
+    <LabelWidget Name="SkillsLabel" CanvasWidget.Position="75, 5" HorizontalAlignment="Center" FontScale ="0.7"/>
+    <BevelledButtonWidget CanvasWidget.Position="500, 15" Name="ReplaceButton" Style="{Styles/ButtonStyle_96x48}" Text="更换" FontScale ="0.85"/>
+  </CanvasWidget>
+  <CanvasWidget CanvasWidget.Position="0, 340" Size="614, 40">
+    <ValueBarWidget Name="LevelBar" LayoutDirection="Horizontal" Margin="8, 0" VerticalAlignment="Center" BarsCount="67" Spacing="-1" BarBlending="false" HalfBars="true" LitBarColor="70, 150, 255" UnlitBarColor="30, 30, 70, 255" BarSize="10, 40" BarSubtexture="{Textures/Gui/Bar/ProgressBar}" TextureLinearFilter="true"/>
+    <LabelWidget Name="LevelLabel" CanvasWidget.Position="0, 20" HorizontalAlignment="Center" />
+  </CanvasWidget>
+</PlayerStatsWidget>
